@@ -10,7 +10,7 @@ struct Ship
     _unknown_1: u32
 
     # The name of the ship
-    name: String
+    name: string
 
 struct SystemNodeStatus
     # The X coordinate of the node relative to the ship's center.
@@ -74,9 +74,9 @@ struct DamconTeamStatus
 struct FighterBay
     object_id: u32
 
-    fighter_name: String
+    fighter_name: string
 
-    fighter_class_name: String
+    fighter_class_name: string
 
     # Number of seconds of refit time remaining before fighter is ready to
     # launch.
@@ -87,9 +87,9 @@ struct Statistic
     value: i32
 
     # The description for this statistic.
-    label: String
+    label: string
 
-pub enum ServerPacket
+packet ServerPacket
     AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
@@ -166,11 +166,11 @@ pub enum ServerPacket
         # or station in non-scripted missions, but may have additional text
         # afterward (e.g. “DS3 TSN Base”). Custom missions could have any string
         # in this field.
-        sender: String
+        sender: string
 
         # The contents of the incoming message. The carat symbol (^) in the
         # message indicates a line break.
-        message: String
+        message: string
 
     ConsoleStatus
         # The number of the ship whose consoles are being described. Before
@@ -206,7 +206,7 @@ pub enum ServerPacket
 
     DmxMessage
         # The DMX flag name.
-        name: String
+        name: string
 
         # The DMX flag's current state.
         state: bool
@@ -223,43 +223,43 @@ pub enum ServerPacket
 
         # This array contains a list of system nodes, terminated with 0xff. Each
         # system node contains the following fields:
-        system_grid_status: Vec<SystemNodeStatus>
+        system_grid_status: array<SystemNodeStatus>
 
         # This contains a list of DAMCON teams, terminated with 0xfe. Each
         # DAMCON team contains the following fields:
-        damcon_team_status: Vec<DamconTeamStatus>
+        damcon_team_status: array<DamconTeamStatus>
 
     FighterBayStatus
-        status: Vec<FighterBay>
+        status: array<FighterBay>
 
     FighterLaunched
         # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
 
     GameMasterButtonCreate
-        label: String
+        label: string
 
     GameMasterButtonCreatePlace
-        label: String
+        label: string
         width: u32
         height: u32
         x: u32
         y: u32
 
     GameMasterButtonDestroy
-        label: String
+        label: string
 
     GameMasterButtonReset
 
     GameMessage
         # The message to display.
-        message: String
+        message: string
 
     GameOver
 
     GameOverReason
         # Text describing why the game ended. Each string is one line.
-        reason: Vec<String>
+        reason: array<String>
 
     GameOverStats
         # Stats are presented in vertical columns; each packet contains one
@@ -271,7 +271,7 @@ pub enum ServerPacket
         # constitutes a row in the stats column. Each element is prefaced with
         # 0x00, and the last element is followed by 0xce. Each element contains
         # the following fields:
-        statistics: Vec<Statistic>
+        statistics: array<Statistic>
 
     Heartbeat
 
@@ -308,7 +308,7 @@ pub enum ServerPacket
 
         # The intel message about the ship. This is displayed to the science
         # officer when selecting this ship.
-        intel: String
+        intel: string
 
     JumpStatusBegin
 
@@ -322,7 +322,6 @@ pub enum ServerPacket
         capture: bool
 
     ObjectUpdate
-        updates: Vec<update::ObjectUpdate>
         # The type of object represented by this entry. All objects in the same
         # array will be of the same type. If you get 0x00 for this field, there
         # are no more objects in the array. Prior to v2.1.5, this property was
@@ -344,6 +343,7 @@ pub enum ServerPacket
         # The rest of the entry consists of the updated values for the
         # properties indicated in the bit field.
         # properties: <error: variable-length>
+        updates: array<ObjectUpdate>
 
     Pause
         # True if the simulation is paused; false otherwise.
@@ -369,7 +369,7 @@ pub enum ServerPacket
     SoundEffect
         # Path to the file to play the sound effect from, e.g "dat/enemy-
         # explode.wav".
-        filename: String
+        filename: string
 
     Version
         # Probably a monotonic event counter
@@ -395,7 +395,7 @@ pub enum ServerPacket
         # length for the string does not include a terminating null. Currently
         # it says, "You have connected to Thom Robertson's Artemis Bridge
         # Simulator. Please connect with an authorized game client."
-        welcome_message: String
+        welcome_message: string
 
     Unknown_1_Special
         probably_x_coordinate: f32
