@@ -1,0 +1,403 @@
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum AlertStatus
+    {
+        Normal   = 0x00,
+        RedAlert = 0x01,
+    }
+}
+enum_to_primitive!(AlertStatus);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum AudioCommand
+    {
+        Play    = 0x00,
+        Dismiss = 0x01,
+    }
+}
+enum_to_primitive!(AudioCommand);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy,PartialEq)]
+    pub enum AudioMode
+    {
+        Playing  = 0x01,
+        Incoming = 0x02,
+    }
+}
+enum_to_primitive!(AudioMode);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum BeamFrequency
+    {
+        A = 0x00,
+        B = 0x01,
+        C = 0x02,
+        D = 0x03,
+        E = 0x04,
+    }
+}
+enum_to_primitive!(BeamFrequency);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CommPlayerMessage
+    {
+        Yes                = 0x00,
+        No                 = 0x01,
+        Help               = 0x02,
+        Greetings          = 0x03,
+        Die                = 0x04,
+        LeavingSector      = 0x05,
+        ReadyToGo          = 0x06,
+        PleaseFollow       = 0x07,
+        WeWillFollow       = 0x08,
+        BadlyDamaged       = 0x09,
+        HeadedForStation   = 0x0a,
+        Disregard          = 0x0b,
+    }
+}
+enum_to_primitive!(CommPlayerMessage);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CommEnemyMessage
+    {
+        Surrender = 0x00,
+        Taunt1    = 0x01,
+        Taunt2    = 0x02,
+        Taunt3    = 0x03,
+    }
+}
+enum_to_primitive!(CommEnemyMessage);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CommStationMessage
+    {
+        PrepareDocking = 0x00,
+        ReportStatus   = 0x01,
+        BuildHoming    = 0x02,
+        BuildNukes     = 0x03,
+        BuildMines     = 0x04,
+        BuildEmps      = 0x05,
+    }
+}
+enum_to_primitive!(CommStationMessage);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CommShipMessage
+    {
+        ReportStatus         = 0x00,
+        TurnHeading0         = 0x01,
+        TurnHeading90        = 0x02,
+        TurnHeading180       = 0x03,
+        TurnHeading270       = 0x04,
+        Turn10DegPort        = 0x05,
+        Turn10DegStarboard   = 0x06,
+        AttackNearestEnemy   = 0x07,
+        ProceedToDestination = 0x08,
+        GoDefend             = 0x09,
+        Turn25DegPort        = 0x0f,
+        Turn25DegStarboard   = 0x10,
+    }
+}
+enum_to_primitive!(CommShipMessage);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CommTargetType
+    {
+        Player  = 0x00,
+        Enemy   = 0x01,
+        Station = 0x02,
+        Other   = 0x03,
+    }
+}
+enum_to_primitive!(CommTargetType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum ConnectionType
+    {
+        Server = 0x01,
+        Client = 0x02,
+    }
+}
+enum_to_primitive!(ConnectionType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum ConsoleStatus
+    {
+        Available   = 0x00,
+        Yours       = 0x01,
+        Unavailable = 0x02,
+    }
+}
+enum_to_primitive!(ConsoleStatus);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy,Eq,PartialEq,Hash)]
+    pub enum ConsoleType
+    {
+        MainScreen     = 0x00,
+        Helm           = 0x01,
+        Weapons        = 0x02,
+        Engineering    = 0x03,
+        Science        = 0x04,
+        Communications = 0x05,
+        // v2.1.1
+        // Data           = 0x06,
+        // Observer       = 0x07,
+        // CaptainsMap    = 0x08,
+        // GameMaster     = 0x09,
+
+        // v2.3
+        Fighter        = 0x06,
+        Data           = 0x07,
+        Observer       = 0x08,
+        CaptainsMap    = 0x09,
+        GameMaster     = 0x0a,
+    }
+}
+enum_to_primitive!(ConsoleType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum CreatureType
+    {
+        ClassicMonster = 0x00,
+        Whale          = 0x01,
+        Shark          = 0x02,
+        Dragon         = 0x03,
+        Piranha        = 0x04,
+        Charybdis      = 0x05,
+        Insect         = 0x06,
+        Wreck          = 0x07,
+    }
+}
+enum_to_primitive!(CreatureType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum DriveType
+    {
+        Warp = 0x00,
+        Jump = 0x01,
+    }
+}
+enum_to_primitive!(DriveType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum GameType
+    {
+        Siege       = 0x00,
+        SingleFront = 0x01,
+        DoubleFront = 0x02,
+        DeepStrike  = 0x03,
+        Peacetime   = 0x04,
+        BorderWar   = 0x05,
+    }
+}
+enum_to_primitive!(GameType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum MainScreenView
+    {
+        Forward              = 0x00,
+        Port                 = 0x01,
+        Starboard            = 0x02,
+        Aft                  = 0x03,
+        Tactical             = 0x04,
+        LongRange            = 0x05,
+        Status               = 0x06,
+    }
+}
+enum_to_primitive!(MainScreenView);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    #[allow(non_camel_case_types)]
+    pub enum ObjectType
+    {
+        END_MARKER         = 0x00,
+        PlayerShip         = 0x01,
+        WeaponsConsole     = 0x02,
+        EngineeringConsole = 0x03,
+        // v2.1.1
+        // NpcShip            = 0x04,
+        // Base               = 0x05,
+        // Mine               = 0x06,
+        // Anomaly            = 0x07,
+        // //Unused           = 0x08,
+        // Nebula             = 0x09,
+        // Torpedo            = 0x0a,
+        // Blackhole          = 0x0b,
+        // Asteroid           = 0x0c,
+        // GenericMesh        = 0x0d,
+        // Creature           = 0x0e,
+        // Whale              = 0x0f,
+        // Drone              = 0x10,
+
+        // v2.4
+        PlayerShipUpgrades = 0x04,
+        NpcShip            = 0x05,
+        Base               = 0x06,
+        Mine               = 0x07,
+        Anomaly            = 0x08,
+        //Unused           = 0x09,
+        Nebula             = 0x0a,
+        Torpedo            = 0x0b,
+        Blackhole          = 0x0c,
+        Asteroid           = 0x0d,
+        GenericMesh        = 0x0e,
+        Creature           = 0x0f,
+        Drone              = 0x10,
+    }
+}
+enum_to_primitive!(ObjectType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum OrdnanceType
+    {
+        HomingMissile   = 0x00,
+        Nuke            = 0x01,
+        Mine            = 0x02,
+        Emp             = 0x03,
+        PlasmaShock     = 0x04,
+    }
+}
+enum_to_primitive!(OrdnanceType);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum Perspective
+    {
+        FirstPerson     = 0x00,
+        ThirdPerson     = 0x01,
+    }
+}
+enum_to_primitive!(Perspective);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum ShipSystem
+    {
+        Beams                = 0x00,
+        Torpedoes            = 0x01,
+        Sensors              = 0x02,
+        Maneuvering          = 0x03,
+        Impulse              = 0x04,
+        WarpDrive            = 0x05,
+        ForeShields          = 0x06,
+        AftShields           = 0x07,
+    }
+}
+enum_to_primitive!(ShipSystem);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum TargetingMode
+    {
+        Auto                 = 0x00,
+        Manual               = 0x01,
+    }
+}
+enum_to_primitive!(TargetingMode);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum TubeStatus
+    {
+        Unloaded             = 0x00,
+        Loaded               = 0x01,
+        Loading              = 0x02,
+        Unloading            = 0x03,
+    }
+}
+enum_to_primitive!(TubeStatus);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum Upgrade
+    {
+        EnergyBoost        = 0x00,
+        VigoraniumNodule   = 0x01,
+        CetrociteCrystal   = 0x02,
+        LateralArray       = 0x03,
+        TauronFocuser      = 0x04,
+        InfusionPCoils     = 0x05,
+        CarapactionCoils   = 0x06,
+        SecretCodeCase     = 0x07,
+    }
+}
+enum_to_primitive!(Upgrade);
+
+enum_from_primitive! {
+    #[derive(Debug,Clone,Copy)]
+    pub enum UpgradeActivation
+    {
+        InfusionPCoils       = 0x00,
+        HydrogenRam          = 0x01,
+        TauronFocusers       = 0x02,
+        CarapactionCoils     = 0x03,
+        PolyphasicCapacitors = 0x04,
+        CoolantReserves      = 0x05,
+        LateralArrays        = 0x06,
+        EcmStarpulse         = 0x07,
+        DoubleAgent          = 0x08,
+    }
+}
+enum_to_primitive!(UpgradeActivation);
+
+bitflags!
+{
+    pub flags EliteAbilities: u32
+    {
+        const STEALTH             = 0x0001,
+        const LOWVIS              = 0x0002,
+        const CLOAK               = 0x0004,
+        const HET                 = 0x0008,
+        const WARP                = 0x0010,
+        const TELEPORT            = 0x0020,
+        const TRACTOR             = 0x0040,
+        const DRONES              = 0x0080,
+        const ANTIMINE            = 0x0100,
+        const ANTITORP            = 0x0200,
+        const SHIELDDRAIN         = 0x0400,
+        const SHIELDSTEAL         = 0x0800,
+    }
+}
+
+pub mod frametype {
+    #![allow(non_upper_case_globals)]
+    pub const valueFloat: u32 = 0x0351a5ac;
+    pub const shipSystemSync: u32 = 0x077e9f3c;
+    pub const clientConsoles: u32 = 0x19c6e2d4;
+    pub const gmButton: u32 = 0x26faacb9;
+    pub const startGame: u32 = 0x3de66711;
+    pub const valueInt: u32 = 0x4c821d3c;
+    pub const commsMessage: u32 = 0x574c4c4b;
+    pub const valueFourInts: u32 = 0x69cc01d9;
+    pub const controlMessage: u32 = 0x6aadc57f;
+    pub const plainTextGreeting: u32 = 0x6d04b3da;
+    pub const objectBitStream: u32 = 0x80803df9;
+    pub const gmText: u32 = 0x809305a7;
+    pub const carrierRecord: u32 = 0x9ad1f23b;
+    pub const incomingMessage: u32 = 0xae88e058;
+    pub const attack: u32 = 0xb83fd2c4;
+    pub const beamRequest: u32 = 0xc2bee72e;
+    pub const objectDelete: u32 = 0xcc5a3e30;
+    pub const commText: u32 = 0xd672c35f;
+    pub const connected: u32 = 0xe548e74a;
+    pub const objectText: u32 = 0xee665279;
+    pub const heartbeat: u32 = 0xf5821226;
+    pub const simpleEvent: u32 = 0xf754c8fe;
+}
