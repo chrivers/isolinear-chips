@@ -18,7 +18,7 @@ packet ClientPacket
         target_id: i32
 
     ClimbDive
-        # Indicates the change in the ship's direction: 0x00000001 (1) for down
+        # Indicates the change in the ship's direction: 0x00000001 (1) for down,
         # 0xffffffff (-1) for up. For example, if the ship is diving when the
         # instruction to go up is received, the ship will level out. If a second
         # up command is received, the ship will start climbing.
@@ -49,7 +49,7 @@ packet ClientPacket
         _unknown1: u32
 
     ConvertTorpedo
-        # Indicates whether we are converting a torpedo to energy (0.0
+        # Indicates whether we are converting a torpedo to energy (0.0,
         # 0x00000000) or energy to a torpedo (1.0, 0x3f800000). Why this is
         # expressed as a float when a byte seems like it would be more
         # appropriate is unknown.
