@@ -1,0 +1,345 @@
+enum ClientPacket
+    ActivateUpgrade
+        /// The upgrade to activate. The game is prepared for 28 (30?)
+        /// different types of powerups, but only 8 are available as
+        /// of Artemis 2.4.
+        target: UpgradeActivation,
+    AudioCommand
+        /// The ID for the audio message. This is given by the
+        /// IncomingAudioPacket.
+        audio_id: i32,
+
+        /// The desired action to perform.
+        audio_command: AudioCommand,
+    },
+
+    CaptainSelect
+    {
+        /// The object ID for the new target, or 1 if the target has been cleared.
+        target_id: i32,
+    },
+
+    ClimbDive
+    {
+        /// Indicates the change in the ship's direction: 0x00000001 (1) for down,
+        /// 0xffffffff (-1) for up. For example, if the ship is diving when the
+        /// instruction to go up is received, the ship will level out. If a second
+        /// up command is received, the ship will start climbing.
+        direction: i32,
+    },
+
+    CommsOutgoing
+    {
+        /// The type of target for the message.
+        comm_target_type: i32,
+
+        /// ID of the object that is to receive the message.
+        recipient_id: i32,
+
+        /// A value that indicates what message is to be transmitted. The
+        /// interpretation of the value depends on the COMM target type.
+        message: i32,
+
+        /// The ID of the object to be targeted by the message. Currently, the
+        /// only message that accepts a target is “Other ship: Go defend
+        /// [target].” This value will be ignored if the message cannot support a
+        /// target, but must still be provided; the value 0x00730078 has been
+        /// observed in this case, but it is unknown why.
+        target_object_id: u32,
+
+        /// Possibly reserved for a second message argument. It is
+        /// always ignored but must still be provided. The value of
+        /// 0x004f005e has been observed for this field, but it is
+        /// unknown why.
+        _unknown1: u32,
+    },
+
+    ConvertTorpedo
+    {
+        /// Indicates whether we are converting a torpedo to energy (0.0,
+        /// 0x00000000) or energy to a torpedo (1.0, 0x3f800000). Why this is
+        /// expressed as a float when a byte seems like it would be more
+        /// appropriate is unknown.
+        direction: f32,
+    },
+
+    EngSendDamcon
+    {
+        /// The number assigned to the team (0 to 2 inclusive).
+        team_number: i32,
+
+        /// The X coordinate of the grid location that is the team's destination.
+        x_coordinate: i32,
+
+        /// The Y coordinate of the grid location that is the team's destination.
+        y_coordinate: i32,
+
+        /// The Z coordinate of the grid location that is the team's destination.
+        z_coordinate: i32,
+    },
+
+    EngSetAutoDamcon
+    {
+        /// Indicates whether DAMCON team autonomy is on or off.
+        autonomous: bool,
+    },
+
+    EngSetCoolant
+    {
+        /// The system whose coolant level is being adjusted.
+        ship_system: ShipSystem,
+
+        /// The number of coolant units to allocate to the system (0 to 8
+        /// inclusive).
+        value: i32,
+    },
+
+    EngSetEnergy
+    {
+        /// The amount of energy to allocate to the system. This value can range
+        /// from 0.0 to 1.0 inclusive, which in the stock UI corresponds to 0% to
+        /// 300%. Therefore, the default energy allocation of 100% would be
+        /// represented as 0.333....
+        value: f32,
+
+        /// The system whose coolant level is being adjusted.
+        ship_system: ShipSystem,
+    },
+
+    FighterLaunch
+    {
+        /// The ID of the fighter, as shown in FighterBayStatusPacket.
+        object_id: u32,
+    },
+
+    FireBeam
+    {
+        /// The ID of the ship or entity at which to fire.
+        target_object_id: u32,
+
+        /// The X coordinate at which to fire, relative to the center of the
+        /// target ship.
+        x_coordinate: f32,
+
+        /// The Y coordinate at which to fire, relative to the center of the
+        /// target ship.
+        y_coordinate: f32,
+
+        /// The Z coordinate at which to fire, relative to the center of the
+        /// target ship.
+        z_coordinate: f32,
+    },
+
+    FireTube
+    {
+        /// The index number of the tube to fire.
+        tube_index: u32,
+    },
+
+    GameMasterButtonClick
+    {
+        _unknown_1: u32,
+        hash: u32,
+    },
+
+    GameMasterMessage
+    {
+        /// If this value is 0x00, the message is received by the communications
+        /// officer as a normal COMM message. Otherwise, it is sent as a popup
+        /// message at a particular console type. The console that receives the
+        /// message is determined by subtracting 1 from the value; the result then
+        /// matches the values for the console type enumeration.
+        console_type: Option<ConsoleType>,
+
+        /// The name of the message's sender. This can be any arbitrary string; it
+        /// doesn't have to match the name of an existing object.
+        sender: String,
+
+        /// The message to send.
+        message: String,
+    },
+
+    GameMasterLocation
+    {
+        /// Z-coordinate (float)
+        /// The coordinate of the selected location on the Z axis.
+        z_coordinate: f32,
+
+        /// Unknown (4 bytes)
+        /// Seems to always be `0x00000000`.
+        y_coordinate: f32,
+
+        /// X-coordinate (float)
+        /// The coordinate of the selected location on the X axis.
+        x_coordinate: f32,
+    },
+
+    GameMasterObject
+    {
+        /// ID of the selected object.
+        target_id: i32,
+    },
+
+    HelmJump
+    {
+        /// The direction to jump, expressed as a value between 0.0 and 1.0
+        /// inclusive. To compute this value, take the desired bearing in degrees
+        /// and divide by 360.
+        bearing: f32,
+
+        /// The distance to jump, expressed as a value between 0.0 and 1.0
+        /// inclusive. To compute this value, take the desired distance in μls and
+        /// divide by 50 (the maximum jump distance).
+        distance: f32,
+    },
+
+    HelmRequestDock
+    {
+    },
+
+    HelmSetImpulse
+    {
+        /// Any value between 0.0 and 1.0 inclusive, where 0.0 is no throttle and
+        /// 1.0 is full throttle. Actual velocity will depend on the ship's
+        /// maximum velocity and the power allocated to impulse by engineering.
+        throttle: f32,
+    },
+
+    HelmSetPitch
+    {
+        /// Any value between -1.0 and 1.0 inclusive, where 0.0 is level, -1.0 is
+        /// a hard climb, and 1.0 is a hard dive.
+        pitch: f32,
+    },
+
+    HelmSetSteering
+    {
+        /// Any value between 0.0 and 1.0 inclusive, where 0.0 is hard to port
+        /// (left), 0.5 is rudder amidships (straight), and 1.0 is a hard to
+        /// starboard (right). Actual turn rate will depend on the ship's maximum
+        /// turn rate and the power allocated to maneuvering by engineering.
+        rudder: f32,
+    },
+
+    HelmSetWarp
+    {
+        /// The desired warp factor, from 0 to 4 inclusive. Warp 0 means to drop
+        /// out of warp and move on impulse only.
+        warp_factor: i32,
+    },
+
+    HelmToggleReverse
+    {
+    },
+
+    Keystroke
+    {
+        /// The code identifying the key that was pressed. Microsoft has a good
+        /// reference page that documents the key codes. Many languages have
+        /// constants for these values. For example: in Java, they are defined in
+        /// the KeyEvent class.
+        key_code: i32,
+    },
+
+    LoadTube
+    {
+        /// Indicates which tube is to be loaded.
+        tube_index: i32,
+
+        /// The type of ordnance to load into the tube.
+        ordnance_type: OrdnanceType,
+    },
+
+    Ready
+    {
+    },
+
+    Ready2
+    {
+    },
+
+    SciScan
+    {
+        /// The object ID for the target to be scanned.
+        target_id: i32,
+    },
+
+    SciSelect
+    {
+        /// The object ID for the new target, or 1 if the target has been cleared.
+        target_id: i32,
+    },
+
+    SetBeamFreq
+    {
+        /// The new beam frequency.
+        beam_frequency: BeamFrequency,
+    },
+
+    SetConsole
+    {
+        /// The console whose status is being updated.
+        console_type: ConsoleType,
+
+        /// True if this client is using the indicated console, false otherwise.
+        selected: bool,
+    },
+
+    SetMainScreen
+    {
+        /// The view to display on the main screen.
+        main_screen_view: MainScreenView,
+    },
+
+    SetShip
+    {
+        /// The index of the desired ship; valid values are 0 through 7 inclusive.
+        ship_index: i32,
+    },
+
+    SetShipSettingsV211
+    {
+        /// The desired drive type.
+        drive_type: DriveType,
+
+        /// The ID of the desired type of vessel, as given in vesselData.xml.
+        vessel_id: i32,
+
+        /// The ship's name.
+        name: String,
+    },
+
+    SetShipSettingsV240
+    {
+        ship: Ship,
+    },
+
+    SetWeaponsTarget
+    {
+        /// The object ID for the new target, or 1 if the target has been cleared.
+        target_id: i32,
+    },
+
+    ToggleAutoBeams
+    {
+    },
+
+    TogglePerspective
+    {
+    },
+
+    ToggleRedAlert
+    {
+    },
+
+    ToggleShields
+    {
+    },
+
+    UnloadTube
+    {
+        /// Index of the tube to unload.
+        tube_index: i32,
+    },
+
+}
