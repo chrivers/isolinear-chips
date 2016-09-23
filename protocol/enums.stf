@@ -1,19 +1,15 @@
-    #[derive(Debug,Clone,Copy)]
     pub enum AlertStatus
         Normal   = 0x00,
         RedAlert = 0x01,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum AudioCommand
         Play    = 0x00,
         Dismiss = 0x01,
 
-    #[derive(Debug,Clone,Copy,PartialEq)]
     pub enum AudioMode
         Playing  = 0x01,
         Incoming = 0x02,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum BeamFrequency
         A = 0x00,
         B = 0x01,
@@ -21,7 +17,6 @@
         D = 0x03,
         E = 0x04,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CommPlayerMessage
         Yes                = 0x00,
         No                 = 0x01,
@@ -36,14 +31,12 @@
         HeadedForStation   = 0x0a,
         Disregard          = 0x0b,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CommEnemyMessage
         Surrender = 0x00,
         Taunt1    = 0x01,
         Taunt2    = 0x02,
         Taunt3    = 0x03,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CommStationMessage
         PrepareDocking = 0x00,
         ReportStatus   = 0x01,
@@ -52,7 +45,6 @@
         BuildMines     = 0x04,
         BuildEmps      = 0x05,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CommShipMessage
         ReportStatus         = 0x00,
         TurnHeading0         = 0x01,
@@ -67,25 +59,21 @@
         Turn25DegPort        = 0x0f,
         Turn25DegStarboard   = 0x10,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CommTargetType
         Player  = 0x00,
         Enemy   = 0x01,
         Station = 0x02,
         Other   = 0x03,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum ConnectionType
         Server = 0x01,
         Client = 0x02,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum ConsoleStatus
         Available   = 0x00,
         Yours       = 0x01,
         Unavailable = 0x02,
 
-    #[derive(Debug,Clone,Copy,Eq,PartialEq,Hash)]
     pub enum ConsoleType
         MainScreen     = 0x00,
         Helm           = 0x01,
@@ -106,7 +94,6 @@
         CaptainsMap    = 0x09,
         GameMaster     = 0x0a,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum CreatureType
         ClassicMonster = 0x00,
         Whale          = 0x01,
@@ -117,12 +104,10 @@
         Insect         = 0x06,
         Wreck          = 0x07,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum DriveType
         Warp = 0x00,
         Jump = 0x01,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum GameType
         Siege       = 0x00,
         SingleFront = 0x01,
@@ -131,7 +116,6 @@
         Peacetime   = 0x04,
         BorderWar   = 0x05,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum MainScreenView
         Forward              = 0x00,
         Port                 = 0x01,
@@ -141,8 +125,6 @@
         LongRange            = 0x05,
         Status               = 0x06,
 
-    #[derive(Debug,Clone,Copy)]
-    #[allow(non_camel_case_types)]
     pub enum ObjectType
         END_MARKER         = 0x00,
         PlayerShip         = 0x01,
@@ -178,7 +160,6 @@
         Creature           = 0x0f,
         Drone              = 0x10,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum OrdnanceType
         HomingMissile   = 0x00,
         Nuke            = 0x01,
@@ -186,12 +167,10 @@
         Emp             = 0x03,
         PlasmaShock     = 0x04,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum Perspective
         FirstPerson     = 0x00,
         ThirdPerson     = 0x01,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum ShipSystem
         Beams                = 0x00,
         Torpedoes            = 0x01,
@@ -202,19 +181,16 @@
         ForeShields          = 0x06,
         AftShields           = 0x07,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum TargetingMode
         Auto                 = 0x00,
         Manual               = 0x01,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum TubeStatus
         Unloaded             = 0x00,
         Loaded               = 0x01,
         Loading              = 0x02,
         Unloading            = 0x03,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum Upgrade
         EnergyBoost        = 0x00,
         VigoraniumNodule   = 0x01,
@@ -225,7 +201,6 @@
         CarapactionCoils   = 0x06,
         SecretCodeCase     = 0x07,
 
-    #[derive(Debug,Clone,Copy)]
     pub enum UpgradeActivation
         InfusionPCoils       = 0x00,
         HydrogenRam          = 0x01,
