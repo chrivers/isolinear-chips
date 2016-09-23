@@ -1,251 +1,244 @@
-    pub enum AlertStatus
-        Normal   = 0x00,
-        RedAlert = 0x01,
+enum AlertStatus
+    Normal   = 0x00
+    RedAlert = 0x01
 
-    pub enum AudioCommand
-        Play    = 0x00,
-        Dismiss = 0x01,
+enum AudioCommand
+    Play    = 0x00
+    Dismiss = 0x01
 
-    pub enum AudioMode
-        Playing  = 0x01,
-        Incoming = 0x02,
+enum AudioMode
+    Playing  = 0x01
+    Incoming = 0x02
 
-    pub enum BeamFrequency
-        A = 0x00,
-        B = 0x01,
-        C = 0x02,
-        D = 0x03,
-        E = 0x04,
+enum BeamFrequency
+    A = 0x00
+    B = 0x01
+    C = 0x02
+    D = 0x03
+    E = 0x04
 
-    pub enum CommPlayerMessage
-        Yes                = 0x00,
-        No                 = 0x01,
-        Help               = 0x02,
-        Greetings          = 0x03,
-        Die                = 0x04,
-        LeavingSector      = 0x05,
-        ReadyToGo          = 0x06,
-        PleaseFollow       = 0x07,
-        WeWillFollow       = 0x08,
-        BadlyDamaged       = 0x09,
-        HeadedForStation   = 0x0a,
-        Disregard          = 0x0b,
+enum CommPlayerMessage
+    Yes                = 0x00
+    No                 = 0x01
+    Help               = 0x02
+    Greetings          = 0x03
+    Die                = 0x04
+    LeavingSector      = 0x05
+    ReadyToGo          = 0x06
+    PleaseFollow       = 0x07
+    WeWillFollow       = 0x08
+    BadlyDamaged       = 0x09
+    HeadedForStation   = 0x0a
+    Disregard          = 0x0b
 
-    pub enum CommEnemyMessage
-        Surrender = 0x00,
-        Taunt1    = 0x01,
-        Taunt2    = 0x02,
-        Taunt3    = 0x03,
+enum CommEnemyMessage
+    Surrender = 0x00
+    Taunt1    = 0x01
+    Taunt2    = 0x02
+    Taunt3    = 0x03
 
-    pub enum CommStationMessage
-        PrepareDocking = 0x00,
-        ReportStatus   = 0x01,
-        BuildHoming    = 0x02,
-        BuildNukes     = 0x03,
-        BuildMines     = 0x04,
-        BuildEmps      = 0x05,
+enum CommStationMessage
+    PrepareDocking = 0x00
+    ReportStatus   = 0x01
+    BuildHoming    = 0x02
+    BuildNukes     = 0x03
+    BuildMines     = 0x04
+    BuildEmps      = 0x05
 
-    pub enum CommShipMessage
-        ReportStatus         = 0x00,
-        TurnHeading0         = 0x01,
-        TurnHeading90        = 0x02,
-        TurnHeading180       = 0x03,
-        TurnHeading270       = 0x04,
-        Turn10DegPort        = 0x05,
-        Turn10DegStarboard   = 0x06,
-        AttackNearestEnemy   = 0x07,
-        ProceedToDestination = 0x08,
-        GoDefend             = 0x09,
-        Turn25DegPort        = 0x0f,
-        Turn25DegStarboard   = 0x10,
+enum CommShipMessage
+    ReportStatus         = 0x00
+    TurnHeading0         = 0x01
+    TurnHeading90        = 0x02
+    TurnHeading180       = 0x03
+    TurnHeading270       = 0x04
+    Turn10DegPort        = 0x05
+    Turn10DegStarboard   = 0x06
+    AttackNearestEnemy   = 0x07
+    ProceedToDestination = 0x08
+    GoDefend             = 0x09
+    Turn25DegPort        = 0x0f
+    Turn25DegStarboard   = 0x10
 
-    pub enum CommTargetType
-        Player  = 0x00,
-        Enemy   = 0x01,
-        Station = 0x02,
-        Other   = 0x03,
+enum CommTargetType
+    Player  = 0x00
+    Enemy   = 0x01
+    Station = 0x02
+    Other   = 0x03
 
-    pub enum ConnectionType
-        Server = 0x01,
-        Client = 0x02,
+enum ConnectionType
+    Server = 0x01
+    Client = 0x02
 
-    pub enum ConsoleStatus
-        Available   = 0x00,
-        Yours       = 0x01,
-        Unavailable = 0x02,
+enum ConsoleStatus
+    Available   = 0x00
+    Yours       = 0x01
+    Unavailable = 0x02
 
-    pub enum ConsoleType
-        MainScreen     = 0x00,
-        Helm           = 0x01,
-        Weapons        = 0x02,
-        Engineering    = 0x03,
-        Science        = 0x04,
-        Communications = 0x05,
-        // v2.1.1
-        // Data           = 0x06,
-        // Observer       = 0x07,
-        // CaptainsMap    = 0x08,
-        // GameMaster     = 0x09,
+enum ConsoleType
+    MainScreen     = 0x00
+    Helm           = 0x01
+    Weapons        = 0x02
+    Engineering    = 0x03
+    Science        = 0x04
+    Communications = 0x05
+    Fighter        = 0x06
+    Data           = 0x07
+    Observer       = 0x08
+    CaptainsMap    = 0x09
+    GameMaster     = 0x0a
 
-        // v2.3
-        Fighter        = 0x06,
-        Data           = 0x07,
-        Observer       = 0x08,
-        CaptainsMap    = 0x09,
-        GameMaster     = 0x0a,
+enum CreatureType
+    ClassicMonster = 0x00
+    Whale          = 0x01
+    Shark          = 0x02
+    Dragon         = 0x03
+    Piranha        = 0x04
+    Charybdis      = 0x05
+    Insect         = 0x06
+    Wreck          = 0x07
 
-    pub enum CreatureType
-        ClassicMonster = 0x00,
-        Whale          = 0x01,
-        Shark          = 0x02,
-        Dragon         = 0x03,
-        Piranha        = 0x04,
-        Charybdis      = 0x05,
-        Insect         = 0x06,
-        Wreck          = 0x07,
+enum DriveType
+    Warp = 0x00
+    Jump = 0x01
 
-    pub enum DriveType
-        Warp = 0x00,
-        Jump = 0x01,
+enum GameType
+    Siege       = 0x00
+    SingleFront = 0x01
+    DoubleFront = 0x02
+    DeepStrike  = 0x03
+    Peacetime   = 0x04
+    BorderWar   = 0x05
 
-    pub enum GameType
-        Siege       = 0x00,
-        SingleFront = 0x01,
-        DoubleFront = 0x02,
-        DeepStrike  = 0x03,
-        Peacetime   = 0x04,
-        BorderWar   = 0x05,
+enum MainScreenView
+    Forward              = 0x00
+    Port                 = 0x01
+    Starboard            = 0x02
+    Aft                  = 0x03
+    Tactical             = 0x04
+    LongRange            = 0x05
+    Status               = 0x06
 
-    pub enum MainScreenView
-        Forward              = 0x00,
-        Port                 = 0x01,
-        Starboard            = 0x02,
-        Aft                  = 0x03,
-        Tactical             = 0x04,
-        LongRange            = 0x05,
-        Status               = 0x06,
+enum ObjectType
+    END_MARKER         = 0x00
+    PlayerShip         = 0x01
+    WeaponsConsole     = 0x02
+    EngineeringConsole = 0x03
+    // v2.1.1
+    // NpcShip            = 0x04
+    // Base               = 0x05
+    // Mine               = 0x06
+    // Anomaly            = 0x07
+    // //Unused           = 0x08
+    // Nebula             = 0x09
+    // Torpedo            = 0x0a
+    // Blackhole          = 0x0b
+    // Asteroid           = 0x0c
+    // GenericMesh        = 0x0d
+    // Creature           = 0x0e
+    // Whale              = 0x0f
+    // Drone              = 0x10
 
-    pub enum ObjectType
-        END_MARKER         = 0x00,
-        PlayerShip         = 0x01,
-        WeaponsConsole     = 0x02,
-        EngineeringConsole = 0x03,
-        // v2.1.1
-        // NpcShip            = 0x04,
-        // Base               = 0x05,
-        // Mine               = 0x06,
-        // Anomaly            = 0x07,
-        // //Unused           = 0x08,
-        // Nebula             = 0x09,
-        // Torpedo            = 0x0a,
-        // Blackhole          = 0x0b,
-        // Asteroid           = 0x0c,
-        // GenericMesh        = 0x0d,
-        // Creature           = 0x0e,
-        // Whale              = 0x0f,
-        // Drone              = 0x10,
+    // v2.4
+    PlayerShipUpgrades = 0x04
+    NpcShip            = 0x05
+    Base               = 0x06
+    Mine               = 0x07
+    Anomaly            = 0x08
+    //Unused           = 0x09
+    Nebula             = 0x0a
+    Torpedo            = 0x0b
+    Blackhole          = 0x0c
+    Asteroid           = 0x0d
+    GenericMesh        = 0x0e
+    Creature           = 0x0f
+    Drone              = 0x10
 
-        // v2.4
-        PlayerShipUpgrades = 0x04,
-        NpcShip            = 0x05,
-        Base               = 0x06,
-        Mine               = 0x07,
-        Anomaly            = 0x08,
-        //Unused           = 0x09,
-        Nebula             = 0x0a,
-        Torpedo            = 0x0b,
-        Blackhole          = 0x0c,
-        Asteroid           = 0x0d,
-        GenericMesh        = 0x0e,
-        Creature           = 0x0f,
-        Drone              = 0x10,
+enum OrdnanceType
+    HomingMissile   = 0x00
+    Nuke            = 0x01
+    Mine            = 0x02
+    Emp             = 0x03
+    PlasmaShock     = 0x04
 
-    pub enum OrdnanceType
-        HomingMissile   = 0x00,
-        Nuke            = 0x01,
-        Mine            = 0x02,
-        Emp             = 0x03,
-        PlasmaShock     = 0x04,
+enum Perspective
+    FirstPerson     = 0x00
+    ThirdPerson     = 0x01
 
-    pub enum Perspective
-        FirstPerson     = 0x00,
-        ThirdPerson     = 0x01,
+enum ShipSystem
+    Beams                = 0x00
+    Torpedoes            = 0x01
+    Sensors              = 0x02
+    Maneuvering          = 0x03
+    Impulse              = 0x04
+    WarpDrive            = 0x05
+    ForeShields          = 0x06
+    AftShields           = 0x07
 
-    pub enum ShipSystem
-        Beams                = 0x00,
-        Torpedoes            = 0x01,
-        Sensors              = 0x02,
-        Maneuvering          = 0x03,
-        Impulse              = 0x04,
-        WarpDrive            = 0x05,
-        ForeShields          = 0x06,
-        AftShields           = 0x07,
+enum TargetingMode
+    Auto                 = 0x00
+    Manual               = 0x01
 
-    pub enum TargetingMode
-        Auto                 = 0x00,
-        Manual               = 0x01,
+enum TubeStatus
+    Unloaded             = 0x00
+    Loaded               = 0x01
+    Loading              = 0x02
+    Unloading            = 0x03
 
-    pub enum TubeStatus
-        Unloaded             = 0x00,
-        Loaded               = 0x01,
-        Loading              = 0x02,
-        Unloading            = 0x03,
+enum Upgrade
+    EnergyBoost        = 0x00
+    VigoraniumNodule   = 0x01
+    CetrociteCrystal   = 0x02
+    LateralArray       = 0x03
+    TauronFocuser      = 0x04
+    InfusionPCoils     = 0x05
+    CarapactionCoils   = 0x06
+    SecretCodeCase     = 0x07
 
-    pub enum Upgrade
-        EnergyBoost        = 0x00,
-        VigoraniumNodule   = 0x01,
-        CetrociteCrystal   = 0x02,
-        LateralArray       = 0x03,
-        TauronFocuser      = 0x04,
-        InfusionPCoils     = 0x05,
-        CarapactionCoils   = 0x06,
-        SecretCodeCase     = 0x07,
+enum UpgradeActivation
+    InfusionPCoils       = 0x00
+    HydrogenRam          = 0x01
+    TauronFocusers       = 0x02
+    CarapactionCoils     = 0x03
+    PolyphasicCapacitors = 0x04
+    CoolantReserves      = 0x05
+    LateralArrays        = 0x06
+    EcmStarpulse         = 0x07
+    DoubleAgent          = 0x08
 
-    pub enum UpgradeActivation
-        InfusionPCoils       = 0x00,
-        HydrogenRam          = 0x01,
-        TauronFocusers       = 0x02,
-        CarapactionCoils     = 0x03,
-        PolyphasicCapacitors = 0x04,
-        CoolantReserves      = 0x05,
-        LateralArrays        = 0x06,
-        EcmStarpulse         = 0x07,
-        DoubleAgent          = 0x08,
-
-    pub flags EliteAbilities: u32
-        const STEALTH             = 0x0001,
-        const LOWVIS              = 0x0002,
-        const CLOAK               = 0x0004,
-        const HET                 = 0x0008,
-        const WARP                = 0x0010,
-        const TELEPORT            = 0x0020,
-        const TRACTOR             = 0x0040,
-        const DRONES              = 0x0080,
-        const ANTIMINE            = 0x0100,
-        const ANTITORP            = 0x0200,
-        const SHIELDDRAIN         = 0x0400,
-        const SHIELDSTEAL         = 0x0800,
+flags EliteAbilities
+    STEALTH             = 0x0001
+    LOWVIS              = 0x0002
+    CLOAK               = 0x0004
+    HET                 = 0x0008
+    WARP                = 0x0010
+    TELEPORT            = 0x0020
+    TRACTOR             = 0x0040
+    DRONES              = 0x0080
+    ANTIMINE            = 0x0100
+    ANTITORP            = 0x0200
+    SHIELDDRAIN         = 0x0400
+    SHIELDSTEAL         = 0x0800
 
 enum FrameType
-    valueFloat: u32 = 0x0351a5ac;
-    shipSystemSync: u32 = 0x077e9f3c;
-    clientConsoles: u32 = 0x19c6e2d4;
-    gmButton: u32 = 0x26faacb9;
-    startGame: u32 = 0x3de66711;
-    valueInt: u32 = 0x4c821d3c;
-    commsMessage: u32 = 0x574c4c4b;
-    valueFourInts: u32 = 0x69cc01d9;
-    controlMessage: u32 = 0x6aadc57f;
-    plainTextGreeting: u32 = 0x6d04b3da;
-    objectBitStream: u32 = 0x80803df9;
-    gmText: u32 = 0x809305a7;
-    carrierRecord: u32 = 0x9ad1f23b;
-    incomingMessage: u32 = 0xae88e058;
-    attack: u32 = 0xb83fd2c4;
-    beamRequest: u32 = 0xc2bee72e;
-    objectDelete: u32 = 0xcc5a3e30;
-    commText: u32 = 0xd672c35f;
-    connected: u32 = 0xe548e74a;
-    objectText: u32 = 0xee665279;
-    heartbeat: u32 = 0xf5821226;
-    simpleEvent: u32 = 0xf754c8fe;
+    valueFloat: u32 = 0x0351a5ac
+    shipSystemSync: u32 = 0x077e9f3c
+    clientConsoles: u32 = 0x19c6e2d4
+    gmButton: u32 = 0x26faacb9
+    startGame: u32 = 0x3de66711
+    valueInt: u32 = 0x4c821d3c
+    commsMessage: u32 = 0x574c4c4b
+    valueFourInts: u32 = 0x69cc01d9
+    controlMessage: u32 = 0x6aadc57f
+    plainTextGreeting: u32 = 0x6d04b3da
+    objectBitStream: u32 = 0x80803df9
+    gmText: u32 = 0x809305a7
+    carrierRecord: u32 = 0x9ad1f23b
+    incomingMessage: u32 = 0xae88e058
+    attack: u32 = 0xb83fd2c4
+    beamRequest: u32 = 0xc2bee72e
+    objectDelete: u32 = 0xcc5a3e30
+    commText: u32 = 0xd672c35f
+    connected: u32 = 0xe548e74a
+    objectText: u32 = 0xee665279
+    heartbeat: u32 = 0xf5821226
+    simpleEvent: u32 = 0xf754c8fe
