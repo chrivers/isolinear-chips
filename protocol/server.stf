@@ -1,74 +1,74 @@
 struct Ship
-    /// Whether the ship has warp or jump drive
+    # Whether the ship has warp or jump drive
     drive_type: DriveType
 
-    /// ID from vesselData.xml
+    # ID from vesselData.xml
     ship_type: u32
 
     accent_color: u32
 
     _unknown_1: u32
 
-    /// The name of the ship
+    # The name of the ship
     name: String
 
 struct SystemNodeStatus
-    /// The X coordinate of the node relative to the ship's center.
+    # The X coordinate of the node relative to the ship's center.
     x_coordinate: u8
 
-    /// The Y coordinate of the node relative to the ship's center.
+    # The Y coordinate of the node relative to the ship's center.
     y_coordinate: u8
 
-    /// The Z coordinate of the node relative to the ship's center.
+    # The Z coordinate of the node relative to the ship's center.
     z_coordinate: u8
 
-    /// The current damage level for this node. An undamaged node has a value
-    /// of 0.0; any higher value indicates damage. (Is there an upper limit to
-    /// this value?)
+    # The current damage level for this node. An undamaged node has a value
+    # of 0.0; any higher value indicates damage. (Is there an upper limit to
+    # this value?)
     damage: f32
 
 struct DamconTeamStatus
-    /// An ID assigned to this team. For some reason known only to Thom, this
-    /// value always has 0x0a added to it.
+    # An ID assigned to this team. For some reason known only to Thom, this
+    # value always has 0x0a added to it.
     team_id: u8
 
-    /// The X coordinate of the node to which this team is currently moving.
-    /// If the team does not want to move elsewhere, this will be the same as
-    /// their current X coordinate.
+    # The X coordinate of the node to which this team is currently moving.
+    # If the team does not want to move elsewhere, this will be the same as
+    # their current X coordinate.
     goal_x_coordinate: i32
 
-    /// The X coordinate of the team's current node. This value does not
-    /// change while the team in in transit; it is only updated when they
-    /// arrive at a new node.
+    # The X coordinate of the team's current node. This value does not
+    # change while the team in in transit; it is only updated when they
+    # arrive at a new node.
     current_x_coordinate: i32
 
-    /// The Y coordinate of the node to which this team is currently moving.
-    /// If the team does not want to move elsewhere, this will be the same as
-    /// their current Y coordinate.
+    # The Y coordinate of the node to which this team is currently moving.
+    # If the team does not want to move elsewhere, this will be the same as
+    # their current Y coordinate.
     goal_y_coordinate: i32
 
-    /// The Y coordinate of the team's current node. This value does not
-    /// change while the team in in transit; it is only updated when they
-    /// arrive at a new node.
+    # The Y coordinate of the team's current node. This value does not
+    # change while the team in in transit; it is only updated when they
+    # arrive at a new node.
     current_y_coordinate: i32
 
-    /// The Z coordinate of the node to which this team is currently moving.
-    /// If the team does not want to move elsewhere, this will be the same as
-    /// their current Z coordinate.
+    # The Z coordinate of the node to which this team is currently moving.
+    # If the team does not want to move elsewhere, this will be the same as
+    # their current Z coordinate.
     goal_z_coordinate: i32
 
-    /// The Z coordinate of the team's current node. This value does not
-    /// change while the team in in transit; it is only updated when they
-    /// arrive at a new node.
+    # The Z coordinate of the team's current node. This value does not
+    # change while the team in in transit; it is only updated when they
+    # arrive at a new node.
     current_z_coordinate: i32
 
-    /// A value between 0.0 and 1.0 that expresses how close the team is in
-    /// their progress towards the goal node. The value starts at 1.0 as the
-    /// team begins moving towards the goal node, and gradually decreases
-    /// until it reaches 0.0 upon their arriving at the goal.
+    # A value between 0.0 and 1.0 that expresses how close the team is in
+    # their progress towards the goal node. The value starts at 1.0 as the
+    # team begins moving towards the goal node, and gradually decreases
+    # until it reaches 0.0 upon their arriving at the goal.
     progress: f32
 
-    /// The number of people on this DAMCON team.
+    # The number of people on this DAMCON team.
     number_of_team_members: i32
 
 struct FighterBay
@@ -78,162 +78,162 @@ struct FighterBay
 
     fighter_class_name: String
 
-    /// Number of seconds of refit time remaining before fighter is ready to
-    /// launch.
+    # Number of seconds of refit time remaining before fighter is ready to
+    # launch.
     refit_time: i32
 
 struct Statistic
-    /// The numeric value for this statistic.
+    # The numeric value for this statistic.
     value: i32
 
-    /// The description for this statistic.
+    # The description for this statistic.
     label: String
 
 pub enum ServerPacket
     AllShipSettings
-        /// A list of the eight available player ships. Each ship is structured as
-        /// follows:
+        # A list of the eight available player ships. Each ship is structured as
+        # follows:
         ships: [Ship; 8]
 
     BeamFired
-        /// A unique identifier for this beam. Each time a beam is fired, it gets
-        /// its own ID.
+        # A unique identifier for this beam. Each time a beam is fired, it gets
+        # its own ID.
         id: i32
 
-        /// All ships that can fire beams have beam ports. These are defined in
-        /// vesselData.xml as <beam_port> entries. This value gives the index of
-        /// the beam port on the originating ship that fired the beam. This value
-        /// is zero-based; thus, vessels that only have one beam port will always
-        /// give 0 for this value.
+        # All ships that can fire beams have beam ports. These are defined in
+        # vesselData.xml as <beam_port> entries. This value gives the index of
+        # the beam port on the originating ship that fired the beam. This value
+        # is zero-based; thus, vessels that only have one beam port will always
+        # give 0 for this value.
         beam_port_index: i32
 
-        /// Indicates the type of object that fired the beam.
+        # Indicates the type of object that fired the beam.
         origin_object_type: i32
 
-        /// Indicates the type of object that was struck by the beam.
+        # Indicates the type of object that was struck by the beam.
         target_object_type: i32
 
-        /// The ID of the object that fired the beam.
+        # The ID of the object that fired the beam.
         origin_object_id: u32
 
-        /// The ID of the object that was struck by the beam.
+        # The ID of the object that was struck by the beam.
         target_object_id: u32
 
-        /// The X coordinate (relative to the center of the target) of the impact
-        /// point. This is used to determine the endpoint for the beam. A negative
-        /// value means an impact on the target's starboard (right) side; a
-        /// positive value means an impact on the target's port (left) side.
+        # The X coordinate (relative to the center of the target) of the impact
+        # point. This is used to determine the endpoint for the beam. A negative
+        # value means an impact on the target's starboard (right) side; a
+        # positive value means an impact on the target's port (left) side.
         target_x_coordinate: f32
 
-        /// The Y coordinate (relative to the center of the target) of the impact
-        /// point. This is used to determine the endpoint for the beam. A negative
-        /// value means an impact on the target's ventral (bottom) side; a
-        /// positive value means an impact on the target's dorsal (top) side.
+        # The Y coordinate (relative to the center of the target) of the impact
+        # point. This is used to determine the endpoint for the beam. A negative
+        # value means an impact on the target's ventral (bottom) side; a
+        # positive value means an impact on the target's dorsal (top) side.
         target_y_coordinate: f32
 
-        /// The Z coordinate (relative to the center of the target) of the impact
-        /// point. This is used to determine the endpoint for the beam. A negative
-        /// value means an impact on the target's aft (rear) side; a positive
-        /// value means an impact on the target's forward (front) side.
+        # The Z coordinate (relative to the center of the target) of the impact
+        # point. This is used to determine the endpoint for the beam. A negative
+        # value means an impact on the target's aft (rear) side; a positive
+        # value means an impact on the target's forward (front) side.
         target_z_coordinate: f32
 
-        /// Indicates whether the beam was auto- or manually-fired.
+        # Indicates whether the beam was auto- or manually-fired.
         targeting_mode: f32
 
     CommsIncoming
-        /// Indicates the channel on which the message was received. Values range
-        /// from 0x00 to 0x08. In the stock client, this affects the message's
-        /// background color; the lower the channel number, the more red the
-        /// background color. While this would seem to indicate priority, in
-        /// practice, the channel number doesn't seem to correlate with message
-        /// importance. Below is a list of message types received on each channel;
-        /// note that this list may be incomplete and custom scenarios may send
-        /// messages on any channel:
-        ///   0x00 = Enemy taunts
-        ///   0x01 = ?
-        ///   0x02 = ?
-        ///   0x03 = Base destroyed
-        ///   0x04 = Base is under attack, docking complete, ship refuses orders
-        ///   0x05 = Base acknowledges build order or docking request
-        ///   0x06 = Ship accepts orders, base status response, ordnance built notice, GM message
-        ///   0x07 = Mission notification, mission transfer complete
-        ///   0x08 = Messages sent from player ships
+        # Indicates the channel on which the message was received. Values range
+        # from 0x00 to 0x08. In the stock client, this affects the message's
+        # background color; the lower the channel number, the more red the
+        # background color. While this would seem to indicate priority, in
+        # practice, the channel number doesn't seem to correlate with message
+        # importance. Below is a list of message types received on each channel;
+        # note that this list may be incomplete and custom scenarios may send
+        # messages on any channel:
+        #   0x00 = Enemy taunts
+        #   0x01 = ?
+        #   0x02 = ?
+        #   0x03 = Base destroyed
+        #   0x04 = Base is under attack, docking complete, ship refuses orders
+        #   0x05 = Base acknowledges build order or docking request
+        #   0x06 = Ship accepts orders, base status response, ordnance built notice, GM message
+        #   0x07 = Mission notification, mission transfer complete
+        #   0x08 = Messages sent from player ships
         channel: i32
 
-        /// The name of the entity that sent the message. Note that this does not
-        /// necessarily correspond to the exact name of that entity. This field
-        /// appears to always at least start with the name of the originating ship
-        /// or station in non-scripted missions, but may have additional text
-        /// afterward (e.g. “DS3 TSN Base”). Custom missions could have any string
-        /// in this field.
+        # The name of the entity that sent the message. Note that this does not
+        # necessarily correspond to the exact name of that entity. This field
+        # appears to always at least start with the name of the originating ship
+        # or station in non-scripted missions, but may have additional text
+        # afterward (e.g. “DS3 TSN Base”). Custom missions could have any string
+        # in this field.
         sender: String
 
-        /// The contents of the incoming message. The carat symbol (^) in the
-        /// message indicates a line break.
+        # The contents of the incoming message. The carat symbol (^) in the
+        # message indicates a line break.
         message: String
 
     ConsoleStatus
-        /// The number of the ship whose consoles are being described. Before
-        /// v2.3.0, this value was one-based, so by default the ship identified by
-        /// 0x01 was Artemis. As of v2.3.0 it is now zero-based.
+        # The number of the ship whose consoles are being described. Before
+        # v2.3.0, this value was one-based, so by default the ship identified by
+        # 0x01 was Artemis. As of v2.3.0 it is now zero-based.
         ship_number: i32
 
-        /// This array contains one element for each possible console, with the
-        /// availability status of each console represented with a single byte.
-        /// The consoles are iterated in the order given by the console type
-        /// enumeration. Note that the helm, weapons, engineering, and game master
-        /// stations permit only one client to claim them. Once they've been
-        /// claimed, their status will be reported as unavailable to other
-        /// clients. All other stations will remain available to other clients
-        /// when claimed.
+        # This array contains one element for each possible console, with the
+        # availability status of each console represented with a single byte.
+        # The consoles are iterated in the order given by the console type
+        # enumeration. Note that the helm, weapons, engineering, and game master
+        # stations permit only one client to claim them. Once they've been
+        # claimed, their status will be reported as unavailable to other
+        # clients. All other stations will remain available to other clients
+        # when claimed.
         console_status: HashMap<ConsoleType, ConsoleStatus>
 
     DestroyObject
-        /// Indicates the type of object being destroyed.
+        # Indicates the type of object being destroyed.
         object_type: u8
 
-        /// The ID of the object being destroyed.
+        # The ID of the object being destroyed.
         object_id: u32
 
     Difficulty
-        /// The difficulty level (a value from 1 to 11).
+        # The difficulty level (a value from 1 to 11).
         difficulty: i32
 
-        /// A value indicating the type of game. This applies only to solo and co-
-        /// op games; the field is present but its value is undefined for PvP and
-        /// scripted games.
+        # A value indicating the type of game. This applies only to solo and co-
+        # op games; the field is present but its value is undefined for PvP and
+        # scripted games.
         game_type: GameType
 
     DmxMessage
-        /// The DMX flag name.
+        # The DMX flag name.
         name: String
 
-        /// The DMX flag's current state.
+        # The DMX flag's current state.
         state: bool
 
     EngAutoDamconUpdate
-        /// Whether DAMCON teams are directed autonomously or not.
+        # Whether DAMCON teams are directed autonomously or not.
         damcon_autonomy: bool
 
     EngGridUpdate
-        /// Requested: This field is false on normal engineering
-        /// update from the server, but will be set to 1 when in
-        /// response to the RequestEngGridUpdate packet.
+        # Requested: This field is false on normal engineering
+        # update from the server, but will be set to 1 when in
+        # response to the RequestEngGridUpdate packet.
         requested: bool
 
-        /// This array contains a list of system nodes, terminated with 0xff. Each
-        /// system node contains the following fields:
+        # This array contains a list of system nodes, terminated with 0xff. Each
+        # system node contains the following fields:
         system_grid_status: Vec<SystemNodeStatus>
 
-        /// This contains a list of DAMCON teams, terminated with 0xfe. Each
-        /// DAMCON team contains the following fields:
+        # This contains a list of DAMCON teams, terminated with 0xfe. Each
+        # DAMCON team contains the following fields:
         damcon_team_status: Vec<DamconTeamStatus>
 
     FighterBayStatus
         status: Vec<FighterBay>
 
     FighterLaunched
-        /// The ID of the fighter, as shown in FighterBayStatusPacket.
+        # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
 
     GameMasterButtonCreate
@@ -252,62 +252,62 @@ pub enum ServerPacket
     GameMasterButtonReset
 
     GameMessage
-        /// The message to display.
+        # The message to display.
         message: String
 
     GameOver
 
     GameOverReason
-        /// Text describing why the game ended. Each string is one line.
+        # Text describing why the game ended. Each string is one line.
         reason: Vec<String>
 
     GameOverStats
-        /// Stats are presented in vertical columns; each packet contains one
-        /// column of stats data. This fields is the index for this column of
-        /// data. In practice, there are only two possible values: 0 and 1.
+        # Stats are presented in vertical columns; each packet contains one
+        # column of stats data. This fields is the index for this column of
+        # data. In practice, there are only two possible values: 0 and 1.
         column_index: u8
 
-        /// The remaining bytes in the packet are an array, where each element
-        /// constitutes a row in the stats column. Each element is prefaced with
-        /// 0x00, and the last element is followed by 0xce. Each element contains
-        /// the following fields:
+        # The remaining bytes in the packet are an array, where each element
+        # constitutes a row in the stats column. Each element is prefaced with
+        # 0x00, and the last element is followed by 0xce. Each element contains
+        # the following fields:
         statistics: Vec<Statistic>
 
     Heartbeat
 
     DestroyObject2
-        /// The type of object destroyed.
+        # The type of object destroyed.
         object_type: ObjectType
 
-        /// The ID of the object destroyed.
+        # The ID of the object destroyed.
         object_id: u32
 
     IncomingAudio
-        /// The ID for this audio message.
+        # The ID for this audio message.
         audio_id: i32
 
-        /// “Incoming” means that the communications officer is to be notified
-        /// that an audio message is available, and offered the option to play or
-        /// dismiss it. “Playing” is given in response to the communications
-        /// officer giving the instruction to play the message, and notifies them
-        /// that the message is now being played by the main screen. In the stock
-        /// client, this results in the “Play” button changing to “REPlay.” (sic)
+        # “Incoming” means that the communications officer is to be notified
+        # that an audio message is available, and offered the option to play or
+        # dismiss it. “Playing” is given in response to the communications
+        # officer giving the instruction to play the message, and notifies them
+        # that the message is now being played by the main screen. In the stock
+        # client, this results in the “Play” button changing to “REPlay.” (sic)
         audio_mode: AudioMode
 
-        /// Title of the incoming message. This should be displayed to the COMMs
-        /// officer.
+        # Title of the incoming message. This should be displayed to the COMMs
+        # officer.
         title: Option<String>
 
-        /// The filename for the audio clip. The client doesn't need to do
-        /// anything with this string; as the audio is played by the server.
+        # The filename for the audio clip. The client doesn't need to do
+        # anything with this string; as the audio is played by the server.
         file: Option<String>
 
     Intel
-        /// The ID of the ship to which this intel pertains.
+        # The ID of the ship to which this intel pertains.
         object_id: u32
 
-        /// The intel message about the ship. This is displayed to the science
-        /// officer when selecting this ship.
+        # The intel message about the ship. This is displayed to the science
+        # officer when selecting this ship.
         intel: String
 
     JumpStatusBegin
@@ -315,86 +315,86 @@ pub enum ServerPacket
     JumpStatusEnd
 
     KeyCaptureToggle
-        /// Whether this console should capture keystrokes or not. Note that
-        /// because this packet is sent to all consoles when the capture status of
-        /// any console is changed, a console may get a KeyCaptureTogglePacket
-        /// telling it to do what it's already doing; this is normal.
+        # Whether this console should capture keystrokes or not. Note that
+        # because this packet is sent to all consoles when the capture status of
+        # any console is changed, a console may get a KeyCaptureTogglePacket
+        # telling it to do what it's already doing; this is normal.
         capture: bool
 
     ObjectUpdate
         updates: Vec<update::ObjectUpdate>
-        // The type of object represented by this entry. All objects in the same
-        // array will be of the same type. If you get 0x00 for this field, there
-        // are no more objects in the array. Prior to v2.1.5, this property was
-        // transmitted as an int rather than a byte.
-        // object_type: ObjectType
+        # The type of object represented by this entry. All objects in the same
+        # array will be of the same type. If you get 0x00 for this field, there
+        # are no more objects in the array. Prior to v2.1.5, this property was
+        # transmitted as an int rather than a byte.
+        # object_type: ObjectType
 
-        // A unique identifier assigned to this object.
-        // object_id: u32
+        # A unique identifier assigned to this object.
+        # object_id: u32
 
-        // In order to minimize the amount of data that has to be transmitted
-        // the server typically only sends the properties that have changed
-        // instead of the entire object every time. This bit field indicates
-        // which properties are included in the update. Each bit represents a
-        // single property; if a bit is set to 1, that property is included. The
-        // length of the bit field depends the number of properties the object
-        // has.
-        // bit_field: <error: variable-length>
+        # In order to minimize the amount of data that has to be transmitted
+        # the server typically only sends the properties that have changed
+        # instead of the entire object every time. This bit field indicates
+        # which properties are included in the update. Each bit represents a
+        # single property; if a bit is set to 1, that property is included. The
+        # length of the bit field depends the number of properties the object
+        # has.
+        # bit_field: <error: variable-length>
 
-        // The rest of the entry consists of the updated values for the
-        // properties indicated in the bit field.
-        // properties: <error: variable-length>
+        # The rest of the entry consists of the updated values for the
+        # properties indicated in the bit field.
+        # properties: <error: variable-length>
 
     Pause
-        /// True if the simulation is paused; false otherwise.
+        # True if the simulation is paused; false otherwise.
         paused: bool
 
     Perspective
-        /// The current main screen perspective.
+        # The current main screen perspective.
         perspective: Perspective
 
     PlayerShipDamage
 
     Skybox
-        /// The number of the skybox image to load on the client. Under the
-        /// Artemis install directory is an "art" folder; this folder contains a
-        /// bunch of subfolders whose names start with "sb" followed by a two-
-        /// digit decimal value. This value is the skybox ID, and each folder
-        /// contains image files for a single skybox. The stock install of Artemis
-        /// has skybox images for IDs 00 through 05 and 10 through 29. It is
-        /// presumed but not yet confirmed that other skybox IDs will work if a
-        /// corresponding folder is created and contains the appropriate files.
+        # The number of the skybox image to load on the client. Under the
+        # Artemis install directory is an "art" folder; this folder contains a
+        # bunch of subfolders whose names start with "sb" followed by a two-
+        # digit decimal value. This value is the skybox ID, and each folder
+        # contains image files for a single skybox. The stock install of Artemis
+        # has skybox images for IDs 00 through 05 and 10 through 29. It is
+        # presumed but not yet confirmed that other skybox IDs will work if a
+        # corresponding folder is created and contains the appropriate files.
         skybox_id: i32
 
     SoundEffect
-        /// Path to the file to play the sound effect from, e.g "dat/enemy-
-        /// explode.wav".
+        # Path to the file to play the sound effect from, e.g "dat/enemy-
+        # explode.wav".
         filename: String
 
     Version
-        // Probably a monotonic event counter
+        # Probably a monotonic event counter
         _unknown1: u32
 
-        // The version of Artemis running on the server. If the client doesn't
-        // support the given version, it should disconnect. This field is
-        // deprecated as of v2.1; it is still sent by the server, but client
-        // should ignore its value unless there are no more bytes after it in the
-        // packet.
+        # The version of Artemis running on the server. If the client doesn't
+        # support the given version, it should disconnect. This field is
+        # deprecated as of v2.1; it is still sent by the server, but client
+        # should ignore its value unless there are no more bytes after it in the
+        # packet.
         _old_version: f32
 
-        // These three int values constitute the major, minor and patch version
-        // numbers. For example, v2.1.1 will transmit 02000000 01000000 01000000
-        // (interpreted 2 1 1) for this field. If the client doesn't support the
-        // given version, it should disconnect. The version specified in this
-        // field supersedes any specified in the legacy version field.
+        # These three int values constitute the major, minor and patch version
+        # numbers. For example, v2.1.1 will transmit 02000000 01000000 01000000
+        # (interpreted 2 1 1) for this field. If the client doesn't support the
+        # given version, it should disconnect. The version specified in this
+        # field supersedes any specified in the legacy version field.
         version: [u32; 3]
 
     Welcome
-        /// Unlike all other strings in Artemis packets, this one is encoded in
-        /// plain ASCII, so each character is one byte, not two. Also, the given
-        /// length for the string does not include a terminating null. Currently
-        /// it says, "You have connected to Thom Robertson's Artemis Bridge
-        /// Simulator. Please connect with an authorized game client."
+        # Unlike all other strings in Artemis packets, this one is encoded in
+        # plain ASCII, so each character is one byte, not two. Also, the given
+        # length for the string does not include a terminating null. Currently
+        # it says, "You have connected to Thom Robertson's Artemis Bridge
+        # Simulator. Please connect with an authorized game client."
         welcome_message: String
 
     Unknown_1_Special
