@@ -186,7 +186,7 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: HashMap<ConsoleType, ConsoleStatus>
+        console_status: fixedarray<ConsoleType, ConsoleStatus>
 
     DestroyObject
         # Indicates the type of object being destroyed.
@@ -296,11 +296,11 @@ packet ServerPacket
 
         # Title of the incoming message. This should be displayed to the COMMs
         # officer.
-        title: Option<String>
+        title: Option<string>
 
         # The filename for the audio clip. The client doesn't need to do
         # anything with this string; as the audio is played by the server.
-        file: Option<String>
+        file: Option<string>
 
     Intel
         # The ID of the ship to which this intel pertains.
@@ -387,7 +387,7 @@ packet ServerPacket
         # (interpreted 2 1 1) for this field. If the client doesn't support the
         # given version, it should disconnect. The version specified in this
         # field supersedes any specified in the legacy version field.
-        version: [u32; 3]
+        version: array<u32, 3>
 
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in
