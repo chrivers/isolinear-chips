@@ -1,5 +1,5 @@
 # bit field: 1 byte
-object Anomaly, AnomalyUpdate
+struct Anomaly
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
@@ -8,7 +8,7 @@ object Anomaly, AnomalyUpdate
     upgrade: enum8<Upgrade>
 
 # bit field: 2 bytes
-object Base, BaseUpdate
+struct Base
     # Name (bit 1.1, string)
     #
     # The name assigned to this base. In standard, non-custom
@@ -80,7 +80,7 @@ object Base, BaseUpdate
 # structure.
 
 # bit field: 2 bytes
-object Creature, CreatureUpdate
+struct Creature
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -145,7 +145,7 @@ object Creature, CreatureUpdate
     _unknown10: i32
 
 # bit field: 2 bytes
-object Drone, DroneUpdate
+struct Drone
     # Unknown (bit 1.1, int)
     _unknown1: u32
 
@@ -178,7 +178,7 @@ object Drone, DroneUpdate
     # Unused? (bits 2.2-2.8)
 
 # bit fields: 3 bytes
-object EngineeringConsole, EngineeringConsoleUpdate
+struct EngineeringConsole
     # Each byte of the field represents a category of values:
 
     # Heat levels
@@ -218,7 +218,7 @@ object EngineeringConsole, EngineeringConsoleUpdate
 
 # bit field: 4 bytes
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
-object GenericMesh, GenericMeshUpdate
+struct GenericMesh
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -304,7 +304,7 @@ object GenericMesh, GenericMeshUpdate
     _unknown15: u32
 
 # bit field: 1 bytes
-object Nebula, NebulaUpdate
+struct Nebula
     # X coordinate (bit 1.1, float)
     x_coordinate: f32
 
@@ -330,7 +330,7 @@ object Nebula, NebulaUpdate
     _unknown2: u32
 
 # bit field: 6 bytes
-object NpcShip, NpcShipUpdate
+struct NpcShip
     # Name (bit 1.1, string)
     # The ship's name.
     name: String
@@ -473,7 +473,7 @@ object NpcShip, NpcShipUpdate
     beam_resistance: array<f32, 5>
 
 # bit field: 6 bytes, 5 bytes before v2.3.0
-object PlayerShip, PlayerShipUpdate
+struct PlayerShip
     # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
     _unknown1: u32
@@ -668,7 +668,7 @@ object PlayerShip, PlayerShipUpdate
 
 # New as of v2.1.5. Indicates how many of each upgrade the player
 # ship has on board.  bit field: 11 bytes
-object PlayerShipUpgrade, PlayerShipUpgradeUpdate
+struct PlayerShipUpgrade
     # active
     active_infusion_p_coils:       bool8, # bit 1.1
     active_hydrogen_ram:           bool8, # bit 1.2
@@ -769,7 +769,7 @@ object PlayerShipUpgrade, PlayerShipUpgradeUpdate
     time_vanguard_refit_systems: u16, # bit 11.4
 
 # bit field: 1 byte
-object Torpedo, TorpedoUpdate
+struct Torpedo
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
@@ -804,7 +804,7 @@ object Torpedo, TorpedoUpdate
 # bytes long instead of four.
 #
 # bit field: 4 bytes
-object WeaponsConsole, WeaponsConsoleUpdate
+struct WeaponsConsole
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
@@ -847,7 +847,7 @@ object WeaponsConsole, WeaponsConsoleUpdate
 # into the new creature object type.
 #
 # bit field: 2 bytes
-object Whale, WhaleUpdate
+struct Whale
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.
@@ -898,7 +898,7 @@ object Whale, WhaleUpdate
 # space monsters also used this structure.
 
 # Bit field (1 byte)
-object Asteroid, AsteroidUpdate
+struct Asteroid
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -937,7 +937,7 @@ object Asteroid, AsteroidUpdate
 # space monsters also used this structure.
 #
 # Bit field (1 byte)
-object Blackhole, BlackholeUpdate
+struct Blackhole
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -976,7 +976,7 @@ object Blackhole, BlackholeUpdate
 # space monsters also used this structure.
 #
 # Bit field (1 byte)
-object Mine, MineUpdate
+struct Mine
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32

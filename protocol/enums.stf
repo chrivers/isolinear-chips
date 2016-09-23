@@ -123,28 +123,12 @@ enum ObjectType
     PlayerShip         = 0x01
     WeaponsConsole     = 0x02
     EngineeringConsole = 0x03
-    // v2.1.1
-    // NpcShip            = 0x04
-    // Base               = 0x05
-    // Mine               = 0x06
-    // Anomaly            = 0x07
-    // //Unused           = 0x08
-    // Nebula             = 0x09
-    // Torpedo            = 0x0a
-    // Blackhole          = 0x0b
-    // Asteroid           = 0x0c
-    // GenericMesh        = 0x0d
-    // Creature           = 0x0e
-    // Whale              = 0x0f
-    // Drone              = 0x10
-
-    // v2.4
     PlayerShipUpgrades = 0x04
     NpcShip            = 0x05
     Base               = 0x06
     Mine               = 0x07
     Anomaly            = 0x08
-    //Unused           = 0x09
+    _Unused            = 0x09
     Nebula             = 0x0a
     Torpedo            = 0x0b
     Blackhole          = 0x0c
@@ -220,25 +204,25 @@ flags EliteAbilities
     SHIELDSTEAL         = 0x0800
 
 enum FrameType
-    valueFloat: u32 = 0x0351a5ac
-    shipSystemSync: u32 = 0x077e9f3c
-    clientConsoles: u32 = 0x19c6e2d4
-    gmButton: u32 = 0x26faacb9
-    startGame: u32 = 0x3de66711
-    valueInt: u32 = 0x4c821d3c
-    commsMessage: u32 = 0x574c4c4b
-    valueFourInts: u32 = 0x69cc01d9
-    controlMessage: u32 = 0x6aadc57f
-    plainTextGreeting: u32 = 0x6d04b3da
-    objectBitStream: u32 = 0x80803df9
-    gmText: u32 = 0x809305a7
-    carrierRecord: u32 = 0x9ad1f23b
-    incomingMessage: u32 = 0xae88e058
-    attack: u32 = 0xb83fd2c4
-    beamRequest: u32 = 0xc2bee72e
-    objectDelete: u32 = 0xcc5a3e30
-    commText: u32 = 0xd672c35f
-    connected: u32 = 0xe548e74a
-    objectText: u32 = 0xee665279
-    heartbeat: u32 = 0xf5821226
-    simpleEvent: u32 = 0xf754c8fe
+    valueFloat        = 0x0351a5ac
+    shipSystemSync    = 0x077e9f3c
+    clientConsoles    = 0x19c6e2d4
+    gmButton          = 0x26faacb9
+    startGame         = 0x3de66711
+    valueInt          = 0x4c821d3c
+    commsMessage      = 0x574c4c4b
+    valueFourInts     = 0x69cc01d9
+    controlMessage    = 0x6aadc57f
+    plainTextGreeting = 0x6d04b3da
+    objectBitStream   = 0x80803df9
+    gmText            = 0x809305a7
+    carrierRecord     = 0x9ad1f23b
+    incomingMessage   = 0xae88e058
+    attack            = 0xb83fd2c4
+    beamRequest       = 0xc2bee72e
+    objectDelete      = 0xcc5a3e30
+    commText          = 0xd672c35f
+    connected         = 0xe548e74a
+    objectText        = 0xee665279
+    heartbeat         = 0xf5821226
+    simpleEvent       = 0xf754c8fe
