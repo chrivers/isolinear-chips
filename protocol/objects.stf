@@ -14,7 +14,7 @@ object Base
     # The name assigned to this base. In standard, non-custom
     # scenarios, base names will be unique, but there is no
     # guarantee that the same will be true in custom scenarios.
-    name: String
+    name: string
 
     # Shields (bit 1.2, float)
     #
@@ -95,7 +95,7 @@ object Creature
 
     # Name (bit 1.4, string)
     # The creature's name
-    name: String
+    name: string
 
     # Heading (bit 1.5, float)
     # The creature's current heading.
@@ -254,15 +254,15 @@ object GenericMesh
 
     # Name (bit 2.3, string)
     # The name of this object.
-    name: String
+    name: string
 
     # Mesh file (bit 2.4, string)
     # The name of the file containing the 3D mesh data.
-    mesh_file: String
+    mesh_file: string
 
     # Texture file (bit 2.4, string)
     # The name of the file containing the texture to apply to the mesh. Note that this uses the same bit as the mesh name, and that bit 2.5 is unused.
-    texture_file: String
+    texture_file: string
 
     # Unknown (bit 2.6, int)
     _unknown8: u32
@@ -333,7 +333,7 @@ object Nebula
 object NpcShip
     # Name (bit 1.1, string)
     # The ship's name.
-    name: String
+    name: string
 
     # Throttle (bit 1.2, float)
     # Values range from 0.0 for all stop to 1.0 for full speed.
@@ -417,13 +417,13 @@ object NpcShip
     # attribute, as specified in vesselData.xml. Other ships should
     # ignore this value even if it is present, as they cannot have
     # elite abilities.
-    elite_abilities: bitflags_u32<u32, EliteAbilities>
+    elite_abilities: bitflags<EliteAbilities>
 
     # Active elite abilities (bit 3.8, bit field, 4 bytes)
     # The elite abilites posessed by this ship that are currently in
     # use. As with the previous field, this field should be ignored
     # if the ship can't have elite abilities, even if it is present.
-    active_elite_abilities: bitflags_u32<EliteAbilities>
+    active_elite_abilities: bitflags<EliteAbilities>
 
     # Scan level? (bit 4.1, int)
     scan_level: u32
@@ -561,7 +561,7 @@ object PlayerShip
     _unknown2: u16
 
     # Ship name (bit 3.4, string)
-    ship_name: String
+    ship_name: string
 
     # Front shields (bit 3.5, float)
     #
@@ -935,7 +935,7 @@ object Whale
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.
-    name: String
+    name: string
 
     # Unknown (bit 1.2, int)
     _unknown1: u32
@@ -999,7 +999,7 @@ object Asteroid
     # The object's name. In standard missions, this property is
     # never used, but there may be named asteroids, black holes or
     # mines in custom missions.
-    name: String
+    name: string
 
     ## Unknown (bit 1.4, float?)
     ## _unknown1: f32
@@ -1038,7 +1038,7 @@ object Blackhole
     # The object's name. In standard missions, this property is
     # never used, but there may be named asteroids, black holes or
     # mines in custom missions.
-    name: String
+    name: string
 
     ## Unknown (bit 1.4, float?)
     ## _unknown1: f32
@@ -1077,7 +1077,7 @@ object Mine
     # The object's name. In standard missions, this property is
     # never used, but there may be named asteroids, black holes or
     # mines in custom missions.
-    name: String
+    name: string
 
     ##  Unknown (bit 1.4, float?)
     ## _unknown1: f32

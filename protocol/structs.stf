@@ -1,6 +1,6 @@
 struct Ship
     # Whether the ship has warp or jump drive
-    drive_type: DriveType
+    drive_type: enum32<DriveType>
 
     # ID from vesselData.xml
     ship_type: u32

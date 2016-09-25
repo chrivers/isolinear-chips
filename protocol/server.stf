@@ -95,7 +95,7 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: fixedarray<ConsoleType, ConsoleStatus>
+        console_status: array<enum8<ConsoleStatus>, ConsoleType>
 
     DestroyObject
         # Indicates the type of object being destroyed.
@@ -132,11 +132,11 @@ packet ServerPacket
 
         # This array contains a list of system nodes, terminated with 0xff. Each
         # system node contains the following fields:
-        system_grid_status: array<SystemNodeStatus>
+        system_grid_status: array<SystemNodeStatus, end=0xff>
 
         # This contains a list of DAMCON teams, terminated with 0xfe. Each
         # DAMCON team contains the following fields:
-        damcon_team_status: array<DamconTeamStatus>
+        damcon_team_status: array<DamconTeamStatus, end=0xfe>
 
     FighterBayStatus
         status: array<FighterBay>
@@ -168,7 +168,7 @@ packet ServerPacket
 
     GameOverReason
         # Text describing why the game ended. Each string is one line.
-        reason: array<String>
+        reason: array<string>
 
     GameOverStats
         # Stats are presented in vertical columns; each packet contains one
@@ -304,7 +304,7 @@ packet ServerPacket
         # length for the string does not include a terminating null. Currently,
         # it says, "You have connected to Thom Robertson's Artemis Bridge
         # Simulator. Please connect with an authorized game client."
-        welcome_message: string
+        welcome_message: ascii_string
 
     Unknown_1_Special
         probably_x_coordinate: f32
