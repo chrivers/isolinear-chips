@@ -301,7 +301,7 @@ packet ServerPacket
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in
         # plain ASCII, so each character is one byte, not two. Also, the given
-        # length for the string does not include a terminating null. Currently
+        # length for the string does not include a terminating null. Currently,
         # it says, "You have connected to Thom Robertson's Artemis Bridge
         # Simulator. Please connect with an authorized game client."
         welcome_message: string
