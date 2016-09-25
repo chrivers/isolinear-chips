@@ -111,24 +111,24 @@ packet ServerPacket
         # A value indicating the type of game. This applies only to solo and co-
         # op games; the field is present but its value is undefined for PvP and
         # scripted games.
-        game_type: GameType
+        game_type: enum32<GameType>
 
     DmxMessage
         # The DMX flag name.
         name: string
 
         # The DMX flag's current state.
-        state: bool
+        state: bool32
 
     EngAutoDamconUpdate
         # Whether DAMCON teams are directed autonomously or not.
-        damcon_autonomy: bool
+        damcon_autonomy: bool32
 
     EngGridUpdate
         # Requested: This field is false on normal engineering
         # update from the server, but will be set to 1 when in
         # response to the RequestEngGridUpdate packet.
-        requested: bool
+        requested: bool8
 
         # This array contains a list of system nodes, terminated with 0xff. Each
         # system node contains the following fields:
@@ -186,7 +186,7 @@ packet ServerPacket
 
     DestroyObject2
         # The type of object destroyed.
-        object_type: ObjectType
+        object_type: enum8<ObjectType>
 
         # The ID of the object destroyed.
         object_id: u32
@@ -201,7 +201,7 @@ packet ServerPacket
         # officer giving the instruction to play the message, and notifies them
         # that the message is now being played by the main screen. In the stock
         # client, this results in the “Play” button changing to “REPlay.” (sic)
-        audio_mode: AudioMode
+        audio_mode: enum32<AudioMode>
 
         # Title of the incoming message. This should be displayed to the COMMs
         # officer.
@@ -228,7 +228,7 @@ packet ServerPacket
         # because this packet is sent to all consoles when the capture status of
         # any console is changed, a console may get a KeyCaptureTogglePacket
         # telling it to do what it's already doing; this is normal.
-        capture: bool
+        capture: bool8
 
     ObjectUpdate
         # The type of object represented by this entry. All objects in the same
@@ -256,11 +256,11 @@ packet ServerPacket
 
     Pause
         # True if the simulation is paused; false otherwise.
-        paused: bool
+        paused: bool32
 
     Perspective
         # The current main screen perspective.
-        perspective: Perspective
+        perspective: enum32<Perspective>
 
     PlayerShipDamage
 
