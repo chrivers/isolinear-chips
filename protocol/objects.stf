@@ -1,5 +1,5 @@
 # bit field: 1 byte
-struct Anomaly
+object Anomaly
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
@@ -8,7 +8,7 @@ struct Anomaly
     upgrade: enum8<Upgrade>
 
 # bit field: 2 bytes
-struct Base
+object Base
     # Name (bit 1.1, string)
     #
     # The name assigned to this base. In standard, non-custom
@@ -80,7 +80,7 @@ struct Base
 # structure.
 
 # bit field: 2 bytes
-struct Creature
+object Creature
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -145,7 +145,7 @@ struct Creature
     _unknown10: i32
 
 # bit field: 2 bytes
-struct Drone
+object Drone
     # Unknown (bit 1.1, int)
     _unknown1: u32
 
@@ -178,7 +178,7 @@ struct Drone
     # Unused? (bits 2.2-2.8)
 
 # bit fields: 3 bytes
-struct EngineeringConsole
+object EngineeringConsole
     # Each byte of the field represents a category of values:
 
     # Heat levels
@@ -218,7 +218,7 @@ struct EngineeringConsole
 
 # bit field: 4 bytes
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
-struct GenericMesh
+object GenericMesh
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -304,7 +304,7 @@ struct GenericMesh
     _unknown15: u32
 
 # bit field: 1 bytes
-struct Nebula
+object Nebula
     # X coordinate (bit 1.1, float)
     x_coordinate: f32
 
@@ -330,7 +330,7 @@ struct Nebula
     _unknown2: u32
 
 # bit field: 6 bytes
-struct NpcShip
+object NpcShip
     # Name (bit 1.1, string)
     # The ship's name.
     name: String
@@ -473,7 +473,7 @@ struct NpcShip
     beam_resistance: array<f32, 5>
 
 # bit field: 6 bytes, 5 bytes before v2.3.0
-struct PlayerShip
+object PlayerShip
     # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
     _unknown1: u32
@@ -668,7 +668,7 @@ struct PlayerShip
 
 # New as of v2.1.5. Indicates how many of each upgrade the player
 # ship has on board.  bit field: 11 bytes
-struct PlayerShipUpgrade
+object PlayerShipUpgrade
     ## active
     # bit 1.1
     active_infusion_p_coils:       bool8
@@ -853,7 +853,7 @@ struct PlayerShipUpgrade
     time_vanguard_refit_systems: u16
 
 # bit field: 1 byte
-struct Torpedo
+object Torpedo
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
@@ -888,7 +888,7 @@ struct Torpedo
 # bytes long instead of four.
 #
 # bit field: 4 bytes
-struct WeaponsConsole
+object WeaponsConsole
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
@@ -931,7 +931,7 @@ struct WeaponsConsole
 # into the new creature object type.
 #
 # bit field: 2 bytes
-struct Whale
+object Whale
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.
@@ -982,7 +982,7 @@ struct Whale
 # space monsters also used this structure.
 
 # Bit field (1 byte)
-struct Asteroid
+object Asteroid
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1021,7 +1021,7 @@ struct Asteroid
 # space monsters also used this structure.
 #
 # Bit field (1 byte)
-struct Blackhole
+object Blackhole
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1060,7 +1060,7 @@ struct Blackhole
 # space monsters also used this structure.
 #
 # Bit field (1 byte)
-struct Mine
+object Mine
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
