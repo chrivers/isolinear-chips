@@ -197,7 +197,7 @@ object EngineeringConsole
 
     # Heat levels (bits 1.1-1.8, float array)
     ##    heat: map<ShipSystem, f32>
-    heat: sizedarray<f32, 6>
+    heat: sizedarray<f32, 8>
 
     # The heat level for each system, as a value between 0 (no heat)
     # and 1 (maximum heat). Reaching maximum heat for a system will
@@ -206,7 +206,7 @@ object EngineeringConsole
 
     # Energy allocations (bits 2.1-2.8, float array)
     # energy: map<ShipSystem, f32>
-    energy: sizedarray<f32, 6>
+    energy: sizedarray<f32, 8>
 
     # The energy allocation for each system, as a value between 0
     # (no energy allocated) and 1 (maximum possible energy
@@ -217,7 +217,7 @@ object EngineeringConsole
     # Coolant allocations (bits 3.1-3.8, byte array)
     # The units of coolant allocated to each system.
     # coolant: map<ShipSystem, u8>
-    coolant: sizedarray<f32, 6>
+    coolant: sizedarray<f32, 8>
 
 # bit field: 4 bytes
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
