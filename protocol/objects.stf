@@ -667,7 +667,7 @@ object PlayerShip
     _unknown8: u32
 
 # New as of v2.1.5. Indicates how many of each upgrade the player
-# ship has on board.  bit field: 11 bytes
+# ship has on board. bit field: 11 bytes
 object PlayerShipUpgrade
     ## active
     # bit 1.1
@@ -887,7 +887,7 @@ object WeaponsConsole
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
-    # ship, in the following order: homing missiles, nukes, mines
+    # ship, in the following order: homing missiles, nukes, mines,
     # EMPs, plasma shocks.
     homing: u8
     nukes: u8
