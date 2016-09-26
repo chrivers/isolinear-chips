@@ -2,7 +2,7 @@ packet ServerPacket
     AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
-        ships: array<Ship, 8>
+        ships: array<Ship, length=8>
 
     BeamFired
         # A unique identifier for this beam. Each time a beam is fired, it gets
@@ -95,7 +95,7 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: array<enum8<ConsoleStatus>, ConsoleType>
+        console_status: array<enum8<ConsoleStatus>, length=ConsoleType>
 
     DestroyObject
         # Indicates the type of object being destroyed.
@@ -139,7 +139,10 @@ packet ServerPacket
         damcon_team_status: array<DamconTeamStatus, end=0xfe>
 
     FighterBayStatus
-        status: array<FighterBay>
+        # The payload consists of an array of structs, each one
+        # describing a single fighter, and terminated with
+        # 0x00000000.
+        status: array<FighterBay, end=0x00000000>
 
     FighterLaunched
         # The ID of the fighter, as shown in FighterBayStatusPacket.
@@ -176,11 +179,10 @@ packet ServerPacket
         # data. In practice, there are only two possible values: 0 and 1.
         column_index: u8
 
-        # The remaining bytes in the packet are an array, where each element
-        # constitutes a row in the stats column. Each element is prefaced with
-        # 0x00, and the last element is followed by 0xce. Each element contains
-        # the following fields:
-        statistics: array<Statistic>
+        # The remaining bytes in the packet are an array, where each
+        # element constitutes a row in the stats column. The last
+        # element is followed by 0xce.
+        statistics: array<Statistic, end=0xce>
 
     Heartbeat
 
@@ -205,11 +207,11 @@ packet ServerPacket
 
         # Title of the incoming message. This should be displayed to the COMMs
         # officer.
-        title: Option<string>
+        title: option<string>
 
         # The filename for the audio clip. The client doesn't need to do
         # anything with this string; as the audio is played by the server.
-        file: Option<string>
+        file: option<string>
 
     Intel
         # The ID of the ship to which this intel pertains.

@@ -124,7 +124,7 @@ packet ClientPacket
         # message at a particular console type. The console that receives the
         # message is determined by subtracting 1 from the value; the result then
         # matches the values for the console type enumeration.
-        console_type: Option<enum32<ConsoleType>>
+        console_type: option<enum32<ConsoleType>>
 
         # The name of the message's sender. This can be any arbitrary string; it
         # doesn't have to match the name of an existing object.

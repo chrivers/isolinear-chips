@@ -83,6 +83,9 @@ struct FighterBay
     refit_time: i32
 
 struct Statistic
+    # Unknown value
+    __unknown1: u8
+
     # The numeric value for this statistic.
     value: i32
 
