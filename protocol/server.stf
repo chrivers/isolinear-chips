@@ -2,7 +2,7 @@ packet ServerPacket
     AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
-        ships: array<Ship, length=8>
+        ships: sizedarray<struct<Ship>, 8>
 
     BeamFired
         # A unique identifier for this beam. Each time a beam is fired, it gets
@@ -95,7 +95,7 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: map<enum8<ConsoleStatus>, ConsoleType>
+        console_status: map<ConsoleType, enum8<ConsoleStatus>>
 
     DestroyObject
         # Indicates the type of object being destroyed.
@@ -131,16 +131,16 @@ packet ServerPacket
         requested: bool8
 
         # This array contains a list of system nodes, terminated with 0xff.
-        system_grid_status: array<SystemNodeStatus, end=0xff>
+        system_grid_status: array<struct<SystemNodeStatus>, 0xff>
 
         # This contains a list of DAMCON teams, terminated with 0xfe.
-        damcon_team_status: array<DamconTeamStatus, end=0xfe>
+        damcon_team_status: array<struct<DamconTeamStatus>, 0xfe>
 
     FighterBayStatus
         # The payload consists of an array of structs, each one
         # describing a single fighter, and terminated with
         # 0x00000000.
-        status: array<FighterBay, end=0x00000000>
+        status: array<struct<FighterBay>, 0x00000000>
 
     FighterLaunched
         # The ID of the fighter, as shown in FighterBayStatusPacket.
@@ -180,7 +180,7 @@ packet ServerPacket
         # The remaining bytes in the packet are an array, where each
         # element constitutes a row in the stats column. The last
         # element is followed by 0xce.
-        statistics: array<Statistic, end=0xce>
+        statistics: array<struct<Statistic>, 0xce>
 
     Heartbeat
 
@@ -235,7 +235,7 @@ packet ServerPacket
         # entries. Parsing continues in a loop until the end of the
         # packet is reached, or the object type byte is 0x00. Note
         # that the array may be empty
-        updates: array<Update, end=0x00>
+        updates: array<struct<Update>, 0x00>
 
     Pause
         # True if the simulation is paused; false otherwise.
@@ -282,7 +282,7 @@ packet ServerPacket
         ## version_major: u32,
         ## version_minor: u32,
         ## version_patch: u32,
-        version: array<u32, length=3>
+        version: sizedarray<u32, 3>
 
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in

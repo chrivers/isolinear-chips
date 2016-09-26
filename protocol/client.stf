@@ -4,7 +4,7 @@ packet ClientPacket
         # different types of powerups, but only 8 are available as
         # of Artemis 2.4.
         target: enum32<UpgradeActivation>
-        
+
     AudioCommand
         # The ID for the audio message. This is given by the
         # IncomingAudioPacket.
@@ -88,7 +88,7 @@ packet ClientPacket
         value: f32
 
         # The system whose coolant level is being adjusted.
-        ship_system: ShipSystem
+        ship_system: enum32<ShipSystem>
 
     FighterLaunch
         # The ID of the fighter, as shown in FighterBayStatusPacket.
@@ -200,7 +200,7 @@ packet ClientPacket
         tube_index: i32
 
         # The type of ordnance to load into the tube.
-        ordnance_type: OrdnanceType
+        ordnance_type: enum32<OrdnanceType>
 
     Ready
 
@@ -244,7 +244,7 @@ packet ClientPacket
         name: string
 
     SetShipSettingsV240
-        ship: Ship
+        ship: struct<Ship>
 
     SetWeaponsTarget
         # The object ID for the new target, or 1 if the target has been cleared.
