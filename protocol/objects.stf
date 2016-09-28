@@ -5,7 +5,9 @@ object Anomaly
     z_coordinate: f32
     # Upgrade (byte 1.4, enum, int)
     # Note that only the values 0x00 through 0x07 have been observed, as the built-in mission types do not put other upgrade types in anomaly pickups.
-    upgrade: enum8<Upgrade>
+    upgrade: enum32<Upgrade>
+    _unknown_1: u16
+    _unknown_2: u16
 
 # bit field: 2 bytes
 object Base
