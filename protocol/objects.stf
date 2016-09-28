@@ -475,7 +475,7 @@ object NpcShip
     # Beam frequency resistance (bit 6.3 - 6.7, float array)
     # The ship's resistance to the five beam frequencies. Higher values indicate greater resistance to beams tuned to the corresponding frequency.
     ## beam_resistance: map<BeamFrequency, f32>
-    beam_resistance: sizedarray<f32, 8>
+    beam_resistance: sizedarray<f32, 5>
 
 # bit field: 6 bytes, 5 bytes before v2.3.0
 object PlayerShip
