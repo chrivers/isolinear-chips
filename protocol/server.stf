@@ -274,7 +274,7 @@ packet ServerPacket
 
     Version
         # Probably a monotonic event counter
-        __unknown1: u32
+        __unknown_1: u32
 
         # The version of Artemis running on the server. If the client doesn't
         # support the given version, it should disconnect. This field is
@@ -307,4 +307,4 @@ packet ServerPacket
         probably_z_coordinate: f32
 
     Unknown_2_Float
-        __unknown1: f32
+        __unknown_1: f32
