@@ -7,7 +7,7 @@ struct Ship
 
     accent_color: u32
 
-    _unknown_1: u32
+    __unknown_1: u32
 
     # The name of the ship
     name: string
@@ -83,8 +83,7 @@ struct FighterBay
     refit_time: i32
 
 struct Statistic
-    # Unknown value
-    __unknown1: u8
+    __unknown_1: u8
 
     # The numeric value for this statistic.
     value: i32

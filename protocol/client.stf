@@ -1,4 +1,13 @@
 packet ClientPacket
+    __unknown_1
+        __unknown_1: u32
+
+    __unknown_2
+        __unknown_1: u32
+
+    __unknown_3
+        __unknown_1: u32
+
     ActivateUpgrade
         # The upgrade to activate. The game is prepared for 28 (30?)
         # different types of powerups, but only 8 are available as
@@ -46,7 +55,7 @@ packet ClientPacket
         # always ignored but must still be provided. The value of
         # 0x004f005e has been observed for this field, but it is
         # unknown why.
-        _unknown1: u32
+        __unknown1: u32
 
     ConvertTorpedo
         # Indicates whether we are converting a torpedo to energy (0.0,
@@ -115,7 +124,7 @@ packet ClientPacket
         tube_index: u32
 
     GameMasterButtonClick
-        _unknown_1: u32
+        __unknown_1: u32
         hash: u32
 
     GameMasterMessage
@@ -162,6 +171,7 @@ packet ClientPacket
         distance: f32
 
     HelmRequestDock
+        __unknown_1: u32
 
     HelmSetImpulse
         # Any value between 0.0 and 1.0 inclusive, where 0.0 is no throttle and

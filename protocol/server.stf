@@ -49,6 +49,10 @@ packet ServerPacket
         # Indicates whether the beam was auto- or manually-fired.
         targeting_mode: f32
 
+        __unknown_1: u32
+        __unknown_2: u32
+        __unknown_3: u32
+
     CommsIncoming
         # Indicates the channel on which the message was received. Values range
         # from 0x00 to 0x08. In the stock client, this affects the message's
@@ -215,6 +219,9 @@ packet ServerPacket
         # The ID of the ship to which this intel pertains.
         object_id: u32
 
+        # Values of 0 and 1 have been observed
+        __unknown_1: u8
+
         # The intel message about the ship. This is displayed to the science
         # officer when selecting this ship.
         intel: string
@@ -225,8 +232,8 @@ packet ServerPacket
 
     KeyCaptureToggle
         # Whether this console should capture keystrokes or not. Note that
-        # because this packet is sent to all consoles when the capture status of
-        # any console is changed, a console may get a KeyCaptureTogglePacket
+        # because this packet is sent to all consoles when the capture status
+        # of any console is changed, a console may get a KeyCaptureTogglePacket
         # telling it to do what it's already doing; this is normal.
         capture: bool8
 
@@ -235,7 +242,7 @@ packet ServerPacket
         # entries. Parsing continues in a loop until the end of the
         # packet is reached, or the object type byte is 0x00. Note
         # that the array may be empty
-        updates: array<struct<Update>, 0x00>
+        updates: array<struct<ObjectUpdate>, 0x00>
 
     Pause
         # True if the simulation is paused; false otherwise.
@@ -246,6 +253,8 @@ packet ServerPacket
         perspective: enum32<Perspective>
 
     PlayerShipDamage
+        __unknown_1: u32
+        __unknown_2: f32
 
     Skybox
         # The number of the skybox image to load on the client. Under the
@@ -265,7 +274,7 @@ packet ServerPacket
 
     Version
         # Probably a monotonic event counter
-        _unknown1: u32
+        __unknown1: u32
 
         # The version of Artemis running on the server. If the client doesn't
         # support the given version, it should disconnect. This field is
@@ -298,4 +307,4 @@ packet ServerPacket
         probably_z_coordinate: f32
 
     Unknown_2_Float
-        _unknown1: f32
+        __unknown1: f32
