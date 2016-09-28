@@ -127,6 +127,19 @@ packet ClientPacket
         __unknown_1: u32
         hash: u32
 
+    GameMasterLocation
+        # Z-coordinate (float)
+        # The coordinate of the selected location on the Z axis.
+        z_coordinate: f32
+
+        # Unknown (4 bytes)
+        # Seems to always be `0x00000000`.
+        y_coordinate: f32
+
+        # X-coordinate (float)
+        # The coordinate of the selected location on the X axis.
+        x_coordinate: f32
+
     GameMasterMessage
         # If this value is 0x00, the message is received by the communications
         # officer as a normal COMM message. Otherwise, it is sent as a popup
@@ -141,19 +154,6 @@ packet ClientPacket
 
         # The message to send.
         message: string
-
-    GameMasterLocation
-        # Z-coordinate (float)
-        # The coordinate of the selected location on the Z axis.
-        z_coordinate: f32
-
-        # Unknown (4 bytes)
-        # Seems to always be `0x00000000`.
-        y_coordinate: f32
-
-        # X-coordinate (float)
-        # The coordinate of the selected location on the X axis.
-        x_coordinate: f32
 
     GameMasterObject
         # ID of the selected object.
