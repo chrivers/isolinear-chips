@@ -163,6 +163,10 @@ packet ServerPacket
     GameMasterButtonDestroy
         label: string
 
+    GameMasterOverview
+        title: string
+        instructions: string
+
     GameMasterButtonReset
 
     GameMessage
