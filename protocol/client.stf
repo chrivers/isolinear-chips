@@ -144,6 +144,9 @@ packet ClientPacket
         x_coordinate: f32
 
     GameMasterMessage
+        # FIXME: perhaps ship_index? st
+        __unknown_1: u32
+
         # If this value is 0x00, the message is received by the communications
         # officer as a normal COMM message. Otherwise, it is sent as a popup
         # message at a particular console type. The console that receives the
