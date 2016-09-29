@@ -144,7 +144,7 @@ packet ClientPacket
         x_coordinate: f32
 
     GameMasterMessage
-        # FIXME: perhaps ship_index? st
+        # FIXME: perhaps ship_index?
         __unknown_1: u32
 
         # If this value is 0x00, the message is received by the communications
