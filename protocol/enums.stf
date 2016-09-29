@@ -233,27 +233,3 @@ flags EliteAbilities
     ANTITORP            = 0x0200
     SHIELDDRAIN         = 0x0400
     SHIELDSTEAL         = 0x0800
-
-enum FrameType
-    valueFloat        = 0x0351a5ac
-    shipSystemSync    = 0x077e9f3c
-    clientConsoles    = 0x19c6e2d4
-    gmButton          = 0x26faacb9
-    startGame         = 0x3de66711
-    valueInt          = 0x4c821d3c
-    commsMessage      = 0x574c4c4b
-    valueFourInts     = 0x69cc01d9
-    controlMessage    = 0x6aadc57f
-    plainTextGreeting = 0x6d04b3da
-    objectBitStream   = 0x80803df9
-    gmText            = 0x809305a7
-    carrierRecord     = 0x9ad1f23b
-    incomingMessage   = 0xae88e058
-    attack            = 0xb83fd2c4
-    beamRequest       = 0xc2bee72e
-    objectDelete      = 0xcc5a3e30
-    commText          = 0xd672c35f
-    connected         = 0xe548e74a
-    objectText        = 0xee665279
-    heartbeat         = 0xf5821226
-    simpleEvent       = 0xf754c8fe
