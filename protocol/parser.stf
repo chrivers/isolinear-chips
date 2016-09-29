@@ -1,0 +1,58 @@
+parser ServerParser(u32):
+    shipSystemSync:    struct<ServerPacket::EngGridUpdate>
+    clientConsoles:    struct<ServerPacket::ConsoleStatus>
+    gmButton:          parse<GameMasterButton>
+    startGame:         struct<ServerPacket::Difficulty>
+    plainTextGreeting: struct<ServerPacket::Welcome>
+    objectBitStream:   struct<ServerPacket::ObjectUpdate>
+    carrierRecord:     struct<ServerPacket::FighterBay>
+    incomingMessage:   struct<ServerPacket::IncomingAudio>
+    attack:            struct<ServerPacket::BeamFired>
+    objectDelete:      struct<ServerPacket::DestroyObject>
+    commText:          struct<ServerPacket::CommsIncoming>
+    connected:         struct<ServerPacket::Version>
+    objectText:        struct<ServerPacket::Intel>
+    heartbeat:         struct<ServerPacket::HeartBeat>
+    simpleEvent:       parse<SimpleEvent>
+
+parser GameMasterButton(u8):
+    0x00: struct<ServerPacket::GameMasterButtonDestroy>
+    0x01: struct<ServerPacket::GameMasterButtonCreate>
+    0x02: struct<ServerPacket::GameMasterButtonCreatePlace>
+    0x63: struct<ServerPacket::GameMasterOverview>
+    0x64: struct<ServerPacket::GameMasterButtonReset>
+
+parser SimpleEvent(u32):
+    0x00: struct<ServerPacket::DestroyObject2>
+##  0x01: ...
+##  0x02: ...
+    0x03: struct<ServerPacket::SoundEffect>
+    0x04: struct<ServerPacket::Pause>
+    0x05: struct<ServerPacket::PlayerShipDamage>
+    0x06: struct<ServerPacket::GameOver>
+    0x07: struct<ServerPacket::Unknown_1_Special>
+    0x08: struct<ServerPacket::Unknown_2_Float>
+    0x09: struct<ServerPacket::Skybox>
+    0x0a: struct<ServerPacket::GameMessage>
+    0x0b: struct<ServerPacket::EngAutoDamconUpdate>
+    0x0c: struct<ServerPacket::JumpStatusBegin>
+    0x0d: struct<ServerPacket::JumpStatusEnd>
+##  0x0e: ...
+    0x0f: struct<ServerPacket::AllShipSettings>
+    0x10: struct<ServerPacket::DmxMessage>
+    0x11: struct<ServerPacket::KeyCaptureToggle>
+    0x12: struct<ServerPacket::Perspective>
+##  0x13: ...
+    0x14: struct<ServerPacket::GameOverReason>
+    0x15: struct<ServerPacket::GameOverStats>
+##  0x16: ...
+    0x17: struct<ServerPacket::FighterLaunched>
+
+parser ClientParser(u32):
+    valueFloat: parse<>
+    valueInt
+    commsMessage
+    valueFourInts
+    controlMessage
+    gmText
+    beamRequest
