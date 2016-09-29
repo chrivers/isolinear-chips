@@ -8,6 +8,9 @@ packet ClientPacket
     __unknown_3
         __unknown_1: u32
 
+    __unknown_4
+        __unknown_1: sizedarray<f32, 10>
+
     ActivateUpgrade
         # The upgrade to activate. The game is prepared for 28 (30?)
         # different types of powerups, but only 8 are available as
