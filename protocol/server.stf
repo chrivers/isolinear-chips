@@ -103,7 +103,7 @@ packet ServerPacket
 
     DestroyObject
         # Indicates the type of object being destroyed.
-        object_type: u8
+        object_type: enum8<ObjectType>
 
         # The ID of the object being destroyed.
         object_id: u32
