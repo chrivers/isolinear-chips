@@ -194,7 +194,7 @@ packet ServerPacket
 
     DestroyObject2
         # The type of object destroyed.
-        object_type: enum8<ObjectType>
+        object_type: enum32<ObjectType>
 
         # The ID of the object destroyed.
         object_id: u32
