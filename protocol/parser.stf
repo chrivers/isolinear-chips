@@ -1,7 +1,7 @@
 parser ServerParser(u32):
     shipSystemSync:    struct<ServerPacket::EngGridUpdate>
     clientConsoles:    struct<ServerPacket::ConsoleStatus>
-    gmButton:          parse<GameMasterButton>
+    gmButton:          parser<GameMasterButton>
     startGame:         struct<ServerPacket::Difficulty>
     plainTextGreeting: struct<ServerPacket::Welcome>
     objectBitStream:   struct<ServerPacket::ObjectUpdate>
@@ -13,7 +13,7 @@ parser ServerParser(u32):
     connected:         struct<ServerPacket::Version>
     objectText:        struct<ServerPacket::Intel>
     heartbeat:         struct<ServerPacket::HeartBeat>
-    simpleEvent:       parse<SimpleEvent>
+    simpleEvent:       parser<SimpleEvent>
 
 parser GameMasterButton(u8):
     0x00: struct<ServerPacket::GameMasterButtonDestroy>
@@ -49,10 +49,60 @@ parser SimpleEvent(u32):
     0x17: struct<ServerPacket::FighterLaunched>
 
 parser ClientParser(u32):
-    valueFloat: parse<>
-    valueInt
-    commsMessage
-    valueFourInts
-    controlMessage
-    gmText
-    beamRequest
+    valueFloat:     parser<ValueFloat>
+    valueInt:       parser<ValueInt>
+    commsMessage:   struct<ClientPacket::CommsOutgoing>
+    valueFourInts:  parser<ValueFourInts>
+    controlMessage: struct<ClientPacket::AudioCommand>
+    gmText:         struct<ClientPacket::GameMasterMessage>
+    beamRequest:    struct<ClientPacket::FireBeam>
+
+parser ValueFloat(u32):
+    0x00: struct<ClientPacket::HelmSetImpulse>
+    0x01: struct<ClientPacket::HelmSetSteering>
+    0x02: struct<ClientPacket::HelmSetPitch>
+##  0x03: ...
+    0x04: struct<ClientPacket::EngSetEnergy>
+    0x05: struct<ClientPacket::HelmJump>
+    0x06: struct<ClientPacket::GameMasterLocation>
+    0x07: struct<ClientPacket::__unknown_4>
+
+parser ValueInt(u32):
+    0x00: struct<ClientPacket::HelmSetWarp>
+    0x01: struct<ClientPacket::SetMainScreen>
+    0x02: struct<ClientPacket::SetWeaponsTarget>
+    0x03: struct<ClientPacket::ToggleAutoBeams>
+    0x04: struct<ClientPacket::ToggleShields>
+    0x05: struct<ClientPacket::__unknown_1>
+    0x06: struct<ClientPacket::__unknown_2>
+    0x07: struct<ClientPacket::HelmRequestDock>
+    0x08: struct<ClientPacket::FireTube>
+    0x09: struct<ClientPacket::UnloadTube>
+    0x0a: struct<ClientPacket::ToggleRedAlert>
+    0x0b: struct<ClientPacket::SetBeamFreq>
+    0x0c: struct<ClientPacket::EngSetAutoDamcon>
+    0x0d: struct<ClientPacket::SetShip>
+    0x0e: struct<ClientPacket::SetConsole>
+    0x0f: struct<ClientPacket::Ready>
+    0x10: struct<ClientPacket::SciSelect>
+    0x11: struct<ClientPacket::CaptainSelect>
+    0x12: struct<ClientPacket::GameMasterObject>
+    0x13: struct<ClientPacket::SciScan>
+    0x14: struct<ClientPacket::Keystroke>
+    0x15: struct<ClientPacket::GameMasterButtonClick>
+    0x16: struct<ClientPacket::SetShipSettingsV211>
+    0x17: struct<ClientPacket::SetShipSettingsV240>
+    0x18: struct<ClientPacket::HelmToggleReverse>
+    0x19: struct<ClientPacket::Ready2>
+    0x1a: struct<ClientPacket::TogglePerspective>
+    0x1b: struct<ClientPacket::ClimbDive>
+    0x1c: struct<ClientPacket::ActivateUpgrade>
+    0x1d: struct<ClientPacket::FighterLaunch>
+    0x1e: struct<ClientPacket::__unknown_3>
+
+parser ValueFourInts(u32):
+    0x00: struct<ClientPacket::EngSetCoolant>
+##  0x01: ...
+    0x02: struct<ClientPacket::LoadTube>
+    0x03: struct<ClientPacket::ConvertTorpedo>
+    0x04: struct<ClientPacket::EngSendDamcon>
