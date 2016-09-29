@@ -1,4 +1,4 @@
-parser ServerParser(u32):
+parser ServerParser(u32)
     shipSystemSync:    struct<ServerPacket::EngGridUpdate>
     clientConsoles:    struct<ServerPacket::ConsoleStatus>
     gmButton:          parser<GameMasterButton>
@@ -15,14 +15,14 @@ parser ServerParser(u32):
     heartbeat:         struct<ServerPacket::HeartBeat>
     simpleEvent:       parser<SimpleEvent>
 
-parser GameMasterButton(u8):
+parser GameMasterButton(u8)
     0x00: struct<ServerPacket::GameMasterButtonDestroy>
     0x01: struct<ServerPacket::GameMasterButtonCreate>
     0x02: struct<ServerPacket::GameMasterButtonCreatePlace>
     0x63: struct<ServerPacket::GameMasterOverview>
     0x64: struct<ServerPacket::GameMasterButtonReset>
 
-parser SimpleEvent(u32):
+parser SimpleEvent(u32)
     0x00: struct<ServerPacket::DestroyObject2>
 ##  0x01: ...
 ##  0x02: ...
@@ -48,7 +48,7 @@ parser SimpleEvent(u32):
 ##  0x16: ...
     0x17: struct<ServerPacket::FighterLaunched>
 
-parser ClientParser(u32):
+parser ClientParser(u32)
     valueFloat:     parser<ValueFloat>
     valueInt:       parser<ValueInt>
     commsMessage:   struct<ClientPacket::CommsOutgoing>
@@ -57,7 +57,7 @@ parser ClientParser(u32):
     gmText:         struct<ClientPacket::GameMasterMessage>
     beamRequest:    struct<ClientPacket::FireBeam>
 
-parser ValueFloat(u32):
+parser ValueFloat(u32)
     0x00: struct<ClientPacket::HelmSetImpulse>
     0x01: struct<ClientPacket::HelmSetSteering>
     0x02: struct<ClientPacket::HelmSetPitch>
@@ -67,7 +67,7 @@ parser ValueFloat(u32):
     0x06: struct<ClientPacket::GameMasterLocation>
     0x07: struct<ClientPacket::__unknown_4>
 
-parser ValueInt(u32):
+parser ValueInt(u32)
     0x00: struct<ClientPacket::HelmSetWarp>
     0x01: struct<ClientPacket::SetMainScreen>
     0x02: struct<ClientPacket::SetWeaponsTarget>
@@ -100,7 +100,7 @@ parser ValueInt(u32):
     0x1d: struct<ClientPacket::FighterLaunch>
     0x1e: struct<ClientPacket::__unknown_3>
 
-parser ValueFourInts(u32):
+parser ValueFourInts(u32)
     0x00: struct<ClientPacket::EngSetCoolant>
 ##  0x01: ...
     0x02: struct<ClientPacket::LoadTube>
