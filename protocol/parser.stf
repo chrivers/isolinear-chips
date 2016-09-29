@@ -5,14 +5,14 @@ parser ServerParser(u32)
     startGame:         struct<ServerPacket::Difficulty>
     plainTextGreeting: struct<ServerPacket::Welcome>
     objectBitStream:   struct<ServerPacket::ObjectUpdate>
-    carrierRecord:     struct<ServerPacket::FighterBay>
+    carrierRecord:     struct<ServerPacket::FighterBayStatus>
     incomingMessage:   struct<ServerPacket::IncomingAudio>
     attack:            struct<ServerPacket::BeamFired>
     objectDelete:      struct<ServerPacket::DestroyObject>
     commText:          struct<ServerPacket::CommsIncoming>
     connected:         struct<ServerPacket::Version>
     objectText:        struct<ServerPacket::Intel>
-    heartbeat:         struct<ServerPacket::HeartBeat>
+    heartbeat:         struct<ServerPacket::Heartbeat>
     simpleEvent:       parser<SimpleEvent>
 
 parser GameMasterButton(u8)
