@@ -6,9 +6,9 @@ object Anomaly
     # Upgrade (byte 1.4, enum, int)
     # Note that only the values 0x00 through 0x07 have been observed, as the built-in mission types do not put other upgrade types in anomaly pickups.
     upgrade: enum32<Upgrade>
-    _unknown_1: u32
-    _unknown_2: u32
-    _unknown_3: u32
+    __unknown_1: u32
+    __unknown_2: u32
+    __unknown_3: u32
 
 # bit field: 2 bytes
 object Base
@@ -59,22 +59,22 @@ object Base
     z_coordinate: f32
 
     # Unknown (bit 2.1, 4 bytes)
-    _unknown1: u32
+    __unknown_1: u32
 
     # Unknown (bit 2.2, 4 bytes)
-    _unknown2: u32
+    __unknown_2: u32
 
     # Unknown (bit 2.3, 4 bytes)
-    _unknown3: u32
+    __unknown_3: u32
 
     # Unknown (bit 2.4, 4 bytes)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 2.5, byte)
-    _unknown5: u8
+    __unknown_5: u8
 
     # Unknown (bit 2.6, byte)
-    _unknown6: u8
+    __unknown_6: u8
 
 # Note that wrecks are also considered creatures, for some
 # reason. This structure is new as of v2.1.5. Previously, the only
@@ -118,53 +118,53 @@ object Creature
     creature_type_id: enum32<CreatureType>
 
     # Unknown (bit 2.1, 4 bytes)
-    _unknown1: u32
+    __unknown_1: u32
 
     # Unknown (bit 2.2, 4 bytes)
-    _unknown2: u32
+    __unknown_2: u32
 
     # Unknown (bit 2.3, 4 bytes)
-    _unknown3: i32
+    __unknown_3: i32
 
     # Unknown (bit 2.4, 4 bytes)
-    _unknown4: i32
+    __unknown_4: i32
 
     # Unknown (bit 2.5, 4 bytes)
-    _unknown5: i32
+    __unknown_5: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    _unknown6: i32
+    __unknown_6: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    _unknown7: i32
+    __unknown_7: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    _unknown8: i32
+    __unknown_8: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    _unknown9: i32
+    __unknown_9: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    _unknown10: i32
+    __unknown_10: i32
 
 # bit field: 2 bytes
 object Drone
     # Unknown (bit 1.1, int)
-    _unknown1: u32
+    __unknown_1: u32
 
     # X coordinate (bit 1.2, float)
     x_coordinate: f32
 
     # Unknown (bit 1.3 float)
     # Values observed range from approximately -0.01 to 53.7. Might be related to pitch/yaw.
-    _unknown2: f32
+    __unknown_2: f32
 
     # Z coordinate (bit 1.4, float)
     z_coordinate: f32
 
     # Unknown (bit 1.5 float)
     # Perhaps related to pitch/yaw.
-    _unknown3: f32
+    __unknown_3: f32
 
     # Y coordinate (bit 1.6, float)
     y_coordinate: f32
@@ -173,10 +173,10 @@ object Drone
     heading: f32
 
     # Unknown (bit 1.8, int)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 2.1, float?, v2.1.5+)
-    _unknown5: u32
+    __unknown_5: u32
 
     # Unused? (bits 2.2-2.8)
 
@@ -238,25 +238,25 @@ object GenericMesh
     z_coordinate: f32
 
     # Unknown (bit 1.4, int)
-    _unknown1: u32
+    __unknown_1: u32
 
     # Unknown (bit 1.5, int)
-    _unknown2: u32
+    __unknown_2: u32
 
     # Unknown (bit 1.6, long)
-    _unknown3: u64
+    __unknown_3: u64
 
     # Unknown (bit 1.7, int)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 1.8, int)
-    _unknown5: u32
+    __unknown_5: u32
 
     # Unknown (bit 2.1, int)
-    _unknown6: u32
+    __unknown_6: u32
 
     # Unknown (bit 2.2, long)
-    _unknown7: u64
+    __unknown_7: u64
 
     # Name (bit 2.3, string)
     # The name of this object.
@@ -271,13 +271,13 @@ object GenericMesh
     texture_file: string
 
     # Unknown (bit 2.6, int)
-    _unknown8: u32
+    __unknown_8: u32
 
     # Unknown (bit 2.7, short)
-    _unknown9: u16
+    __unknown_9: u16
 
     # Unknown (bit 2.8, byte)
-    _unknown10: u8
+    __unknown_10: u8
 
     # Red color channel (bit 3.1, float)
     r_color: f32
@@ -295,19 +295,19 @@ object GenericMesh
     rear_shields: f32
 
     # Unknown (bit 3.6, int)
-    _unknown11: u32
+    __unknown_11: u32
 
     # Unknown (bit 3.7, int)
-    _unknown12: u32
+    __unknown_12: u32
 
     # Unknown (bit 3.8, int)
-    _unknown13: u32
+    __unknown_13: u32
 
     # Unknown (bit 4.1, int)
-    _unknown14: u32
+    __unknown_14: u32
 
     # Unknown (bit 4.2, int)
-    _unknown15: u32
+    __unknown_15: u32
 
 # bit field: 1 bytes
 object Nebula
@@ -330,10 +330,10 @@ object Nebula
     b_color: f32
 
     # Unused? (bit 1.7, int)
-    _unknown1: u32
+    __unknown_1: u32
 
     # Unused? (bit 1.8, int)
-    _unknown2: u32
+    __unknown_2: u32
 
 # bit field: 6 bytes
 object NpcShip
@@ -394,7 +394,7 @@ object NpcShip
     surrendered: bool8
 
     # Unknown (bit 2.8, short)
-    _unknown1: u16
+    __unknown_1: u16
 
     # Forward shields (bit 3.1, float)
     front_shields: f32
@@ -410,7 +410,7 @@ object NpcShip
     rear_shields_max: f32
 
     # Unknown (bit 3.5, short)
-    _unknown2: u16
+    __unknown_2: u16
 
     # Fleet number (bit 3.6, byte)
     # The number of the fleet to which this ship belongs. For custom
@@ -439,29 +439,29 @@ object NpcShip
     side: u32
 
     # Unknown (bit 4.3, int)
-    _unknown3: i32
+    __unknown_3: i32
 
     # Unknown (bit 4.4, byte)
-    _unknown4: u8
+    __unknown_4: u8
 
     # Unknown (bit 4.5, byte)
-    _unknown5: u8
+    __unknown_5: u8
 
     # Unknown (bit 4.6, byte)
-    _unknown6: u8
+    __unknown_6: u8
 
     # Unknown (bit 4.7, byte)
-    _unknown7: u8
+    __unknown_7: u8
 
     # Unknown (bit 4.8, float)
     # Values of 0.0 and -100000.0 have been observed.
-    _unknown8: f32
+    __unknown_8: f32
 
     # Unknown (bit 5.1, int)
-    _unknown9: u32
+    __unknown_9: u32
 
     # Unknown (bit 5.2, int)
-    _unknown10: u32
+    __unknown_10: u32
 
     # Ship system damage (bit 5.3 - 6.2, float array)
 
@@ -484,7 +484,7 @@ object NpcShip
 object PlayerShip
     # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
-    _unknown1: u32
+    __unknown_1: u32
 
     # Impulse (bit 1.2, float)
     #
@@ -566,7 +566,7 @@ object PlayerShip
     velocity: f32
 
     # Unknown (bit 3.3, short)
-    _unknown2: u16
+    __unknown_2: u16
 
     # Ship name (bit 3.4, string)
     ship_name: string
@@ -610,7 +610,7 @@ object PlayerShip
     alert_status: enum8<AlertStatus>
 
     # Unknown (bit 4.3, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Main screen view (bit 4.4, byte, enumeration)
     # The view currently displayed on the ship's main screen.
@@ -650,18 +650,18 @@ object PlayerShip
 
     # Unknown (bit 5.5, float)
     # Usually 0.0, though -1.0 has been observed.
-    _unknown4: f32
+    __unknown_4: f32
 
     # Unknown (bit 5.6, byte)
     # 0x02 has been observed.
-    _unknown5: u8
+    __unknown_5: u8
 
     # Unknown (bit 5.7, 4 bytes)
-    _unknown6: u32
+    __unknown_6: u32
 
     # Unknown (bit 5.8, byte, new as of v2.3.0)
     # 0 has been observed.
-    _unknown7: u8
+    __unknown_7: u8
 
     # Capital ship object ID (bit 6.1, int, new as of v2.3.0)
     # The object ID of the associated capital ship, if this ship is a fighter.
@@ -672,7 +672,7 @@ object PlayerShip
     accent_color: u32
 
     # Unknown (bit 6.3, 4 bytes, new as of v2.4.0)
-    _unknown8: u32
+    __unknown_8: u32
 
 # New as of v2.1.5. Indicates how many of each upgrade the player
 # ship has on board. bit field: 11 bytes
@@ -876,19 +876,19 @@ object Torpedo
 
     # Unknown (bit 1.4, float?)
     # Appears to range from -1.0 to 1.0.
-    _unknown2: f32
+    __unknown_2: f32
 
     # Unknown (bit 1.5, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Unknown (bit 1.6, float)
-    _unknown4: f32
+    __unknown_4: f32
 
     # Unknown (bit 1.7, int)
-    _unknown5: u32
+    __unknown_5: u32
 
     # Unknown (bit 1.8, int)
-    _unknown6: u32
+    __unknown_6: u32
 
 # bit field: 4 bytes
 object WeaponsConsole
@@ -946,10 +946,10 @@ object Whale
     name: string
 
     # Unknown (bit 1.2, int)
-    _unknown1: u32
+    __unknown_1: u32
 
     # Unknown (bit 1.3, int)
-    _unknown2: u32
+    __unknown_2: u32
 
     # X coordinate (bit 1.4, float)
     x_coordinate: f32
@@ -970,20 +970,20 @@ object Whale
     heading: f32
 
     # Unknown (bit 2.2, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Unknown (bit 2.3, float)
     # Values range from 0.0 to 1.0.
-    _unknown4: f32
+    __unknown_4: f32
 
     # Unknown (bit 2.4, float)
     # Values range up to 1.0. Lowest value seen so far is
     # approximately 0.855, minimum might be 0.0.
-    _unknown5: f32
+    __unknown_5: f32
 
     # Unknown (bit 2.5, float)
     # Observed ranges have been from about 0.5 to 1.36.
-    _unknown6: f32
+    __unknown_6: f32
 
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
@@ -1010,19 +1010,19 @@ object Asteroid
     name: string
 
     ## Unknown (bit 1.4, float?)
-    ## _unknown1: f32
+    ## __unknown_1: f32
 
     # Unknown (bit 1.5, float)
-    _unknown2: f32
+    __unknown_2: f32
 
     # Unknown (bit 1.6, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Unknown (bit 1.7, int)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 1.8, int)
-    _unknown5: u32
+    __unknown_5: u32
 
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
@@ -1049,19 +1049,19 @@ object Blackhole
     name: string
 
     ## Unknown (bit 1.4, float?)
-    ## _unknown1: f32
+    ## __unknown_1: f32
 
     # Unknown (bit 1.5, float)
-    _unknown2: f32
+    __unknown_2: f32
 
     # Unknown (bit 1.6, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Unknown (bit 1.7, int)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 1.8, int)
-    _unknown5: u32
+    __unknown_5: u32
 
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
@@ -1088,16 +1088,16 @@ object Mine
     name: string
 
     ##  Unknown (bit 1.4, float?)
-    ## _unknown1: f32
+    ## __unknown_1: f32
 
     # Unknown (bit 1.5, float)
-    _unknown2: f32
+    __unknown_2: f32
 
     # Unknown (bit 1.6, float)
-    _unknown3: f32
+    __unknown_3: f32
 
     # Unknown (bit 1.7, int)
-    _unknown4: u32
+    __unknown_4: u32
 
     # Unknown (bit 1.8, int)
-    _unknown5: u32
+    __unknown_5: u32
