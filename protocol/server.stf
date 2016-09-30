@@ -305,12 +305,12 @@ packet ServerPacket
         # Simulator. Please connect with an authorized game client."
         welcome_message: ascii_string
 
-    Unknown_1_Special
+    __unknown_1
         probably_x_coordinate: f32
         probably_y_coordinate: f32
         probably_z_coordinate: f32
 
-    Unknown_2_Float
+    __unknown_2
         __unknown_1: f32
 
     __unknown_3

@@ -54,8 +54,8 @@ parser SimpleEvent(u32)
     0x04: struct<ServerPacket::Pause>
     0x05: struct<ServerPacket::PlayerShipDamage>
     0x06: struct<ServerPacket::GameOver>
-    0x07: struct<ServerPacket::Unknown_1_Special>
-    0x08: struct<ServerPacket::Unknown_2_Float>
+    0x07: struct<ServerPacket::__unknown_1>
+    0x08: struct<ServerPacket::__unknown_2>
     0x09: struct<ServerPacket::Skybox>
     0x0a: struct<ServerPacket::GameMessage>
     0x0b: struct<ServerPacket::EngAutoDamconUpdate>
