@@ -312,3 +312,7 @@ packet ServerPacket
 
     Unknown_2_Float
         __unknown_1: f32
+
+    __unknown_3
+        __unknown_1: u32
+        __unknown_2: u32
