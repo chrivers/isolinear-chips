@@ -250,14 +250,7 @@ packet ClientPacket
         ship_index: i32
 
     SetShipSettingsV211
-        # The desired drive type.
-        drive_type: enum32<DriveType>
-
-        # The ID of the desired type of vessel, as given in vesselData.xml.
-        vessel_id: i32
-
-        # The ship's name.
-        name: string
+        ship: struct<ShipV211>
 
     SetShipSettingsV240
         ship: struct<Ship>

@@ -12,6 +12,18 @@ struct Ship
     # The name of the ship
     name: string
 
+struct ShipV211
+    # The desired drive type.
+    drive_type: enum32<DriveType>
+
+    # The ID of the desired type of vessel, as given in vesselData.xml.
+    vessel_id: i32
+
+    __unknown_1: u32
+
+    # The name of the ship
+    name: string
+
 struct SystemNodeStatus
     # The X coordinate of the node relative to the ship's center.
     x_coordinate: u8
