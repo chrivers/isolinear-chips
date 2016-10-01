@@ -80,7 +80,7 @@ object Base(2)
 # by the “other” property structure, and space whales had their own
 # structure.
 
-object Creature(2)
+object Creature(3)
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -663,7 +663,7 @@ object PlayerShip(6)
 
 # New as of v2.1.5. Indicates how many of each upgrade the player ship
 # has on board.
-object PlayerShipUpgrade(11)
+object PlayerShipUpgrades(11)
     ## active
     # bit 1.1
     active_infusion_p_coils:       bool8
@@ -847,7 +847,7 @@ object PlayerShipUpgrade(11)
     # bit 11.4
     time_vanguard_refit_systems: u16
 
-object Torpedo(1)
+object Torpedo(2)
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
