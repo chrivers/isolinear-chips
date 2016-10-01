@@ -423,13 +423,13 @@ object NpcShip
     # attribute, as specified in vesselData.xml. Other ships should
     # ignore this value even if it is present, as they cannot have
     # elite abilities.
-    elite_abilities: bitflags<EliteAbilities>
+    elite_abilities: bitflags<u32, EliteAbilities>
 
     # Active elite abilities (bit 3.8, bit field, 4 bytes)
     # The elite abilites posessed by this ship that are currently in
     # use. As with the previous field, this field should be ignored
     # if the ship can't have elite abilities, even if it is present.
-    active_elite_abilities: bitflags<EliteAbilities>
+    active_elite_abilities: bitflags<u32, EliteAbilities>
 
     # Scan level? (bit 4.1, int)
     scan_level: u32
