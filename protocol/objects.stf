@@ -1,5 +1,4 @@
-# bit field: 1 byte
-object Anomaly
+object Anomaly(1)
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
@@ -10,8 +9,7 @@ object Anomaly
     __unknown_2: u32
     __unknown_3: u32
 
-# bit field: 2 bytes
-object Base
+object Base(2)
     # Name (bit 1.1, string)
     #
     # The name assigned to this base. In standard, non-custom
@@ -82,8 +80,7 @@ object Base
 # by the “other” property structure, and space whales had their own
 # structure.
 
-# bit field: 2 bytes
-object Creature
+object Creature(2)
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -147,8 +144,7 @@ object Creature
     # Unknown (bit 2.6, 4 bytes)
     __unknown_10: i32
 
-# bit field: 2 bytes
-object Drone
+object Drone(2)
     # Unknown (bit 1.1, int)
     __unknown_1: u32
 
@@ -180,8 +176,7 @@ object Drone
 
     # Unused? (bits 2.2-2.8)
 
-# bit fields: 3 bytes
-object EngineeringConsole
+object EngineeringConsole(4)
     # Each byte of the field represents a category of values:
 
     # Heat levels
@@ -192,11 +187,6 @@ object EngineeringConsole
     # specified in the ship system enumeration. So for example, if
     # the first bit field is 0x01, it means that this packet will
     # contain a single heat level value (beams).
-
-    # Requested (byte)
-    # This field is true if this console update was explicitly requested
-    # In these cases, a full update seems to be sent from the server.
-    requested: bool8
 
     # Heat levels (bits 1.1-1.8, float array)
     ##    heat: map<ShipSystem, f32>
@@ -222,9 +212,8 @@ object EngineeringConsole
     # coolant: map<ShipSystem, u8>
     coolant: sizedarray<u8, 8>
 
-# bit field: 4 bytes
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
-object GenericMesh
+object GenericMesh(4)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -309,8 +298,7 @@ object GenericMesh
     # Unknown (bit 4.2, int)
     __unknown_15: u32
 
-# bit field: 1 bytes
-object Nebula
+object Nebula(1)
     # X coordinate (bit 1.1, float)
     x_coordinate: f32
 
@@ -335,8 +323,7 @@ object Nebula
     # Unused? (bit 1.8, int)
     __unknown_2: u32
 
-# bit field: 6 bytes
-object NpcShip
+object NpcShip(6)
     # Name (bit 1.1, string)
     # The ship's name.
     name: string
@@ -480,8 +467,8 @@ object NpcShip
     ## beam_resistance: map<BeamFrequency, f32>
     beam_resistance: sizedarray<f32, 5>
 
-# bit field: 6 bytes, 5 bytes before v2.3.0
-object PlayerShip
+# 5 bytes before v2.3.0
+object PlayerShip(6)
     # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
     __unknown_1: u32
@@ -674,9 +661,9 @@ object PlayerShip
     # Unknown (bit 6.3, 4 bytes, new as of v2.4.0)
     __unknown_8: u32
 
-# New as of v2.1.5. Indicates how many of each upgrade the player
-# ship has on board. bit field: 11 bytes
-object PlayerShipUpgrade
+# New as of v2.1.5. Indicates how many of each upgrade the player ship
+# has on board.
+object PlayerShipUpgrade(11)
     ## active
     # bit 1.1
     active_infusion_p_coils:       bool8
@@ -860,8 +847,7 @@ object PlayerShipUpgrade
     # bit 11.4
     time_vanguard_refit_systems: u16
 
-# bit field: 1 byte
-object Torpedo
+object Torpedo(1)
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
@@ -890,8 +876,7 @@ object Torpedo
     # Unknown (bit 1.8, int)
     __unknown_6: u32
 
-# bit field: 4 bytes
-object WeaponsConsole
+object WeaponsConsole(4)
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
@@ -937,9 +922,7 @@ object WeaponsConsole
 
 # This type became obsolete starting v2.1.5, when whales were folded
 # into the new creature object type.
-#
-# bit field: 2 bytes
-object Whale
+object Whale(2)
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.
@@ -988,9 +971,7 @@ object Whale
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-
-# Bit field (1 byte)
-object Asteroid
+object Asteroid(1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1027,9 +1008,7 @@ object Asteroid
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-#
-# Bit field (1 byte)
-object Blackhole
+object Blackhole(1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1066,9 +1045,7 @@ object Blackhole
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-#
-# Bit field (1 byte)
-object Mine
+object Mine(1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
