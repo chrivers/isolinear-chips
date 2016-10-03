@@ -215,87 +215,63 @@ object Nebula(1)
     __unknown_2: u32
 
 object NpcShip(6)
-    # Name (bit 1.1, string)
     # The ship's name.
     name: string
 
-    # Throttle (bit 1.2, float)
     # Values range from 0.0 for all stop to 1.0 for full speed.
     throttle: f32
 
-    # Rudder (bit 1.3, float)
     # Values range from 0.0 for hard to port (left), to 1.0 for hard to starboard (right).
     rudder: f32
 
-    # Max impulse (bit 1.4, float)
     # The ship's maximum possible speed at impulse.
     max_impulse: f32
 
-    # Max turn rate (bit 1.5, float)
     # The ship's maximum possible turning speed.
     max_turn_rate: f32
 
-    # Enemy? (bit 1.6, boolean, 4 bytes)
     # In single-bridge games, as well as multi-bridge co-op games
     # this value will be true if the ship is hostile and false if it
     # is friendly. In PvP and scripted games, this field is always
     # true, regardless of whether the NPC is hostile or not.
     enemy: u32
 
-    # Vessel type (bit 1.7, int)
     # The ID corresponding to the <vessel> entry in vesselData.xml that describes the vessel type for this ship.
     vessel_type_id: u32
 
-    # X coordinate (bit 1.8, float)
     x_coordinate: f32
 
-    # Y coordinate (bit 2.1, float)
     y_coordinate: f32
 
-    # Z coordinate (bit 2.2, float)
     z_coordinate: f32
 
-    # Pitch (bit 2.3, float)
     pitch: f32
 
-    # Roll (bit 2.4, float)
     roll: f32
 
-    # Heading (bit 2.5, float)
     heading: f32
 
-    # Velocity (bit 2.6, float)
     velocity: f32
 
-    # Surrendered (bit 2.7, boolean, 1 byte)
     # True if this ship has surrendered; false otherwise.
     surrendered: bool8
 
-    # Unknown (bit 2.8, short)
     __unknown_1: u16
 
-    # Forward shields (bit 3.1, float)
     front_shields: f32
 
-    # Forward shields max (bit 3.2, float)
     front_shields_max: f32
 
-    # Rear shields (bit 3.3, float)
     rear_shields: f32
 
-    # Rear shields (bit 3.4, float)
-    # FIXME:
     rear_shields_max: f32
 
-    # Unknown (bit 3.5, short)
     __unknown_2: u16
 
-    # Fleet number (bit 3.6, byte)
     # The number of the fleet to which this ship belongs. For custom
     # missions, this is specified in the mission file.
     fleet_number: u8
 
-    # Elite abilities (bit 3.7, bit field, 4 bytes)
     # The elite abilites posessed by this ship. The value in this
     # field is only meaningful if the ship's faction has the “elite”
     # attribute, as specified in vesselData.xml. Other ships should
@@ -303,45 +279,27 @@ object NpcShip(6)
     # elite abilities.
     elite_abilities: bitflags<u32, EliteAbilities>
 
-    # Active elite abilities (bit 3.8, bit field, 4 bytes)
     # The elite abilites posessed by this ship that are currently in
     # use. As with the previous field, this field should be ignored
     # if the ship can't have elite abilities, even if it is present.
     active_elite_abilities: bitflags<u32, EliteAbilities>
 
-    # Scan level? (bit 4.1, int)
     scan_level: u32
 
-    # Side? (bit 4.2, int)
-    # This field appears to contain a different value for each side in the conflict. Ships with the same value will presumably be friendly to each other.
+    # This field appears to contain a different value for each side in
+    # the conflict. Ships with the same value will presumably be
+    # friendly to each other.
     side: u32
 
-    # Unknown (bit 4.3, int)
     __unknown_3: i32
-
-    # Unknown (bit 4.4, byte)
     __unknown_4: u8
-
-    # Unknown (bit 4.5, byte)
     __unknown_5: u8
-
-    # Unknown (bit 4.6, byte)
     __unknown_6: u8
-
-    # Unknown (bit 4.7, byte)
     __unknown_7: u8
-
-    # Unknown (bit 4.8, float)
     # Values of 0.0 and -100000.0 have been observed.
     __unknown_8: f32
-
-    # Unknown (bit 5.1, int)
     __unknown_9: u32
-
-    # Unknown (bit 5.2, int)
     __unknown_10: u32
-
-    # Ship system damage (bit 5.3 - 6.2, float array)
 
     # Damage to various ship systems, in the order specified in the
     # enumeration. A system with a damage value of 0.0 is undamaged;
@@ -350,12 +308,11 @@ object NpcShip(6)
     # the science console. Barring further damage or actions by a
     # custom script, damage values gradually decrease as the ship is
     # repaired, until they return to 0.0.
-    ## system_damage: map<ShipSystem, f32>
     system_damage: sizedarray<f32, 8>
 
-    # Beam frequency resistance (bit 6.3 - 6.7, float array)
-    # The ship's resistance to the five beam frequencies. Higher values indicate greater resistance to beams tuned to the corresponding frequency.
-    ## beam_resistance: map<BeamFrequency, f32>
+    # The ship's resistance to the five beam frequencies. Higher
+    # values indicate greater resistance to beams tuned to the
+    # corresponding frequency.
     beam_resistance: sizedarray<f32, 5>
 
 # 5 bytes before v2.3.0
