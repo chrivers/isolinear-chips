@@ -267,6 +267,7 @@ packet ClientPacket
 
     ToggleShields
 
+    # Removes whatever ordnance is loaded in a tube.
     UnloadTube
         # Index of the tube to unload.
         tube_index: i32
