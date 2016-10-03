@@ -1,77 +1,54 @@
+# New as of v.2.1.5. Previously, anomalies were handled by the “other” property structure.
 object Anomaly(1)
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
-    # Upgrade (byte 1.4, enum, int)
-    # Note that only the values 0x00 through 0x07 have been observed, as the built-in mission types do not put other upgrade types in anomaly pickups.
+
+    # Note that only the values 0x00 through 0x07 have been observed,
+    # as the built-in mission types do not put other upgrade types in
+    # anomaly pickups.
     upgrade: enum<u32, Upgrade>
+
     __unknown_1: u32
     __unknown_2: u32
     __unknown_3: u32
 
 object Base(2)
-    # Name (bit 1.1, string)
-    #
     # The name assigned to this base. In standard, non-custom
     # scenarios, base names will be unique, but there is no
     # guarantee that the same will be true in custom scenarios.
     name: string
 
-    # Shields (bit 1.2, float)
-    #
     # The current strength of the base's shields.
     front_shields: f32
 
-    # Rear shields (unused) (bit 1.3, float)
-    #
     # Bases only have one shield, but all shielded objects in
     # Artemis are encoded with front and rear shields. This value is
     # therefore meaningless and should be ignored.
     rear_shields: f32
 
-    # Index (bit 1.4, int)
-    #
     # The index of this base. Each base will have a unique index
     # from 0 to (number of bases-1). In a standard solo game, DS1 is
     # 0, DS2 is 1, etc.
     index: u32
 
-    # Vessel type (bit 1.5, int)
-    #
     # The vessel type ID, as found in vesselData.xml.
     vessel_type_id: u32
 
-    # X coordinate (bit 1.6, float)
-    #
     # The base's location along the X-axis.
     x_coordinate: f32
 
-    # Y coordinate (bit 1.7, float)
-    #
     # The base's location along the Y-axis.
     y_coordinate: f32
 
-    # Z coordinate (bit 1.8, float)
-    #
     # The base's location along the Z-axis.
     z_coordinate: f32
 
-    # Unknown (bit 2.1, 4 bytes)
     __unknown_1: u32
-
-    # Unknown (bit 2.2, 4 bytes)
     __unknown_2: u32
-
-    # Unknown (bit 2.3, 4 bytes)
     __unknown_3: u32
-
-    # Unknown (bit 2.4, 4 bytes)
     __unknown_4: u32
-
-    # Unknown (bit 2.5, byte)
     __unknown_5: u8
-
-    # Unknown (bit 2.6, byte)
     __unknown_6: u8
 
 # Note that wrecks are also considered creatures, for some
