@@ -230,8 +230,10 @@ packet ServerPacket
         # officer when selecting this ship.
         intel: string
 
+    # Notifies the client that a jump has started.
     JumpStatusBegin
 
+    # Notifies the client that a jump has completed.
     JumpStatusEnd
 
     # Sent to all consoles when key capture is enabled or disabled for any console.
