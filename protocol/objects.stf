@@ -462,7 +462,16 @@ object PlayerShip(6)
     __unknown_8: u32
 
 # New as of v2.1.5. Indicates how many of each upgrade the player ship
-# has on board.
+# has on board, which ones are active, and how many seconds are left
+# of each type of activation.
+
+# There are 28 upgrade types available, each of which are described in
+# this packet type. First, every upgrade is described with an 8-bit
+# boolean value. If this value is true, the upgrade is currently
+# activated. Secondly, every upgrade is described with a i8 (signed
+# 8-bit integer), that determines how many of that type of upgrade the
+# ship has available. Finally, every upgrade is described with a u16,
+# that detmines how many more seconds the upgrade is active for.
 object PlayerShipUpgrades(11)
     ## active
     # bit 1.1
