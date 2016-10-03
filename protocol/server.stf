@@ -248,16 +248,26 @@ packet ServerPacket
         # that the array may be empty
         updates: array<struct<ObjectUpdate>, 0x00000000>
 
+    # Sent by the server when the simulation is paused or resumed.
     Pause
         # True if the simulation is paused; false otherwise.
         paused: bool32
 
+    # Sent by the server when the main viewscreen perspective has changed.
     Perspective
         # The current main screen perspective.
         perspective: enum<u32, Perspective>
 
+    # Appears to be sent when the player ship is hit by enemy fire. Has been observed when
+    # fired upon by enemy beams. Information about this packet is still uncertain and the
+    # documentation for it should not be considered reliable at this time.
     PlayerShipDamage
+        # Value of 1 observed.
         __unknown_1: u32
+
+        # Appears to have values of 1.0 or less for hits against shields, and values
+        # greater than 1.0 and less than or equal to 2.0 for hits that pass through the
+        # shields and strike the hull.
         __unknown_2: f32
 
     # Sent to change the displayed skybox image on the client. The
