@@ -8,9 +8,9 @@ engineering the network protocol.
 
 ## Specification format ##
 
-The protocol is specified in the **Simple Type Format** (`.stf`)
-format. The format is quite easy for humans to read, but is a
-machine-parsable format!
+The protocol is specified in the [Simple Type Format]
+(https://github.com/chrivers/transwarp) (`.stf`) format. The format is
+quite easy for humans to read, but is a machine-parsable format!
 
 Having a machine-readable protocol specification, makes it possible to
 generate protocol parsers (for multiple programming langauges),
@@ -35,7 +35,7 @@ structs.stf      Structs used by Client/ServerPacket
 
 To use this specification as more than a textual reference, you need a
 `.stf` compiler. Right now, the only existing compiler is
-**Transwarp** (link coming soon).
+[Transwarp] (https://github.com/chrivers/transwarp): https://github.com/chrivers/transwarp.
 
 Using Transwarp, you can generate HTML documentation, ascii reference
 tables, programming language headers, or anything you might need. All
@@ -49,3 +49,8 @@ collaborative work of the
 project, spearheaded by [Robert
 J. Walker](https://github.com/rjwut). The conversion into `.stf`
 format was done by [Christian Iversen](https://github.com/chrivers).
+
+## Etymology ##
+
+In the Star Trek universe, *Isolinear Chips* are advanced data
+storage devices, that contain large amounts of data.
