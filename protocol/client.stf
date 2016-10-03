@@ -219,12 +219,17 @@ packet ClientPacket
         # the KeyEvent class.
         key_code: i32
 
+    # Loads a tube with a particular type of ordnance.
     LoadTube
         # Indicates which tube is to be loaded.
         tube_index: i32
 
         # The type of ordnance to load into the tube.
         ordnance_type: enum<u32, OrdnanceType>
+
+        __unknown_1: u32
+
+        __unknown_2: u32
 
     # Sent by the client when they click the "Ready" button to indicate that
     # it is ready to join the game. The client must select at least one station before
