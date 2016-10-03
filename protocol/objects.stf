@@ -335,7 +335,7 @@ object PlayerShip(6)
 
     auto_beams: bool8
 
-    warp_factory: u8
+    warp_factor: u8
 
     energy: f32
 
