@@ -120,7 +120,7 @@ parser ValueInt(u32)
     0x16: struct<ClientPacket::SetShipSettingsV211>
     0x17: struct<ClientPacket::SetShipSettingsV240>
     0x18: struct<ClientPacket::HelmToggleReverse>
-    0x19: struct<ClientPacket::Ready2>
+    0x19: struct<ClientPacket::EngRequestGridUpdate>
     0x1a: struct<ClientPacket::TogglePerspective>
     0x1b: struct<ClientPacket::ClimbDive>
     0x1c: struct<ClientPacket::ActivateUpgrade>

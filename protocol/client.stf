@@ -67,6 +67,14 @@ packet ClientPacket
         # appropriate is unknown.
         direction: f32
 
+    # Sent from the engineering station, to request a full
+    # update for all values. This causes the server to send
+    # a full update, instead of the normal update type where
+    # only changes are sent.
+    EngRequestGridUpdate
+        # Always 0.
+        __unused: u32
+
     EngSendDamcon
         # The number assigned to the team (0 to 2 inclusive).
         team_number: i32
@@ -218,9 +226,14 @@ packet ClientPacket
         # The type of ordnance to load into the tube.
         ordnance_type: enum<u32, OrdnanceType>
 
+    # Sent by the client when they click the &ldquo;Ready&rdquo; button to indicate that
+    # it is ready to join the game. The client must select at least one station before
+    # sending this packet. When a game ends, the stock client typically sends this packet
+    # again immediately, on the assumption that they will play again with the same
+    # console(s).
     Ready
-
-    Ready2
+        # Always 0.
+        __unused: u32
 
     # Starts a science scan.
     SciScan
