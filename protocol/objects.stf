@@ -138,8 +138,6 @@ object EngineeringConsole(4)
     # allocation). In the UI, this is expressed as a percentage
     # between 0% and 300%, so the nominal allocation level (100%) is
     # represented by a value of 0.3333....
-
-    # The units of coolant allocated to each system.
     coolant: sizedarray<u8, 8>
 
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
@@ -471,7 +469,7 @@ object PlayerShip(6)
 # activated. Secondly, every upgrade is described with a i8 (signed
 # 8-bit integer), that determines how many of that type of upgrade the
 # ship has available. Finally, every upgrade is described with a u16,
-# that detmines how many more seconds the upgrade is active for.
+# that determines how many more seconds the upgrade is active for.
 object PlayerShipUpgrades(11)
     ## active
     # bit 1.1
