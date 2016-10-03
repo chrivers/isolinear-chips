@@ -95,36 +95,25 @@ object Creature(3)
     __unknown_10: i32
 
 object Drone(2)
-    # Unknown (bit 1.1, int)
     __unknown_1: u32
 
-    # X coordinate (bit 1.2, float)
     x_coordinate: f32
 
-    # Unknown (bit 1.3 float)
     # Values observed range from approximately -0.01 to 53.7. Might be related to pitch/yaw.
     __unknown_2: f32
 
-    # Z coordinate (bit 1.4, float)
     z_coordinate: f32
 
-    # Unknown (bit 1.5 float)
     # Perhaps related to pitch/yaw.
     __unknown_3: f32
 
-    # Y coordinate (bit 1.6, float)
     y_coordinate: f32
 
-    # Heading (bit 1.7, float)
     heading: f32
 
-    # Unknown (bit 1.8, int)
     __unknown_4: u32
 
-    # Unknown (bit 2.1, float?, v2.1.5+)
     __unknown_5: u32
-
-    # Unused? (bits 2.2-2.8)
 
 object EngineeringConsole(4)
     # Each byte of the field represents a category of values:
