@@ -276,8 +276,11 @@ packet ServerPacket
         # explode.wav".
         filename: string
 
+    # Gives the server version number. This packet is sent immediately
+    #after the WelcomePacket
     Version
-        # Probably a monotonic event counter
+        # Unknown function, but has been observed to follow the cycle
+        # "ec f0 e8 d4 d8 dc e0 e4"
         __unknown_1: u32
 
         # The version of Artemis running on the server. If the client doesn't
@@ -292,9 +295,13 @@ packet ServerPacket
         # (interpreted 2 1 1) for this field. If the client doesn't support the
         # given version, it should disconnect. The version specified in this
         # field supersedes any specified in the legacy version field.
+        #
+        # It has been officially confirmed that the schema is
+        # <major>.<network>.<minor>. In other words, the 2 first
+        # digits should uniquely identify any protocol version.
         ## version_major: u32,
+        ## version_network: u32,
         ## version_minor: u32,
-        ## version_patch: u32,
         version: sizedarray<u32, 3>
 
     # Indicates a successful connection to the Artemis server. This is
