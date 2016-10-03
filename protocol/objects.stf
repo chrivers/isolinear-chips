@@ -672,11 +672,6 @@ object Torpedo(2)
     __unknown_6: u32
 
 object WeaponsConsole(4)
-    # Ordnance counts (bits 1.1-1.5, byte array)
-    # This array contains up to five byte elements. Each element
-    # gives how many of a particular ordinance are stored on the
-    # ship, in the following order: homing missiles, nukes, mines,
-    # EMPs, plasma shocks.
     homing: u8
     nukes: u8
     mines: u8
@@ -691,22 +686,16 @@ object WeaponsConsole(4)
     # Unknown (bit 1.6, byte)
     _unknown: u8
 
-    # Tube (un)load times (bits 1.7-2.4, float array)
-    #
     # This array contains up to six float elements. Each element
     # gives the (un)load time for the corresponding tube. This field
     # should be ignored (even when present) if the tube's status is
     # not loading or unloading.
     tube_times: sizedarray<f32, 6>
 
-    # Tube status (bits 2.5-3.2, byte array)
-    #
     # This array contains up to six byte elements. Each element
     # indicates the occupation status of each tube.
     tube_status: sizedarray<enum<u8, TubeStatus>, 6>
 
-    # Ordnance type (bits 3.3-3.8, byte array)
-    #
     # This array contains up to six byte elements. Each element
     # indicates the type of ordnance in each tube. If the tube's
     # status is unloaded, the tube is empty, and this field should be
