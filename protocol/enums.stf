@@ -44,6 +44,7 @@ enum CommStationMessage
     BuildNukes     = 0x03
     BuildMines     = 0x04
     BuildEmps      = 0x05
+    BuildPshocks   = 0x06
 
 enum CommShipMessage
     ReportStatus         = 0x00
