@@ -199,6 +199,7 @@ packet ServerPacket
         # The ID of the object destroyed.
         object_id: u32
 
+    # Informs the client of incoming audio messages (used in custom scenarios).
     IncomingAudio
         # The ID for this audio message.
         audio_id: i32
@@ -212,13 +213,19 @@ packet ServerPacket
         audio_mode: enum<u32, AudioMode>
 
         # Title of the incoming message. This should be displayed to the COMMs
-        # officer.
+        # officer. (incoming mode only)
         title: option<string>
 
-        # The filename for the audio clip. The client doesn't need to do
-        # anything with this string; as the audio is played by the server.
+        # The filename for the audio clip. The client doesn't need to
+        # do anything with this string; as the audio is played by the
+        # server. (incoming mode only)
         file: option<string>
 
+    # Contains intel about another ship. Intel on allied ships (and
+    # biomechs, for some reason) is sent right away. Intel for enemy
+    # ships is sent after undergoing a level 2 scan. Theoretically,
+    # the intel should only need to be sent once, but the game
+    # re-transmits known intel periodically.
     Intel
         # The ID of the ship to which this intel pertains.
         object_id: u32
