@@ -234,6 +234,7 @@ packet ServerPacket
 
     JumpStatusEnd
 
+    # Sent to all consoles when key capture is enabled or disabled for any console.
     KeyCaptureToggle
         # Whether this console should capture keystrokes or not. Note that
         # because this packet is sent to all consoles when the capture status

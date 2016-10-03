@@ -212,6 +212,13 @@ packet ClientPacket
 
     HelmToggleReverse
 
+    # Informs the server that the player at this console pressed a
+    # particular key. This is used for custom mission scripts to allow
+    # keystrokes to trigger events. This packet should only be sent
+    # when keystroke capture is enabled for the console in question.
+    # Keystroke capture is always enabled for the game master console;
+    # other consoles require the script to activate keystroke capture
+    # first.
     Keystroke
         # The code identifying the key that was pressed. Microsoft has a good
         # reference page that documents the key codes. Many languages have
