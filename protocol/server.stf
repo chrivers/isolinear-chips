@@ -297,6 +297,8 @@ packet ServerPacket
         ## version_patch: u32,
         version: sizedarray<u32, 3>
 
+    # Indicates a successful connection to the Artemis server. This is
+    # the first packet sent upon connection.
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in
         # plain ASCII, so each character is one byte, not two. Also, the given
