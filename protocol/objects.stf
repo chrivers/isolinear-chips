@@ -707,48 +707,31 @@ object WeaponsConsole(4)
 # This type became obsolete starting v2.1.5, when whales were folded
 # into the new creature object type.
 object Whale(2)
-    # Name (bit 1.1, string)
-    #
     # Always “WHALE” in non-custom missions.
     name: string
 
-    # Unknown (bit 1.2, int)
     __unknown_1: u32
-
-    # Unknown (bit 1.3, int)
     __unknown_2: u32
 
-    # X coordinate (bit 1.4, float)
     x_coordinate: f32
-
-    # Y coordinate (bit 1.5, float)
     y_coordinate: f32
-
-    # Z coordinate (bit 1.6, float)
     z_coordinate: f32
 
-    # Pitch (bit 1.7, float)
     pitch: f32
 
-    # Roll (bit 1.8, float)
     roll: f32
 
-    # Heading (bit 2.1, float)
     heading: f32
 
-    # Unknown (bit 2.2, float)
     __unknown_3: f32
 
-    # Unknown (bit 2.3, float)
     # Values range from 0.0 to 1.0.
     __unknown_4: f32
 
-    # Unknown (bit 2.4, float)
     # Values range up to 1.0. Lowest value seen so far is
     # approximately 0.855, minimum might be 0.0.
     __unknown_5: f32
 
-    # Unknown (bit 2.5, float)
     # Observed ranges have been from about 0.5 to 1.36.
     __unknown_6: f32
 
