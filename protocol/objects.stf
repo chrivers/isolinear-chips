@@ -317,97 +317,70 @@ object NpcShip(6)
 
 # 5 bytes before v2.3.0
 object PlayerShip(6)
-    # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
     __unknown_1: u32
 
-    # Impulse (bit 1.2, float)
-    #
     # Current impulse power for this ship. Values range from 0.0
     # (all stop) to 1.0 (full speed) inclusive.
     impulse: f32
 
-    # Rudder (bit 1.3, float)
-    #
     # Values range from 0.0 to 1.0 inclusive, with 0.0 meaning hard
     # to port (left), 0.5 meaning rudder amidships (straight), and
     # 1.0 meaning hard to starboard (right).
     rudder: f32
 
-    # Top speed (bit 1.4, float)
     top_speed: f32
 
-    # Turn rate (bit 1.5, float)
     turn_rate: f32
 
-    # Auto beams (bit 1.6, boolean, 1 byte)
     auto_beams: bool8
 
-    # Warp factor (bit 1.7, byte)
     warp_factory: u8
 
-    # Energy reserves (bit 1.8, float)
     energy: f32
 
-    # Shields up/down (bit 2.1, boolean, 2 bytes)
     shields_up: bool16
 
-    # Ship number (bit 2.2, int)
     ship_number: u32
 
-    # Ship type? (bit 2.3, int)
     ship_type: u32
 
-    # X coordinate (bit 2.4, float)
     # The ship's location on the X axis.
     x_coordinate: f32
 
-    # Y coordinate (bit 2.5, float)
     # The ship's location on the Y axis.
     y_coordinate: f32
 
-    # Z coordinate (bit 2.6, float)
     # The ship's location on the Z axis.
     z_coordinate: f32
 
-    # Pitch (bit 2.7, float)
-    #
     # (values still uncertain) Values range from -1.0 to 1.0
     # inclusive, where -1.0 means the port (left) side points
     # straight “up” and 1.0 means it points straight “down.”
     pitch: f32
 
-    # Roll (bit 2.8, float)
-    #
     # (values still uncertain) Values range from -1.0 to 1.0
     # inclusive, where -1.0 means straight “up” and 1.0 means
     # straight “down.”
     roll: f32
 
-    # Heading (bit 3.1, float)
-    #
     # A value from pi to negative pi. A value of pi corresponds to a
     # heading of 0° (or “north”). The ship turns to port (left) as
     # the value decreases. A value of 0.0 corresponds to a heading
     # of 180° (or “south”).
     heading: f32
 
-    # Velocity (bit 3.2, float)
-    #
+    # FIXME: copy pasta
     # A value from pi to negative pi. A value of pi corresponds to a
     # heading of 0° (or “north”). The ship turns to port (left) as
     # the value decreases. A value of 0.0 corresponds to a heading
     # of 180° (or “south”).
     velocity: f32
 
-    # Unknown (bit 3.3, short)
     __unknown_2: u16
 
-    # Ship name (bit 3.4, string)
     ship_name: string
 
-    # Front shields (bit 3.5, float)
-    #
     # Current strength of forward shield. A value greater than 0.0
     # indicates that this shield is up, while a value of 0.0 or less
     # means it's down. If enemy fire penetrates the shield, this
@@ -415,12 +388,9 @@ object PlayerShip(6)
     # shield recovers.
     front_shields: f32
 
-    # Forward shields max (bit 3.6, float)
     # The maximum strength of the forward shield.
     front_shields_max: f32
 
-    # Rear shields (bit 3.7, float)
-    #
     # Current strength of rear shield. A value greater than 0.0
     # indicates that this shield is up, while a value of 0.0 or less
     # means it's down. If enemy fire penetrates the shield, this
@@ -428,12 +398,9 @@ object PlayerShip(6)
     # shield recovers.
     rear_shields: f32
 
-    # Rear shields max (bit 3.8, float)
     # The maximum strength of the aft shield.
     rear_shields_max: f32
 
-    # Last docked base (bit 4.1, int)
-    #
     # The ID of the base that most recently initiated docking with
     # the ship. This field updates when a base's tractor beam
     # latches onto the ship. Undocking does not change this field;
@@ -441,72 +408,57 @@ object PlayerShip(6)
     # warp factor (bit 1.7) fields to go above zero.
     last_docked_base: u32
 
-    # Alert status (bit 4.2, byte, enumeration)
     alert_status: enum<u8, AlertStatus>
 
-    # Unknown (bit 4.3, float)
     __unknown_3: f32
 
-    # Main screen view (bit 4.4, byte, enumeration)
     # The view currently displayed on the ship's main screen.
     main_screen_view: enum<u8, MainScreenView>
 
-    # Beam frequency (bit 4.5, byte, enumeration)
     # The frequency to which the beams are currently tuned.
     beam_frequency: enum<u8, BeamFrequency>
 
-    # Available coolant or missiles (bit 4.6, byte)
     # The total amount of coolant if a capital ship, or the number of missiles if a fighter.
     available_coolant: u8
 
-    # Science target (bit 4.7, int)
     # The ID of the object selected by the science officer, or 1 if the selection was cleared.
     science_target: u32
 
-    # Captain target (bit 4.8, int)
     # The ID of the object selected by the captain, or 1 if the selection was cleared.
     captain_target: u32
 
-    # Drive type (bit 5.1, byte, enumeration)
     # The type of drive system the ship has.
     drive_type: u8
 
-    # Scanning ID (bit 5.2, int)
     # The ID of the object currently being scanned by the science officer.
     science_scan_id: u32
 
-    # Scanning progress (bit 5.3, float)
     # A value from 0.0 to 1.0 inclusive indicating the current progress of the active science scan.
     science_scan_progress: f32
 
-    # Reverse (bit 5.4, boolean, 1 byte)
     # True if the impulse drive is in reverse; false otherwise.
     reverse: bool8
 
-    # Unknown (bit 5.5, float)
     # Usually 0.0, though -1.0 has been observed.
     __unknown_4: f32
 
-    # Unknown (bit 5.6, byte)
     # 0x02 has been observed.
     __unknown_5: u8
 
-    # Unknown (bit 5.7, 4 bytes)
     __unknown_6: u32
 
-    # Unknown (bit 5.8, byte, new as of v2.3.0)
     # 0 has been observed.
     __unknown_7: u8
 
-    # Capital ship object ID (bit 6.1, int, new as of v2.3.0)
     # The object ID of the associated capital ship, if this ship is a fighter.
+    # new as of v2.3.0
     capital_ship_id: u32
 
-    # Accent Color (bit 6.2, int, new as of v2.4.0)
     # The accent hue of the ship.
+    # new as of v2.4.0
     accent_hue: f32
 
-    # Unknown (bit 6.3, 4 bytes, new as of v2.4.0)
+    # new as of v2.4.0
     __unknown_8: u32
 
 # New as of v2.1.5. Indicates how many of each upgrade the player ship
