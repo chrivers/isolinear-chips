@@ -260,6 +260,12 @@ packet ServerPacket
         __unknown_1: u32
         __unknown_2: f32
 
+    # Sent to change the displayed skybox image on the client. The
+    # server will send this packet at the start of a mission. The
+    # server will also send it any time a custom script instructs it
+    # to do so, but instead of sending the skybox index specified by
+    # the script, it will always send <code>0x0a</code> instead. This
+    # may be a bug in the Artemis server.
     Skybox
         # The number of the skybox image to load on the client. Under the
         # Artemis install directory is an "art" folder; this folder contains a
@@ -271,9 +277,10 @@ packet ServerPacket
         # corresponding folder is created and contains the appropriate files.
         skybox_id: i32
 
+    # Causes the client to play a sound effect file.
     SoundEffect
-        # Path to the file to play the sound effect from, e.g "dat/enemy-
-        # explode.wav".
+        # Path to the file to play the sound effect from, e.g
+        # "dat/enemy-explode.wav".
         filename: string
 
     # Gives the server version number. This packet is sent immediately

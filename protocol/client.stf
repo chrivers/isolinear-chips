@@ -222,18 +222,25 @@ packet ClientPacket
 
     Ready2
 
+    # Starts a science scan.
     SciScan
         # The object ID for the target to be scanned.
         target_id: i32
 
+    # Notifies the server that a new target has been selected on the science map.
     SciSelect
         # The object ID for the new target, or 1 if the target has been cleared.
         target_id: i32
 
+    # Sets the beam frequency.
     SetBeamFreq
         # The new beam frequency.
         beam_frequency: enum<u32, BeamFrequency>
 
+    # Sets whether or not this client will use a particular console. A
+    # single client may use multiple consoles, and some consoles allow
+    # multiple clients to use them. Clients should send SetShipPacket
+    # before sending this one.
     SetConsole
         # The console whose status is being updated.
         console_type: enum<u32, ConsoleType>
@@ -241,20 +248,25 @@ packet ClientPacket
         # True if this client is using the indicated console, false otherwise.
         selected: bool32
 
+    # Sets the view to display on the main screen.
     SetMainScreen
         # The view to display on the main screen.
         main_screen_view: enum<u32, MainScreenView>
 
+    # Sets which ship the client will be on. This should be sent before SetConsolePacket.
     SetShip
         # The index of the desired ship; valid values are 0 through 7 inclusive.
         ship_index: i32
 
+    # Sets the name, ship type and drive type for the currently-selected ship. (version 2.1.0 up to 2.3.0)
     SetShipSettingsV211
         ship: struct<ShipV211>
 
+    # Sets the name, ship type and drive type for the currently-selected ship. (version 2.4.0+)
     SetShipSettingsV240
         ship: struct<Ship>
 
+    # Notifies the server that a new target has been selected on the weapons console.
     SetWeaponsTarget
         # The object ID for the new target, or 1 if the target has been cleared.
         target_id: i32
