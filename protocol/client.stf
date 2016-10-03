@@ -173,6 +173,9 @@ packet ClientPacket
         # ID of the selected object.
         target_id: i32
 
+    # Initiates a jump. Note that the stock client molly-guards jumps,
+    # asking for confirmation from helm. This packet isn't sent until
+    # helm confirms the jump.
     HelmJump
         # The direction to jump, expressed as a value between 0.0 and 1.0
         # inclusive. To compute this value, take the desired bearing in degrees
@@ -184,20 +187,29 @@ packet ClientPacket
         # divide by 50 (the maximum jump distance).
         distance: f32
 
+    # Request docking with the nearest station, or, in the case of a fighter, with its mothership.
     HelmRequestDock
+        # Always 0x00.
         __unknown_1: u32
 
+    # Sets the throttle for impulse engines.
     HelmSetImpulse
         # Any value between 0.0 and 1.0 inclusive, where 0.0 is no throttle and
         # 1.0 is full throttle. Actual velocity will depend on the ship's
         # maximum velocity and the power allocated to impulse by engineering.
         throttle: f32
 
+    # Sets the desired pitch for the player ship. This differs from
+    # ClimbDivePacket in that it sets a precise pitch value for the
+    # ship instead of just indicating a direction to change pitch. The
+    # circumstances in which one type of packet might be sent versus
+    # the other are not fully understood at this time.
     HelmSetPitch
         # Any value between -1.0 and 1.0 inclusive, where 0.0 is level, -1.0 is
         # a hard climb, and 1.0 is a hard dive.
         pitch: f32
 
+    # Sets the position of the ship's "rudder", controlling its turn rate.
     HelmSetSteering
         # Any value between 0.0 and 1.0 inclusive, where 0.0 is hard to port
         # (left), 0.5 is rudder amidships (straight), and 1.0 is a hard to
@@ -205,12 +217,17 @@ packet ClientPacket
         # turn rate and the power allocated to maneuvering by engineering.
         rudder: f32
 
+    # Sets the ship's warp factor. Actual velocity will depend on the
+    # power allocated to warp by engineering.
     HelmSetWarp
         # The desired warp factor, from 0 to 4 inclusive. Warp 0 means to drop
         # out of warp and move on impulse only.
         warp_factor: i32
 
+    # Toggles the impulse engines between forward and reverse drive.
     HelmToggleReverse
+        # Always 0x00.
+        __unused_1: u32
 
     # Informs the server that the player at this console pressed a
     # particular key. This is used for custom mission scripts to allow
