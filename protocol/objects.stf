@@ -738,110 +738,16 @@ object Whale(2)
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-object Asteroid(1)
-    # X coordinate (bit 1.1, float)
-    # The object's location on the X axis.
+object Other(1)
     x_coordinate: f32
-
-    # Y coordinate (bit 1.2, float)
-    # The object's location on the Y axis.
     y_coordinate: f32
-
-    # Z coordinate (bit 1.3, float)
-    # The object's location on the Z axis.
     z_coordinate: f32
 
-    # Name (bit 1.4, string)
-    # The object's name. In standard missions, this property is
-    # never used, but there may be named asteroids, black holes or
-    # mines in custom missions.
+    # The object's name. In standard missions, this property is never
+    # used, but there may be named objects in custom missions.
     name: string
 
-    ## Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
-
-    # Unknown (bit 1.5, float)
     __unknown_2: f32
-
-    # Unknown (bit 1.6, float)
     __unknown_3: f32
-
-    # Unknown (bit 1.7, int)
     __unknown_4: u32
-
-    # Unknown (bit 1.8, int)
-    __unknown_5: u32
-
-# The remaining object types (asteroids, black holes and mines)
-# all use the same properties. Prior to v2.1.5, anomalies and
-# space monsters also used this structure.
-object Blackhole(1)
-    # X coordinate (bit 1.1, float)
-    # The object's location on the X axis.
-    x_coordinate: f32
-
-    # Y coordinate (bit 1.2, float)
-    # The object's location on the Y axis.
-    y_coordinate: f32
-
-    # Z coordinate (bit 1.3, float)
-    # The object's location on the Z axis.
-    z_coordinate: f32
-
-    # Name (bit 1.4, string)
-    # The object's name. In standard missions, this property is
-    # never used, but there may be named asteroids, black holes or
-    # mines in custom missions.
-    name: string
-
-    ## Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
-
-    # Unknown (bit 1.5, float)
-    __unknown_2: f32
-
-    # Unknown (bit 1.6, float)
-    __unknown_3: f32
-
-    # Unknown (bit 1.7, int)
-    __unknown_4: u32
-
-    # Unknown (bit 1.8, int)
-    __unknown_5: u32
-
-# The remaining object types (asteroids, black holes and mines)
-# all use the same properties. Prior to v2.1.5, anomalies and
-# space monsters also used this structure.
-object Mine(1)
-    # X coordinate (bit 1.1, float)
-    # The object's location on the X axis.
-    x_coordinate: f32
-
-    # Y coordinate (bit 1.2, float)
-    # The object's location on the Y axis.
-    y_coordinate: f32
-
-    # Z coordinate (bit 1.3, float)
-    # The object's location on the Z axis.
-    z_coordinate: f32
-
-    # Name (bit 1.4, string)
-    # The object's name. In standard missions, this property is
-    # never used, but there may be named asteroids, black holes or
-    # mines in custom missions.
-    name: string
-
-    ##  Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
-
-    # Unknown (bit 1.5, float)
-    __unknown_2: f32
-
-    # Unknown (bit 1.6, float)
-    __unknown_3: f32
-
-    # Unknown (bit 1.7, int)
-    __unknown_4: u32
-
-    # Unknown (bit 1.8, int)
     __unknown_5: u32
