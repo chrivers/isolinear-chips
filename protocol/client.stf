@@ -259,13 +259,25 @@ packet ClientPacket
         # The object ID for the new target, or 1 if the target has been cleared.
         target_id: i32
 
+    # Informs the server that the auto beams setting has been toggled.
     ToggleAutoBeams
+        # Always 0.
+        __unused: u32
 
+    # Toggles between first- and third-person perspective on the main screen.
     TogglePerspective
+        # Always 0.
+        __unused: u32
 
+    # Toggles the ship's red alert status.
     ToggleRedAlert
+        # Always 0.
+        __unused: u32
 
+    # Toggles the shields up or down.
     ToggleShields
+        # Always 0.
+        __unused: u32
 
     # Removes whatever ordnance is loaded in a tube.
     UnloadTube
