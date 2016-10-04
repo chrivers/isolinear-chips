@@ -30,6 +30,11 @@ packet ClientPacket
         # The object ID for the new target, or 1 if the target has been cleared.
         target_id: i32
 
+    # Causes the ship to climb or dive. This differs from
+    # HelmSetPitchPacket in that it indicates a direction in which to
+    # change the ship's current pitch, rather than setting a precise
+    # pitch value. The circumstances in which one type of packet might
+    # be sent versus the other are not fully understood at this time.
     ClimbDive
         # Indicates the change in the ship's direction: 0x00000001 (1) for down,
         # 0xffffffff (-1) for up. For example, if the ship is diving when the
