@@ -1,135 +1,154 @@
 enum FrameType
-    valueFloat        = 0x0351a5ac
-    shipSystemSync    = 0x077e9f3c
-    clientConsoles    = 0x19c6e2d4
-    gmButton          = 0x26faacb9
-    startGame         = 0x3de66711
-    valueInt          = 0x4c821d3c
-    commsMessage      = 0x574c4c4b
-    valueFourInts     = 0x69cc01d9
-    controlMessage    = 0x6aadc57f
-    plainTextGreeting = 0x6d04b3da
-    objectBitStream   = 0x80803df9
-    gmText            = 0x809305a7
-    carrierRecord     = 0x9ad1f23b
-    incomingMessage   = 0xae88e058
-    attack            = 0xb83fd2c4
-    beamRequest       = 0xc2bee72e
-    objectDelete      = 0xcc5a3e30
-    commText          = 0xd672c35f
-    connected         = 0xe548e74a
-    objectText        = 0xee665279
-    heartbeat         = 0xf5821226
-    simpleEvent       = 0xf754c8fe
+    valueFloat:         0x0351a5ac
+    shipSystemSync:     0x077e9f3c
+    clientConsoles:     0x19c6e2d4
+    gmButton:           0x26faacb9
+    startGame:          0x3de66711
+    valueInt:           0x4c821d3c
+    commsMessage:       0x574c4c4b
+    valueFourInts:      0x69cc01d9
+    controlMessage:     0x6aadc57f
+    plainTextGreeting:  0x6d04b3da
+    objectBitStream:    0x80803df9
+    gmText:             0x809305a7
+    carrierRecord:      0x9ad1f23b
+    incomingMessage:    0xae88e058
+    attack:             0xb83fd2c4
+    beamRequest:        0xc2bee72e
+    objectDelete:       0xcc5a3e30
+    commText:           0xd672c35f
+    connected:          0xe548e74a
+    objectText:         0xee665279
+    heartbeat:          0xf5821226
+    simpleEvent:        0xf754c8fe
 
-parser ServerParser(u32)
-    shipSystemSync:    struct<ServerPacket::EngGridUpdate>
-    clientConsoles:    struct<ServerPacket::ConsoleStatus>
-    gmButton:          parser<GameMasterButton>
-    startGame:         struct<ServerPacket::Difficulty>
-    plainTextGreeting: struct<ServerPacket::Welcome>
-    objectBitStream:   struct<ServerPacket::ObjectUpdate>
-    carrierRecord:     struct<ServerPacket::FighterBayStatus>
-    incomingMessage:   struct<ServerPacket::IncomingAudio>
-    attack:            struct<ServerPacket::BeamFired>
-    objectDelete:      struct<ServerPacket::DestroyObject>
-    commText:          struct<ServerPacket::CommsIncoming>
-    connected:         struct<ServerPacket::Version>
-    objectText:        struct<ServerPacket::Intel>
-    heartbeat:         struct<ServerPacket::Heartbeat>
-    simpleEvent:       parser<SimpleEvent>
+enum ObjectType
+    END_MARKER:          0x00
+    PlayerShip:          0x01
+    WeaponsConsole:      0x02
+    EngineeringConsole:  0x03
+    PlayerShipUpgrades:  0x04
+    NpcShip:             0x05
+    Base:                0x06
+    Mine:                0x07
+    Anomaly:             0x08
+    ## Unused:           0x09
+    Nebula:              0x0a
+    Torpedo:             0x0b
+    Blackhole:           0x0c
+    Asteroid:            0x0d
+    GenericMesh:         0x0e
+    Creature:            0x0f
+    Drone:               0x10
 
-parser GameMasterButton(u8)
-    0x00: struct<ServerPacket::GameMasterButtonDestroy>
-    0x01: struct<ServerPacket::GameMasterButtonCreate>
-    0x02: struct<ServerPacket::GameMasterButtonCreatePlace>
-    0x63: struct<ServerPacket::GameMasterOverview>
-    0x64: struct<ServerPacket::GameMasterButtonReset>
+parser ServerParser(read=u32)
+    FrameType::shipSystemSync:    server::EngGridUpdate
+    FrameType::clientConsoles:    server::ConsoleStatus
+    FrameType::gmButton:          parser::GameMasterButton
+    FrameType::startGame:         server::Difficulty
+    FrameType::plainTextGreeting: server::Welcome
+    FrameType::objectBitStream:   server::ObjectUpdate
+    FrameType::carrierRecord:     server::FighterBayStatus
+    FrameType::incomingMessage:   server::IncomingAudio
+    FrameType::attack:            server::BeamFired
+    FrameType::objectDelete:      server::DestroyObject
+    FrameType::commText:          server::CommsIncoming
+    FrameType::connected:         server::Version
+    FrameType::objectText:        server::Intel
+    FrameType::heartbeat:         server::Heartbeat
+    FrameType::simpleEvent:       parser::SimpleEvent
 
-parser SimpleEvent(u32)
-    0x00: struct<ServerPacket::DestroyObject2>
+parser GameMasterButton(read=u8)
+    0x00: server::GameMasterButtonDestroy
+    0x01: server::GameMasterButtonCreate
+    0x02: server::GameMasterButtonCreatePlace
+    0x63: server::GameMasterOverview
+    0x64: server::GameMasterButtonReset
+
+parser SimpleEvent(read=u32)
+    0x00: server::DestroyObject2
 ##  0x01: ...
 ##  0x02: ...
-    0x03: struct<ServerPacket::SoundEffect>
-    0x04: struct<ServerPacket::Pause>
-    0x05: struct<ServerPacket::PlayerShipDamage>
-    0x06: struct<ServerPacket::GameOver>
-    0x07: struct<ServerPacket::__unknown_1>
-    0x08: struct<ServerPacket::__unknown_2>
-    0x09: struct<ServerPacket::Skybox>
-    0x0a: struct<ServerPacket::GameMessage>
-    0x0b: struct<ServerPacket::EngAutoDamconUpdate>
-    0x0c: struct<ServerPacket::JumpStatusBegin>
-    0x0d: struct<ServerPacket::JumpStatusEnd>
+    0x03: server::SoundEffect
+    0x04: server::Pause
+    0x05: server::PlayerShipDamage
+    0x06: server::GameOver
+    0x07: server::__unknown_1
+    0x08: server::__unknown_2
+    0x09: server::Skybox
+    0x0a: server::GameMessage
+    0x0b: server::EngAutoDamconUpdate
+    0x0c: server::JumpStatusBegin
+    0x0d: server::JumpStatusEnd
 ##  0x0e: ...
-    0x0f: struct<ServerPacket::AllShipSettings>
-    0x10: struct<ServerPacket::DmxMessage>
-    0x11: struct<ServerPacket::KeyCaptureToggle>
-    0x12: struct<ServerPacket::Perspective>
-    0x13: struct<ServerPacket::__unknown_3>
-    0x14: struct<ServerPacket::GameOverReason>
-    0x15: struct<ServerPacket::GameOverStats>
+    0x0f: server::AllShipSettings
+    0x10: server::DmxMessage
+    0x11: server::KeyCaptureToggle
+    0x12: server::Perspective
+    0x13: server::__unknown_3
+    0x14: server::GameOverReason
+    0x15: server::GameOverStats
 ##  0x16: ...
-    0x17: struct<ServerPacket::FighterLaunched>
+    0x17: server::FighterLaunched
 
-parser ClientParser(u32)
-    valueFloat:     parser<ValueFloat>
-    valueInt:       parser<ValueInt>
-    commsMessage:   struct<ClientPacket::CommsOutgoing>
-    valueFourInts:  parser<ValueFourInts>
-    controlMessage: struct<ClientPacket::AudioCommand>
-    gmText:         parser<GameMasterMessage>
-    beamRequest:    struct<ClientPacket::FireBeam>
+parser ClientParser(read=u32)
+    FrameType::valueFloat:     parser::ValueFloat
+    FrameType::valueInt:       parser::ValueInt
+    FrameType::commsMessage:   client::CommsOutgoing
+    FrameType::valueFourInts:  parser::ValueFourInts
+    FrameType::controlMessage: client::AudioCommand
+    FrameType::gmText:         parser::GameMasterMessage
+    FrameType::beamRequest:    client::FireBeam
 
-parser GameMasterMessage(u32)
-    0x01: struct<ClientPacket::GameMasterMessage>
+parser GameMasterMessage(read=u32)
+    0x01: client::GameMasterMessage
 
-parser ValueFloat(u32)
-    0x00: struct<ClientPacket::HelmSetImpulse>
-    0x01: struct<ClientPacket::HelmSetSteering>
-    0x02: struct<ClientPacket::HelmSetPitch>
+parser ValueFloat(read=u32)
+    0x00: client::HelmSetImpulse
+    0x01: client::HelmSetSteering
+    0x02: client::HelmSetPitch
 ##  0x03: ...
-    0x04: struct<ClientPacket::EngSetEnergy>
-    0x05: struct<ClientPacket::HelmJump>
-    0x06: struct<ClientPacket::GameMasterLocation>
-    0x07: struct<ClientPacket::__unknown_4>
+    0x04: client::EngSetEnergy
+    0x05: client::HelmJump
+    0x06: client::GameMasterLocation
+    0x07: client::__unknown_4
 
-parser ValueInt(u32)
-    0x00: struct<ClientPacket::HelmSetWarp>
-    0x01: struct<ClientPacket::SetMainScreen>
-    0x02: struct<ClientPacket::SetWeaponsTarget>
-    0x03: struct<ClientPacket::ToggleAutoBeams>
-    0x04: struct<ClientPacket::ToggleShields>
-    0x05: struct<ClientPacket::__unknown_1>
-    0x06: struct<ClientPacket::__unknown_2>
-    0x07: struct<ClientPacket::HelmRequestDock>
-    0x08: struct<ClientPacket::FireTube>
-    0x09: struct<ClientPacket::UnloadTube>
-    0x0a: struct<ClientPacket::ToggleRedAlert>
-    0x0b: struct<ClientPacket::SetBeamFreq>
-    0x0c: struct<ClientPacket::EngSetAutoDamcon>
-    0x0d: struct<ClientPacket::SetShip>
-    0x0e: struct<ClientPacket::SetConsole>
-    0x0f: struct<ClientPacket::Ready>
-    0x10: struct<ClientPacket::SciSelect>
-    0x11: struct<ClientPacket::CaptainSelect>
-    0x12: struct<ClientPacket::GameMasterObject>
-    0x13: struct<ClientPacket::SciScan>
-    0x14: struct<ClientPacket::Keystroke>
-    0x15: struct<ClientPacket::GameMasterButtonClick>
-    0x16: struct<ClientPacket::SetShipSettingsV211>
-    0x17: struct<ClientPacket::SetShipSettingsV240>
-    0x18: struct<ClientPacket::HelmToggleReverse>
-    0x19: struct<ClientPacket::Ready2>
-    0x1a: struct<ClientPacket::TogglePerspective>
-    0x1b: struct<ClientPacket::ClimbDive>
-    0x1c: struct<ClientPacket::ActivateUpgrade>
-    0x1d: struct<ClientPacket::FighterLaunch>
-    0x1e: struct<ClientPacket::__unknown_3>
+parser ValueInt(read=u32)
+    0x00: client::HelmSetWarp
+    0x01: client::SetMainScreen
+    0x02: client::SetWeaponsTarget
+    0x03: client::ToggleAutoBeams
+    0x04: client::ToggleShields
+    0x05: client::__unknown_1
+    0x06: client::__unknown_2
+    0x07: client::HelmRequestDock
+    0x08: client::FireTube
+    0x09: client::UnloadTube
+    0x0a: client::ToggleRedAlert
+    0x0b: client::SetBeamFreq
+    0x0c: client::EngSetAutoDamcon
+    0x0d: client::SetShip
+    0x0e: client::SetConsole
+    0x0f: client::Ready
+    0x10: client::SciSelect
+    0x11: client::CaptainSelect
+    0x12: client::GameMasterObject
+    0x13: client::SciScan
+    0x14: client::Keystroke
+    0x15: client::GameMasterButtonClick
+    0x16: client::SetShipSettingsV211
+    0x17: client::SetShipSettingsV240
+    0x18: client::HelmToggleReverse
+    0x19: client::Ready2
+    0x1a: client::TogglePerspective
+    0x1b: client::ClimbDive
+    0x1c: client::ActivateUpgrade
+    0x1d: client::FighterLaunch
+    0x1e: client::__unknown_3
 
-parser ValueFourInts(u32)
-    0x00: struct<ClientPacket::EngSetCoolant>
+parser ValueFourInts(read=u32)
+    0x00: client::EngSetCoolant
 ##  0x01: ...
-    0x02: struct<ClientPacket::LoadTube>
-    0x03: struct<ClientPacket::ConvertTorpedo>
-    0x04: struct<ClientPacket::EngSendDamcon>
+    0x02: client::LoadTube
+    0x03: client::ConvertTorpedo
+    0x04: client::EngSendDamcon

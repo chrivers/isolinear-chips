@@ -1,6 +1,6 @@
 struct Ship
     # Whether the ship has warp or jump drive
-    drive_type: enum<u32, DriveType>
+    drive_type: enums::DriveType<u32>
 
     # ID from vesselData.xml
     ship_type: u32
@@ -14,7 +14,7 @@ struct Ship
 
 struct ShipV211
     # The desired drive type.
-    drive_type: enum<u32, DriveType>
+    drive_type: enums::DriveType<u32>
 
     # The ID of the desired type of vessel, as given in vesselData.xml.
     vessel_id: i32
@@ -108,7 +108,7 @@ struct Update
     # array will be of the same type. If you get 0x00 for this field, there
     # are no more objects in the array. Prior to v2.1.5, this property was
     # transmitted as an int rather than a byte.
-    object_type: enum<u8, ObjectType>
+    object_type: enums::ObjectType<u8>
 
     # A unique identifier assigned to this object.
     object_id: u32
@@ -120,9 +120,4 @@ struct Update
     # single property; if a bit is set to 1, that property is included. The
     # length of the bit field depends the number of properties the object
     # has.
-    payload: object
-    # bit_field: <error: variable-length>
-
-    # The rest of the entry consists of the updated values for the
-    # properties indicated in the bit field.
-    # properties: <error: variable-length>
+    payload: update::ObjectUpdate

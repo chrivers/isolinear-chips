@@ -4,7 +4,7 @@ object Anomaly(1)
     z_coordinate: f32
     # Upgrade (byte 1.4, enum, int)
     # Note that only the values 0x00 through 0x07 have been observed, as the built-in mission types do not put other upgrade types in anomaly pickups.
-    upgrade: enum<u32, Upgrade>
+    upgrade: enums::Upgrade<u32>
     __unknown_1: u32
     __unknown_2: u32
     __unknown_3: u32
@@ -112,7 +112,7 @@ object Creature(3)
     # Creature type (bit 1.8, enum)
     # The type of creature.
     # FIXME: size?
-    creature_type_id: enum<u32, CreatureType>
+    creature_type_id: enums::CreatureType<u32>
 
     # Unknown (bit 2.1, 4 bytes)
     __unknown_1: u32
@@ -410,13 +410,13 @@ object NpcShip(6)
     # attribute, as specified in vesselData.xml. Other ships should
     # ignore this value even if it is present, as they cannot have
     # elite abilities.
-    elite_abilities: bitflags<u32, EliteAbilities>
+    elite_abilities: enums::EliteAbilities<u32>
 
     # Active elite abilities (bit 3.8, bit field, 4 bytes)
     # The elite abilites posessed by this ship that are currently in
     # use. As with the previous field, this field should be ignored
     # if the ship can't have elite abilities, even if it is present.
-    active_elite_abilities: bitflags<u32, EliteAbilities>
+    active_elite_abilities: enums::EliteAbilities<u32>
 
     # Scan level? (bit 4.1, int)
     scan_level: u32
@@ -594,18 +594,18 @@ object PlayerShip(6)
     last_docked_base: u32
 
     # Alert status (bit 4.2, byte, enumeration)
-    alert_status: enum<u8, AlertStatus>
+    alert_status: enums::AlertStatus<u8>
 
     # Unknown (bit 4.3, float)
     __unknown_3: f32
 
     # Main screen view (bit 4.4, byte, enumeration)
     # The view currently displayed on the ship's main screen.
-    main_screen_view: enum<u8, MainScreenView>
+    main_screen_view: enums::MainScreenView<u8>
 
     # Beam frequency (bit 4.5, byte, enumeration)
     # The frequency to which the beams are currently tuned.
-    beam_frequency: enum<u8, BeamFrequency>
+    beam_frequency: enums::BeamFrequency<u8>
 
     # Available coolant or missiles (bit 4.6, byte)
     # The total amount of coolant if a capital ship, or the number of missiles if a fighter.
@@ -908,7 +908,7 @@ object WeaponsConsole(4)
     #
     # This array contains up to six byte elements. Each element
     # indicates the occupation status of each tube.
-    tube_status: sizedarray<enum<u8, TubeStatus>, 6>
+    tube_status: sizedarray<enums::TubeStatus<u8>, 6>
 
     # Ordnance type (bits 3.3-3.8, byte array)
     #
@@ -916,7 +916,7 @@ object WeaponsConsole(4)
     # indicates the type of ordnance in each tube. If the tube's
     # status is unloaded, the tube is empty, and this field should be
     # ignored even when present.
-    ordnance_type: sizedarray<enum<u8, OrdnanceType>, 6>
+    ordnance_type: sizedarray<enums::OrdnanceType<u8>, 6>
 
     ## Unused (bits 4.1-4.8)
 
