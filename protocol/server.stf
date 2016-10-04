@@ -154,10 +154,16 @@ packet ServerPacket
         label: string
 
     GameMasterButtonCreatePlace
+        # Button text
         label: string
+
         width: u32
         height: u32
+
+        # x coordinate from the top left corner
         x: u32
+
+        # y coordinate from the top left corner
         y: u32
 
     GameMasterButtonDestroy
