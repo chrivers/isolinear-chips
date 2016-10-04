@@ -75,6 +75,7 @@ packet ClientPacket
         # Always 0.
         __unused: u32
 
+    # Directs a DAMCON team to go to a particular grid location on the ship.
     EngSendDamcon
         # The number assigned to the team (0 to 2 inclusive).
         team_number: i32
@@ -88,10 +89,12 @@ packet ClientPacket
         # The Z coordinate of the grid location that is the team's destination.
         z_coordinate: i32
 
+    # Notifies the server that DAMCON team autonomy has been togged on/off.
     EngSetAutoDamcon
         # Indicates whether DAMCON team autonomy is on or off.
         autonomous: bool32
 
+    # Sets the amount of coolant to be allocated to a system.
     EngSetCoolant
         # The system whose coolant level is being adjusted.
         ship_system: enum<u32, ShipSystem>
@@ -100,6 +103,13 @@ packet ClientPacket
         # inclusive).
         value: i32
 
+        # padding, because this packet is of type "valueFourInts"
+        __unused_1: u32
+
+        # padding, because this packet is of type "valueFourInts"
+        __unused_2: u32
+
+    # Sets the amount of energy to be allocated to a system.
     EngSetEnergy
         # The amount of energy to allocate to the system. This value can range
         # from 0.0 to 1.0 inclusive, which in the stock UI corresponds to 0% to

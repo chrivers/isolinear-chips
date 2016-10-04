@@ -124,20 +124,25 @@ packet ServerPacket
         # The DMX flag's current state.
         state: bool32
 
+    # Informs the client of changes to DAMCON team autonomy
+    # status. Triggered by the "Autonomous" button in the
+    # engineering console.
     EngAutoDamconUpdate
         # Whether DAMCON teams are directed autonomously or not.
         damcon_autonomy: bool32
 
+    # Updates damage to the various system grids on the ship and
+    # DAMCON team locations and status.
     EngGridUpdate
         # Requested: This field is false on normal engineering
         # update from the server, but will be set to 1 when in
         # response to the RequestEngGridUpdate packet.
         requested: bool8
 
-        # This array contains a list of system nodes, terminated with 0xff.
+        # This array contains information on all system nodes
         system_grid_status: array<struct<SystemNodeStatus>, 0xff>
 
-        # This contains a list of DAMCON teams, terminated with 0xfe.
+        # This array contains information on all DAMCON teams
         damcon_team_status: array<struct<DamconTeamStatus>, 0xfe>
 
     # Updates the client of the current status of the ship's fighter bays.
