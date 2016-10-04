@@ -165,9 +165,14 @@ packet ServerPacket
 
     GameMasterButtonReset
 
-    GameMasterOverview
+    # Sent by the server to the game master console to provide
+    # instructions to be displayed on request.
+    GameMasterInstructions
+        # A title to display above the instructions.
         title: string
-        instructions: string
+
+        # The body content for the help screen.
+        content: string
 
     # Contains a message to be displayed on the screen. The stock client displays the
     # message in a &ldquo;popup&rdquo; box in the lower-right corner.

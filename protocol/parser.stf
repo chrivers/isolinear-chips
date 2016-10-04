@@ -43,7 +43,7 @@ parser GameMasterButton(u8)
     0x00: struct<ServerPacket::GameMasterButtonDestroy>
     0x01: struct<ServerPacket::GameMasterButtonCreate>
     0x02: struct<ServerPacket::GameMasterButtonCreatePlace>
-    0x63: struct<ServerPacket::GameMasterOverview>
+    0x63: struct<ServerPacket::GameMasterInstructions>
     0x64: struct<ServerPacket::GameMasterButtonReset>
 
 parser SimpleEvent(u32)
