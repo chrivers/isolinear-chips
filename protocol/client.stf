@@ -11,12 +11,15 @@ packet ClientPacket
     __unknown_4
         __unknown_1: sizedarray<f32, 10>
 
+    # This packet is sent whenever a client wishes to activate a ship upgrade from the "upgrades" menu.
     ActivateUpgrade
-        # The upgrade to activate. The game is prepared for 28 (30?)
-        # different types of powerups, but only 8 are available as
-        # of Artemis 2.4.
+        # The upgrade to activate. The game supports 28 different
+        # types of powerups, but only 8 are activated abilities. The
+        # others are all passive abilities, that are simple active on
+        # any ship that has them.
         target: enum<u32, UpgradeActivation>
 
+    # Instructs the server to play or dismiss an audio message.
     AudioCommand
         # The ID for the audio message. This is given by the
         # IncomingAudioPacket.

@@ -1,7 +1,8 @@
 packet ServerPacket
+
+    # Provides the list of available player ships.
     AllShipSettings
-        # A list of the eight available player ships. Each ship is structured as
-        # follows:
+        # A list of the eight available player ships.
         ships: sizedarray<struct<Ship>, 8>
 
     # Notifies the client that a beam weapon has been fired.
