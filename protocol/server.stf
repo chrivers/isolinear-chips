@@ -53,6 +53,8 @@ packet ServerPacket
         __unknown_2: u32
         __unknown_3: u32
 
+    # Contains a single incoming text message to display at the COMMS
+    # station.
     CommsIncoming
         # Indicates the channel on which the message was received. Values range
         # from 0x00 to 0x08. In the stock client, this affects the message's
@@ -85,6 +87,8 @@ packet ServerPacket
         # message indicates a line break.
         message: string
 
+    # Indicates that a change has occurred in the availability status
+    # of one or more bridge consoles.
     ConsoleStatus
         # The number of the ship whose consoles are being described. Before
         # v2.3.0, this value was one-based, so by default the ship identified by

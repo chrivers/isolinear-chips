@@ -25,6 +25,7 @@ packet ClientPacket
         # The desired action to perform.
         audio_command: enum<u32, AudioCommand>
 
+    # Notifies the server that a new target has been selected on the captain's map.
     CaptainSelect
         # The object ID for the new target, or 1 if the target has been cleared.
         target_id: i32
@@ -36,6 +37,7 @@ packet ClientPacket
         # up command is received, the ship will start climbing.
         direction: i32
 
+    # Sends a COMMs message to the server.
     CommsOutgoing
         # The type of target for the message.
         comm_target_type: i32
@@ -60,12 +62,22 @@ packet ClientPacket
         # unknown why.
         __unknown1: u32
 
+    # Converts a homing torpedo to energy or vice versa.
     ConvertTorpedo
         # Indicates whether we are converting a torpedo to energy (0.0,
         # 0x00000000) or energy to a torpedo (1.0, 0x3f800000). Why this is
         # expressed as a float when a byte seems like it would be more
         # appropriate is unknown.
         direction: f32
+
+        # padding, because this packet is of type "valueFourInts"
+        __unused_1: u32
+
+        # padding, because this packet is of type "valueFourInts"
+        __unused_2: u32
+
+        # padding, because this packet is of type "valueFourInts"
+        __unused_3: u32
 
     # Sent from the engineering station, to request a full
     # update for all values. This causes the server to send
