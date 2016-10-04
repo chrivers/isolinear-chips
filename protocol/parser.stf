@@ -48,7 +48,7 @@ parser GameMasterButton(u8)
 
 parser SimpleEvent(u32)
     0x00: struct<ServerPacket::DestroyObject2>
-##  0x01: ...
+    0x01: struct<ServerPacket::__unknown_4>
 ##  0x02: ...
     0x03: struct<ServerPacket::SoundEffect>
     0x04: struct<ServerPacket::Pause>

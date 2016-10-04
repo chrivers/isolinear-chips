@@ -425,3 +425,7 @@ packet ServerPacket
         # mixture of torpedos and mines, destroyed in the very next
         # packet.
         object_id: u32
+
+    # This packet type has been confirmed to exist. Every example so
+    # far has an empty payload.
+    __unknown_4
