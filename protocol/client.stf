@@ -110,10 +110,14 @@ packet ClientPacket
         # The system whose coolant level is being adjusted.
         ship_system: enum<u32, ShipSystem>
 
+    # Notifies the server that a fighter is being launched. The server
+    # will send back a FighterLaunchedPacket in response.
     FighterLaunch
         # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
 
+    # Notifies the server that the weapons officer wants to manually
+    # fire beam weapons.
     FireBeam
         # The ID of the ship or entity at which to fire.
         target_object_id: u32
@@ -130,6 +134,8 @@ packet ClientPacket
         # target ship.
         z_coordinate: f32
 
+    # Notifies the server that the weapons officer wants to fire
+    # whatever's loaded in a certain tube.
     FireTube
         # The index number of the tube to fire.
         tube_index: u32

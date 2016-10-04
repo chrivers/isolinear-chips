@@ -140,12 +140,14 @@ packet ServerPacket
         # This contains a list of DAMCON teams, terminated with 0xfe.
         damcon_team_status: array<struct<DamconTeamStatus>, 0xfe>
 
+    # Updates the client of the current status of the ship's fighter bays.
     FighterBayStatus
         # The payload consists of an array of structs, each one
         # describing a single fighter, and terminated with
         # 0x00000000.
         status: array<struct<FighterBay>, 0x00000000>
 
+    # Notifies the client that a fighter was just launched.
     FighterLaunched
         # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
