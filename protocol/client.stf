@@ -2,7 +2,11 @@ packet ClientPacket
     __unknown_1
         __unknown_1: u32
 
+    # This packet type has been observed, and is known to exist, but
+    # its function is as of yet completely unknown. All examples so
+    # far have seen was sent from Helm to Server.
     __unknown_2
+        # So far, only 0x00000000 has been observed.
         __unknown_1: u32
 
     __unknown_3
