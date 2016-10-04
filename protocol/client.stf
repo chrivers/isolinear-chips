@@ -134,23 +134,30 @@ packet ClientPacket
         # The index number of the tube to fire.
         tube_index: u32
 
+    # New as of v2.4.0. Sent by the client when the game master clicks
+    # on a button created by GameMasterButtonPacket.
     GameMasterButtonClick
+        # Appears to always be 0x0d.
         __unknown_1: u32
+
+        # The JamCRC32 hash value of the button title. This is also
+        # used as an identifier for the button
         hash: u32
 
+    # Notifies the server that a new target has been selected on the
+    # game master's map.
     GameMasterLocation
-        # Z-coordinate (float)
         # The coordinate of the selected location on the Z axis.
         z_coordinate: f32
 
-        # Unknown (4 bytes)
         # Seems to always be `0x00000000`.
         y_coordinate: f32
 
-        # X-coordinate (float)
         # The coordinate of the selected location on the X axis.
         x_coordinate: f32
 
+    # New as of v2.4.0. A packet sent by the game master console to the server which
+    # causes a message to be displayed on a client.
     GameMasterMessage
         # FIXME: perhaps ship_index?
         __unknown_1: u32

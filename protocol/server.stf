@@ -163,22 +163,28 @@ packet ServerPacket
     GameMasterButtonDestroy
         label: string
 
+    GameMasterButtonReset
+
     GameMasterOverview
         title: string
         instructions: string
 
-    GameMasterButtonReset
-
+    # Contains a message to be displayed on the screen. The stock client displays the
+    # message in a &ldquo;popup&rdquo; box in the lower-right corner.
     GameMessage
         # The message to display.
         message: string
 
+    # Informs the client that the game is over. Transmitted when the
+    # "End Game" button on the statistics page is clicked.
     GameOver
 
+    # Provides the reason why the game ended.
     GameOverReason
         # Text describing why the game ended. Each string is one line.
         reason: array<string>
 
+    # Provides endgame statistics.
     GameOverStats
         # Stats are presented in vertical columns; each packet contains one
         # column of stats data. This fields is the index for this column of
