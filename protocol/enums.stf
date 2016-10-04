@@ -100,6 +100,7 @@ enum ConsoleType
 ##     CaptainsMap    = 0x08
 ##     GameMaster     = 0x09
 
+# New as of v2.1.5.
 enum CreatureType
     ClassicMonster = 0x00
     Whale          = 0x01
