@@ -101,6 +101,7 @@ packet ServerPacket
         # when claimed.
         console_status: map<ConsoleType, enum<u8, ConsoleStatus>>
 
+    # Notifies the client that an object has been removed from play.
     DestroyObject
         # Indicates the type of object being destroyed.
         object_type: enum<u8, ObjectType>
@@ -108,6 +109,7 @@ packet ServerPacket
         # The ID of the object being destroyed.
         object_id: u32
 
+    # Informs clients of the difficulty level when starting or connecting to a game.
     Difficulty
         # The difficulty level (a value from 1 to 11).
         difficulty: i32
@@ -117,6 +119,8 @@ packet ServerPacket
         # scripted games.
         game_type: enum<u32, GameType>
 
+    # Sends DMX messages. This packet is only sent to main screen
+    # consoles for ships other than the first.
     DmxMessage
         # The DMX flag name.
         name: string
@@ -216,6 +220,9 @@ packet ServerPacket
 
     Heartbeat
 
+    # In earlier versions, sent when the simulation starts, but this
+    # appears to have been discontinued as of v2.1.1. Starting in
+    # v2.3, this packet indicates that an object was destroyed.
     DestroyObject2
         # The type of object destroyed.
         object_type: enum<u32, ObjectType>
