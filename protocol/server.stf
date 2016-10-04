@@ -387,14 +387,41 @@ packet ServerPacket
         # Simulator. Please connect with an authorized game client."
         welcome_message: ascii_string
 
+    # This packet type has been observed, and its payload structure is
+    # believed to be understood. However, its function has not
+    # determined with certainty.
+    #
+    # Contains three floats which seem to correspond to map
+    # coordinates of ships with special abilities. Could relate to
+    # cloak/decloak graphical effects.
     __unknown_1
-        probably_x_coordinate: f32
-        probably_y_coordinate: f32
-        probably_z_coordinate: f32
+        x_coordinate: f32
+        y_coordinate: f32
+        z_coordinate: f32
 
+    # This packet type has been observed, and its payload structure is
+    # believed to be understood. However, its function is as of yet
+    # completely unknown. Has been hypothesized as having some
+    # relation to SoundEffectPacket.
     __unknown_2
+        # Values of 0.0, 50.0 and 100.0 has been observed. It is
+        # unclear if other values have been observed.
         __unknown_1: f32
 
+    # This packet type has been observed, and its payload structure is
+    # believed to be understood. However, its function is as of yet
+    # completely unknown.
+    #
+    # Seems to happen immediately before DestroyObject(Mine, objID) or
+    # DestroyObject(Torpedo, objID).
+    #
+    # Speculated to have some relation to detonations.
     __unknown_3
+        # Only the value 7 has been observed so far. Unknown function
+        # or significance.
         __unknown_1: u32
-        __unknown_2: u32
+
+        # In the observed packets, the object ids correspond to a
+        # mixture of torpedos and mines, destroyed in the very next
+        # packet.
+        object_id: u32
