@@ -4,10 +4,20 @@ packet ServerPacket
         # follows:
         ships: sizedarray<struct<Ship>, 8>
 
+    # Notifies the client that a beam weapon has been fired.
     BeamFired
         # A unique identifier for this beam. Each time a beam is fired, it gets
         # its own ID.
         id: i32
+
+        # In single-bridge games, this value has been observed as 0
+        # for beams fired by enemies and 1 for beams fired by the
+        # player's ship.
+        __unknown_1: u32
+
+        # Values of 1200 (for beams from the player's ship) and 100
+        # (for enemy beams) have been observed.
+        __unknown_2: u32
 
         # All ships that can fire beams have beam ports. These are defined in
         # vesselData.xml as <beam_port> entries. This value gives the index of
@@ -21,6 +31,9 @@ packet ServerPacket
 
         # Indicates the type of object that was struck by the beam.
         target_object_type: i32
+
+        # This field is present in v2.3 and later. A value of 0 has been observed.
+        __unknown_3: u32
 
         # The ID of the object that fired the beam.
         origin_object_id: u32
@@ -47,11 +60,8 @@ packet ServerPacket
         target_z_coordinate: f32
 
         # Indicates whether the beam was auto- or manually-fired.
-        targeting_mode: f32
+        targeting_mode: u32
 
-        __unknown_1: u32
-        __unknown_2: u32
-        __unknown_3: u32
 
     # Contains a single incoming text message to display at the COMMS
     # station.
