@@ -1,22 +1,22 @@
-__unknown_1
+struct __unknown_1
     __unknown_1: u32
 
-__unknown_2
+struct __unknown_2
     __unknown_1: u32
 
-__unknown_3
+struct __unknown_3
     __unknown_1: u32
 
-__unknown_4
+struct __unknown_4
     __unknown_1: sizedarray<f32, 10>
 
-ActivateUpgrade
+struct ActivateUpgrade
     # The upgrade to activate. The game is prepared for 28 (30?)
     # different types of powerups, but only 8 are available as
     # of Artemis 2.4.
     target: enums.UpgradeActivation<u32>
 
-AudioCommand
+struct AudioCommand
     # The ID for the audio message. This is given by the
     # IncomingAudioPacket.
     audio_id: i32
@@ -24,18 +24,18 @@ AudioCommand
     # The desired action to perform.
     audio_command: enums.AudioCommand<u32>
 
-CaptainSelect
+struct CaptainSelect
     # The object ID for the new target, or 1 if the target has been cleared.
     target_id: i32
 
-ClimbDive
+struct ClimbDive
     # Indicates the change in the ship's direction: 0x00000001 (1) for down,
     # 0xffffffff (-1) for up. For example, if the ship is diving when the
     # instruction to go up is received, the ship will level out. If a second
     # up command is received, the ship will start climbing.
     direction: i32
 
-CommsOutgoing
+struct CommsOutgoing
     # The type of target for the message.
     comm_target_type: i32
 
@@ -59,14 +59,14 @@ CommsOutgoing
     # unknown why.
     __unknown1: u32
 
-ConvertTorpedo
+struct ConvertTorpedo
     # Indicates whether we are converting a torpedo to energy (0.0,
     # 0x00000000) or energy to a torpedo (1.0, 0x3f800000). Why this is
     # expressed as a float when a byte seems like it would be more
     # appropriate is unknown.
     direction: f32
 
-EngSendDamcon
+struct EngSendDamcon
     # The number assigned to the team (0 to 2 inclusive).
     team_number: i32
 
@@ -79,11 +79,11 @@ EngSendDamcon
     # The Z coordinate of the grid location that is the team's destination.
     z_coordinate: i32
 
-EngSetAutoDamcon
+struct EngSetAutoDamcon
     # Indicates whether DAMCON team autonomy is on or off.
     autonomous: bool32
 
-EngSetCoolant
+struct EngSetCoolant
     # The system whose coolant level is being adjusted.
     ship_system: enums.ShipSystem<u32>
 
@@ -91,7 +91,7 @@ EngSetCoolant
     # inclusive).
     value: i32
 
-EngSetEnergy
+struct EngSetEnergy
     # The amount of energy to allocate to the system. This value can range
     # from 0.0 to 1.0 inclusive, which in the stock UI corresponds to 0% to
     # 300%. Therefore, the default energy allocation of 100% would be
@@ -101,11 +101,11 @@ EngSetEnergy
     # The system whose coolant level is being adjusted.
     ship_system: enums.ShipSystem<u32>
 
-FighterLaunch
+struct FighterLaunch
     # The ID of the fighter, as shown in FighterBayStatusPacket.
     object_id: u32
 
-FireBeam
+struct FireBeam
     # The ID of the ship or entity at which to fire.
     target_object_id: u32
 
@@ -121,15 +121,15 @@ FireBeam
     # target ship.
     z_coordinate: f32
 
-FireTube
+struct FireTube
     # The index number of the tube to fire.
     tube_index: u32
 
-GameMasterButtonClick
+struct GameMasterButtonClick
     __unknown_1: u32
     hash: u32
 
-GameMasterLocation
+struct GameMasterLocation
     # Z-coordinate (float)
     # The coordinate of the selected location on the Z axis.
     z_coordinate: f32
@@ -142,7 +142,7 @@ GameMasterLocation
     # The coordinate of the selected location on the X axis.
     x_coordinate: f32
 
-GameMasterMessage
+struct GameMasterMessage
     # FIXME: perhaps ship_index?
     __unknown_1: u32
 
@@ -160,11 +160,11 @@ GameMasterMessage
     # The message to send.
     message: string
 
-GameMasterObject
+struct GameMasterObject
     # ID of the selected object.
     target_id: i32
 
-HelmJump
+struct HelmJump
     # The direction to jump, expressed as a value between 0.0 and 1.0
     # inclusive. To compute this value, take the desired bearing in degrees
     # and divide by 360.
@@ -175,97 +175,97 @@ HelmJump
     # divide by 50 (the maximum jump distance).
     distance: f32
 
-HelmRequestDock
+struct HelmRequestDock
     __unknown_1: u32
 
-HelmSetImpulse
+struct HelmSetImpulse
     # Any value between 0.0 and 1.0 inclusive, where 0.0 is no throttle and
     # 1.0 is full throttle. Actual velocity will depend on the ship's
     # maximum velocity and the power allocated to impulse by engineering.
     throttle: f32
 
-HelmSetPitch
+struct HelmSetPitch
     # Any value between -1.0 and 1.0 inclusive, where 0.0 is level, -1.0 is
     # a hard climb, and 1.0 is a hard dive.
     pitch: f32
 
-HelmSetSteering
+struct HelmSetSteering
     # Any value between 0.0 and 1.0 inclusive, where 0.0 is hard to port
     # (left), 0.5 is rudder amidships (straight), and 1.0 is a hard to
     # starboard (right). Actual turn rate will depend on the ship's maximum
     # turn rate and the power allocated to maneuvering by engineering.
     rudder: f32
 
-HelmSetWarp
+struct HelmSetWarp
     # The desired warp factor, from 0 to 4 inclusive. Warp 0 means to drop
     # out of warp and move on impulse only.
     warp_factor: i32
 
-HelmToggleReverse
+struct HelmToggleReverse
 
-Keystroke
+struct Keystroke
     # The code identifying the key that was pressed. Microsoft has a good
     # reference page that documents the key codes. Many languages have
     # constants for these values. For example: in Java, they are defined in
     # the KeyEvent class.
     key_code: i32
 
-LoadTube
+struct LoadTube
     # Indicates which tube is to be loaded.
     tube_index: i32
 
     # The type of ordnance to load into the tube.
     ordnance_type: enums.OrdnanceType<u32>
 
-Ready
+struct Ready
 
-Ready2
+struct Ready2
 
-SciScan
+struct SciScan
     # The object ID for the target to be scanned.
     target_id: i32
 
-SciSelect
+struct SciSelect
     # The object ID for the new target, or 1 if the target has been cleared.
     target_id: i32
 
-SetBeamFreq
+struct SetBeamFreq
     # The new beam frequency.
     beam_frequency: enums.BeamFrequency<u32>
 
-SetConsole
+struct SetConsole
     # The console whose status is being updated.
     console_type: enums.ConsoleType<u32>
 
     # True if this client is using the indicated console, false otherwise.
     selected: bool32
 
-SetMainScreen
+struct SetMainScreen
     # The view to display on the main screen.
     main_screen_view: enums.MainScreenView<u32>
 
-SetShip
+struct SetShip
     # The index of the desired ship; valid values are 0 through 7 inclusive.
     ship_index: i32
 
-SetShipSettingsV211
+struct SetShipSettingsV211
     ship: structs.ShipV211
 
-SetShipSettingsV240
+struct SetShipSettingsV240
     ship: structs.Ship
 
-SetWeaponsTarget
+struct SetWeaponsTarget
     # The object ID for the new target, or 1 if the target has been cleared.
     target_id: i32
 
-ToggleAutoBeams
+struct ToggleAutoBeams
 
-TogglePerspective
+struct TogglePerspective
 
-ToggleRedAlert
+struct ToggleRedAlert
 
-ToggleShields
+struct ToggleShields
 
-UnloadTube
+struct UnloadTube
     # Index of the tube to unload.
     tube_index: i32
