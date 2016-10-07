@@ -1,7 +1,7 @@
 struct AllShipSettings
     # A list of the eight available player ships. Each ship is structured as
     # follows:
-    ships: sizedarray<structs::Ship, 8>
+    ships: sizedarray<structs.Ship, 8>
 
 struct BeamFired
     # A unique identifier for this beam. Each time a beam is fired, it gets
@@ -98,11 +98,11 @@ ConsoleStatus
     # claimed, their status will be reported as unavailable to other
     # clients. All other stations will remain available to other clients
     # when claimed.
-    console_status: map<enums::ConsoleType, enums::ConsoleStatus<u8>>
+    console_status: map<enums.ConsoleType, enums.ConsoleStatus<u8>>
 
 DestroyObject
     # Indicates the type of object being destroyed.
-    object_type: enums::ObjectType<u8>
+    object_type: enums.ObjectType<u8>
 
     # The ID of the object being destroyed.
     object_id: u32
@@ -114,7 +114,7 @@ Difficulty
     # A value indicating the type of game. This applies only to solo and co-
     # op games; the field is present but its value is undefined for PvP and
     # scripted games.
-    game_type: enums::GameType<u32>
+    game_type: enums.GameType<u32>
 
 DmxMessage
     # The DMX flag name.
@@ -134,15 +134,15 @@ EngGridUpdate
     requested: bool8
 
     # This array contains a list of system nodes, terminated with 0xff.
-    system_grid_status: array<structs::SystemNodeStatus, u8, 0xff>
+    system_grid_status: array<structs.SystemNodeStatus, u8, 0xff>
 
     # This contains a list of DAMCON teams, terminated with 0xfe.
-    damcon_team_status: array<structs::DamconTeamStatus, u8, 0xfe>
+    damcon_team_status: array<structs.DamconTeamStatus, u8, 0xfe>
 
 FighterBayStatus
     # The payload consists of an array of structs, each one
     # describing a single fighter.
-    status: array<structs::FighterBay, u32, 0x00000000>
+    status: array<structs.FighterBay, u32, 0x00000000>
 
 FighterLaunched
     # The ID of the fighter, as shown in FighterBayStatusPacket.
@@ -186,13 +186,13 @@ GameOverStats
     # The remaining bytes in the packet are an array, where each
     # element constitutes a row in the stats column. The last
     # element is followed by 0xce.
-    statistics: array<structs::Statistic, u8, 0xce>
+    statistics: array<structs.Statistic, u8, 0xce>
 
 Heartbeat
 
 DestroyObject2
     # The type of object destroyed.
-    object_type: enums::ObjectType<u32>
+    object_type: enums.ObjectType<u32>
 
     # The ID of the object destroyed.
     object_id: u32
@@ -207,7 +207,7 @@ IncomingAudio
     # officer giving the instruction to play the message, and notifies them
     # that the message is now being played by the main screen. In the stock
     # client, this results in the “Play” button changing to “REPlay.” (sic)
-    audio_mode: enums::AudioMode<u32>
+    audio_mode: enums.AudioMode<u32>
 
     # Title of the incoming message. This should be displayed to the COMMs
     # officer.
@@ -244,7 +244,7 @@ ObjectUpdate
     # entries. Parsing continues in a loop until the end of the
     # packet is reached, or the object type byte is 0x00. Note
     # that the array may be empty
-    updates: array<structs::ObjectUpdate, u32, 0x00000000>
+    updates: array<structs.ObjectUpdate, u32, 0x00000000>
 
 Pause
     # True if the simulation is paused; false otherwise.
@@ -252,7 +252,7 @@ Pause
 
 Perspective
     # The current main screen perspective.
-    perspective: enums::Perspective<u32>
+    perspective: enums.Perspective<u32>
 
 PlayerShipDamage
     __unknown_1: u32

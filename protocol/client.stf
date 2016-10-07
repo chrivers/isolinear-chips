@@ -14,7 +14,7 @@ ActivateUpgrade
     # The upgrade to activate. The game is prepared for 28 (30?)
     # different types of powerups, but only 8 are available as
     # of Artemis 2.4.
-    target: enums::UpgradeActivation<u32>
+    target: enums.UpgradeActivation<u32>
 
 AudioCommand
     # The ID for the audio message. This is given by the
@@ -22,7 +22,7 @@ AudioCommand
     audio_id: i32
 
     # The desired action to perform.
-    audio_command: enums::AudioCommand<u32>
+    audio_command: enums.AudioCommand<u32>
 
 CaptainSelect
     # The object ID for the new target, or 1 if the target has been cleared.
@@ -85,7 +85,7 @@ EngSetAutoDamcon
 
 EngSetCoolant
     # The system whose coolant level is being adjusted.
-    ship_system: enums::ShipSystem<u32>
+    ship_system: enums.ShipSystem<u32>
 
     # The number of coolant units to allocate to the system (0 to 8
     # inclusive).
@@ -99,7 +99,7 @@ EngSetEnergy
     value: f32
 
     # The system whose coolant level is being adjusted.
-    ship_system: enums::ShipSystem<u32>
+    ship_system: enums.ShipSystem<u32>
 
 FighterLaunch
     # The ID of the fighter, as shown in FighterBayStatusPacket.
@@ -151,7 +151,7 @@ GameMasterMessage
     # message at a particular console type. The console that receives the
     # message is determined by subtracting 1 from the value; the result then
     # matches the values for the console type enumeration.
-    console_type: option<enums::ConsoleType<u32>>
+    console_type: option<enums.ConsoleType<u32>>
 
     # The name of the message's sender. This can be any arbitrary string; it
     # doesn't have to match the name of an existing object.
@@ -215,7 +215,7 @@ LoadTube
     tube_index: i32
 
     # The type of ordnance to load into the tube.
-    ordnance_type: enums::OrdnanceType<u32>
+    ordnance_type: enums.OrdnanceType<u32>
 
 Ready
 
@@ -231,28 +231,28 @@ SciSelect
 
 SetBeamFreq
     # The new beam frequency.
-    beam_frequency: enums::BeamFrequency<u32>
+    beam_frequency: enums.BeamFrequency<u32>
 
 SetConsole
     # The console whose status is being updated.
-    console_type: enums::ConsoleType<u32>
+    console_type: enums.ConsoleType<u32>
 
     # True if this client is using the indicated console, false otherwise.
     selected: bool32
 
 SetMainScreen
     # The view to display on the main screen.
-    main_screen_view: enums::MainScreenView<u32>
+    main_screen_view: enums.MainScreenView<u32>
 
 SetShip
     # The index of the desired ship; valid values are 0 through 7 inclusive.
     ship_index: i32
 
 SetShipSettingsV211
-    ship: structs::ShipV211
+    ship: structs.ShipV211
 
 SetShipSettingsV240
-    ship: structs::Ship
+    ship: structs.Ship
 
 SetWeaponsTarget
     # The object ID for the new target, or 1 if the target has been cleared.
