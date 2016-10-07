@@ -52,7 +52,7 @@ struct BeamFired
     __unknown_2: u32
     __unknown_3: u32
 
-CommsIncoming
+struct CommsIncoming
     # Indicates the channel on which the message was received. Values range
     # from 0x00 to 0x08. In the stock client, this affects the message's
     # background color; the lower the channel number, the more red the
@@ -84,7 +84,7 @@ CommsIncoming
     # message indicates a line break.
     message: string
 
-ConsoleStatus
+struct ConsoleStatus
     # The number of the ship whose consoles are being described. Before
     # v2.3.0, this value was one-based, so by default the ship identified by
     # 0x01 was Artemis. As of v2.3.0 it is now zero-based.
@@ -100,14 +100,14 @@ ConsoleStatus
     # when claimed.
     console_status: map<enums.ConsoleType, enums.ConsoleStatus<u8>>
 
-DestroyObject
+struct DestroyObject
     # Indicates the type of object being destroyed.
     object_type: enums.ObjectType<u8>
 
     # The ID of the object being destroyed.
     object_id: u32
 
-Difficulty
+struct Difficulty
     # The difficulty level (a value from 1 to 11).
     difficulty: i32
 
@@ -116,18 +116,18 @@ Difficulty
     # scripted games.
     game_type: enums.GameType<u32>
 
-DmxMessage
+struct DmxMessage
     # The DMX flag name.
     name: string
 
     # The DMX flag's current state.
     state: bool32
 
-EngAutoDamconUpdate
+struct EngAutoDamconUpdate
     # Whether DAMCON teams are directed autonomously or not.
     damcon_autonomy: bool32
 
-EngGridUpdate
+struct EngGridUpdate
     # Requested: This field is false on normal engineering
     # update from the server, but will be set to 1 when in
     # response to the RequestEngGridUpdate packet.
@@ -139,45 +139,45 @@ EngGridUpdate
     # This contains a list of DAMCON teams, terminated with 0xfe.
     damcon_team_status: array<structs.DamconTeamStatus, u8, 0xfe>
 
-FighterBayStatus
+struct FighterBayStatus
     # The payload consists of an array of structs, each one
     # describing a single fighter.
     status: array<structs.FighterBay, u32, 0x00000000>
 
-FighterLaunched
+struct FighterLaunched
     # The ID of the fighter, as shown in FighterBayStatusPacket.
     object_id: u32
 
-GameMasterButtonCreate
+struct GameMasterButtonCreate
     label: string
 
-GameMasterButtonCreatePlace
+struct GameMasterButtonCreatePlace
     label: string
     width: u32
     height: u32
     x: u32
     y: u32
 
-GameMasterButtonDestroy
+struct GameMasterButtonDestroy
     label: string
 
-GameMasterOverview
+struct GameMasterOverview
     title: string
     instructions: string
 
-GameMasterButtonReset
+struct GameMasterButtonReset
 
-GameMessage
+struct GameMessage
     # The message to display.
     message: string
 
-GameOver
+struct GameOver
 
-GameOverReason
+struct GameOverReason
     # Text describing why the game ended. Each string is one line.
     reason: array<string>
 
-GameOverStats
+struct GameOverStats
     # Stats are presented in vertical columns; each packet contains one
     # column of stats data. This fields is the index for this column of
     # data. In practice, there are only two possible values: 0 and 1.
@@ -188,16 +188,16 @@ GameOverStats
     # element is followed by 0xce.
     statistics: array<structs.Statistic, u8, 0xce>
 
-Heartbeat
+struct Heartbeat
 
-DestroyObject2
+struct DestroyObject2
     # The type of object destroyed.
     object_type: enums.ObjectType<u32>
 
     # The ID of the object destroyed.
     object_id: u32
 
-IncomingAudio
+struct IncomingAudio
     # The ID for this audio message.
     audio_id: i32
 
@@ -217,7 +217,7 @@ IncomingAudio
     # anything with this string; as the audio is played by the server.
     file: option<string>
 
-Intel
+struct Intel
     # The ID of the ship to which this intel pertains.
     object_id: u32
 
@@ -228,37 +228,37 @@ Intel
     # officer when selecting this ship.
     intel: string
 
-JumpStatusBegin
+struct JumpStatusBegin
 
-JumpStatusEnd
+struct JumpStatusEnd
 
-KeyCaptureToggle
+struct KeyCaptureToggle
     # Whether this console should capture keystrokes or not. Note that
     # because this packet is sent to all consoles when the capture status
     # of any console is changed, a console may get a KeyCaptureTogglePacket
     # telling it to do what it's already doing; this is normal.
     capture: bool8
 
-ObjectUpdate
+struct ObjectUpdate
     # The payload consists of an array of object update
     # entries. Parsing continues in a loop until the end of the
     # packet is reached, or the object type byte is 0x00. Note
     # that the array may be empty
     updates: array<structs.ObjectUpdate, u32, 0x00000000>
 
-Pause
+struct Pause
     # True if the simulation is paused; false otherwise.
     paused: bool32
 
-Perspective
+struct Perspective
     # The current main screen perspective.
     perspective: enums.Perspective<u32>
 
-PlayerShipDamage
+struct PlayerShipDamage
     __unknown_1: u32
     __unknown_2: f32
 
-Skybox
+struct Skybox
     # The number of the skybox image to load on the client. Under the
     # Artemis install directory is an "art" folder; this folder contains a
     # bunch of subfolders whose names start with "sb" followed by a two-
@@ -269,12 +269,12 @@ Skybox
     # corresponding folder is created and contains the appropriate files.
     skybox_id: i32
 
-SoundEffect
+struct SoundEffect
     # Path to the file to play the sound effect from, e.g "dat/enemy-
     # explode.wav".
     filename: string
 
-Version
+struct Version
     # Probably a monotonic event counter
     __unknown_1: u32
 
@@ -295,7 +295,7 @@ Version
     ## version_patch: u32,
     version: sizedarray<u32, 3>
 
-Welcome
+struct Welcome
     # Unlike all other strings in Artemis packets, this one is encoded in
     # plain ASCII, so each character is one byte, not two. Also, the given
     # length for the string does not include a terminating null. Currently,
@@ -303,14 +303,14 @@ Welcome
     # Simulator. Please connect with an authorized game client."
     welcome_message: ascii_string
 
-__unknown_1
+struct __unknown_1
     probably_x_coordinate: f32
     probably_y_coordinate: f32
     probably_z_coordinate: f32
 
-__unknown_2
+struct __unknown_2
     __unknown_1: f32
 
-__unknown_3
+struct __unknown_3
     __unknown_1: u32
     __unknown_2: u32
