@@ -1,4 +1,4 @@
-object Anomaly(1)
+object Anomaly(maskbytes=1)
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
@@ -9,7 +9,7 @@ object Anomaly(1)
     __unknown_2: u32
     __unknown_3: u32
 
-object Base(2)
+object Base(maskbytes=2)
     # Name (bit 1.1, string)
     #
     # The name assigned to this base. In standard, non-custom
@@ -80,7 +80,7 @@ object Base(2)
 # by the “other” property structure, and space whales had their own
 # structure.
 
-object Creature(3)
+object Creature(maskbytes=3)
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -144,7 +144,7 @@ object Creature(3)
     # Unknown (bit 2.6, 4 bytes)
     __unknown_10: i32
 
-object Drone(2)
+object Drone(maskbytes=2)
     # Unknown (bit 1.1, int)
     __unknown_1: u32
 
@@ -176,7 +176,7 @@ object Drone(2)
 
     # Unused? (bits 2.2-2.8)
 
-object EngineeringConsole(4)
+object EngineeringConsole(maskbytes=4)
     # Each byte of the field represents a category of values:
 
     # Heat levels
@@ -213,7 +213,7 @@ object EngineeringConsole(4)
     coolant: sizedarray<u8, 8>
 
 # These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
-object GenericMesh(4)
+object GenericMesh(maskbytes=4)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -298,7 +298,7 @@ object GenericMesh(4)
     # Unknown (bit 4.2, int)
     __unknown_15: u32
 
-object Nebula(1)
+object Nebula(maskbytes=1)
     # X coordinate (bit 1.1, float)
     x_coordinate: f32
 
@@ -323,7 +323,7 @@ object Nebula(1)
     # Unused? (bit 1.8, int)
     __unknown_2: u32
 
-object NpcShip(6)
+object NpcShip(maskbytes=6)
     # Name (bit 1.1, string)
     # The ship's name.
     name: string
@@ -468,7 +468,7 @@ object NpcShip(6)
     beam_resistance: sizedarray<f32, 5>
 
 # 5 bytes before v2.3.0
-object PlayerShip(6)
+object PlayerShip(maskbytes=6)
     # Unknown (bit 1.1, int)
     # This might be the ship targeted by the weapons console.
     __unknown_1: u32
@@ -663,7 +663,7 @@ object PlayerShip(6)
 
 # New as of v2.1.5. Indicates how many of each upgrade the player ship
 # has on board.
-object PlayerShipUpgrades(11)
+object PlayerShipUpgrades(maskbytes=11)
     ## active
     # bit 1.1
     active_infusion_p_coils:       bool8
@@ -847,7 +847,7 @@ object PlayerShipUpgrades(11)
     # bit 11.4
     time_vanguard_refit_systems: u16
 
-object Torpedo(2)
+object Torpedo(maskbytes=2)
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
@@ -876,7 +876,7 @@ object Torpedo(2)
     # Unknown (bit 1.8, int)
     __unknown_6: u32
 
-object WeaponsConsole(4)
+object WeaponsConsole(maskbytes=4)
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
@@ -922,7 +922,7 @@ object WeaponsConsole(4)
 
 # This type became obsolete starting v2.1.5, when whales were folded
 # into the new creature object type.
-object Whale(2)
+object Whale(maskbytes=2)
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.
@@ -971,7 +971,7 @@ object Whale(2)
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-object Asteroid(1)
+object Asteroid(maskbytes=1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1008,7 +1008,7 @@ object Asteroid(1)
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-object Blackhole(1)
+object Blackhole(maskbytes=1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -1045,7 +1045,7 @@ object Blackhole(1)
 # The remaining object types (asteroids, black holes and mines)
 # all use the same properties. Prior to v2.1.5, anomalies and
 # space monsters also used this structure.
-object Mine(1)
+object Mine(maskbytes=1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
