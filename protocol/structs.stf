@@ -120,4 +120,5 @@ struct Update
     # single property; if a bit is set to 1, that property is included. The
     # length of the bit field depends the number of properties the object
     # has.
+    ## FIXME: update modules not currently implemented
     payload: update.ObjectUpdate
