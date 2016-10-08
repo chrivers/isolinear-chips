@@ -655,8 +655,8 @@ object PlayerShip(6)
     capital_ship_id: u32
 
     # Accent Color (bit 6.2, int, new as of v2.4.0)
-    # The accent color of the ship.
-    accent_color: u32
+    # The accent hue of the ship.
+    accent_hue: f32
 
     # Unknown (bit 6.3, 4 bytes, new as of v2.4.0)
     __unknown_8: u32

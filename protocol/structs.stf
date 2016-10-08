@@ -5,7 +5,7 @@ struct Ship
     # ID from vesselData.xml
     ship_type: u32
 
-    accent_color: u32
+    accent_hue: f32
 
     __unknown_1: u32
 
