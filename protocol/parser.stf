@@ -65,7 +65,7 @@ parser SimpleEvent(u32)
     0x0f: struct<ServerPacket::AllShipSettings>
     0x10: struct<ServerPacket::DmxMessage>
     0x11: struct<ServerPacket::KeyCaptureToggle>
-    0x12: struct<ServerPacket::Perspective>
+    0x12: struct<ServerPacket::TogglePerspective>
     0x13: struct<ServerPacket::__unknown_3>
     0x14: struct<ServerPacket::GameOverReason>
     0x15: struct<ServerPacket::GameOverStats>

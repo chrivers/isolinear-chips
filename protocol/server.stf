@@ -252,9 +252,7 @@ packet ServerPacket
         # True if the simulation is paused; false otherwise.
         paused: bool32
 
-    Perspective
-        # The current main screen perspective.
-        perspective: enum<u32, Perspective>
+    TogglePerspective
 
     PlayerShipDamage
         __unknown_1: u32
