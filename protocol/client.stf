@@ -11,28 +11,6 @@ packet ClientPacket
     __unknown_4
         __unknown_1: u32
 
-    FighterFire
-        fighter_id: u32
-        target_id: u32
-
-    # Sent by the fighter stations with information about the entire fighter
-    # It seems the entire fighter state is kept on the *client*...
-    FighterUpdate
-        # Same values as HelmSetSteering
-        rudder: f32,
-
-        fighter_id: u32,
-
-        __unknown_1: f32,
-        x: f32,
-        y: f32,
-        z: f32,
-
-        __unknown_2: f32
-        __unknown_3: f32
-        __unknown_4: f32
-        __unknown_5: f32
-
     ActivateUpgrade
         # The upgrade to activate. The game is prepared for 28 (30?)
         # different types of powerups, but only 8 are available as
@@ -124,9 +102,31 @@ packet ClientPacket
         # The system whose coolant level is being adjusted.
         ship_system: enum<u32, ShipSystem>
 
+    FighterFire
+        fighter_id: u32
+        target_id: u32
+
     FighterLaunch
         # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
+
+    # Sent by the fighter stations with information about the entire fighter
+    # It seems the entire fighter state is kept on the *client*...
+    FighterUpdate
+        # Same values as HelmSetSteering
+        rudder: f32,
+
+        fighter_id: u32,
+
+        __unknown_1: f32,
+        x: f32,
+        y: f32,
+        z: f32,
+
+        __unknown_2: f32
+        __unknown_3: f32
+        __unknown_4: f32
+        __unknown_5: f32
 
     FireBeam
         # The ID of the ship or entity at which to fire.
