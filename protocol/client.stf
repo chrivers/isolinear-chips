@@ -149,7 +149,10 @@ packet ClientPacket
         tube_index: u32
 
     GameMasterButtonClick
+        # Seems to always have the value 13
         __unknown_1: u32
+
+        # Button id, as a hash of button name
         hash: u32
 
     GameMasterLocation
