@@ -297,10 +297,10 @@ object GenericMesh(4)
     __unknown_11: u8
 
     # Unknown (bit 4.1, int)
-    __unknown_12: u32
+    __unknown_12: u64
 
     # Unknown (bit 4.2, int)
-    __unknown_13: u32
+    __unknown_13: u64
 
 object Nebula(1)
     # X coordinate (bit 1.1, float)
