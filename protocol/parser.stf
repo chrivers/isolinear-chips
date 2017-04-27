@@ -141,7 +141,7 @@ parser ValueInt240(u32)
     0x0c: struct<ClientPacket::EngSetAutoDamcon>
     0x0d: struct<ClientPacket::SetShip>
     0x0e: struct<ClientPacket::SetConsole>
-    0x0f: struct<ClientPacket::Ready> ## ?
+    0x0f: struct<ClientPacket::Ready>
     0x10: struct<ClientPacket::SciSelect>
     0x11: struct<ClientPacket::CaptainSelect>
     0x12: struct<ClientPacket::GameMasterSelect>
@@ -156,7 +156,7 @@ parser ValueInt240(u32)
     0x1b: struct<ClientPacket::TogglePerspective>
     0x1c: struct<ClientPacket::ActivateUpgrade> ## ?
     0x1d: struct<ClientPacket::ClimbDive>
-    0x1e: struct<ClientPacket::FighterLaunch> ## ?
+    0x1e: struct<ClientPacket::FighterLaunch>
     0x1f: struct<ClientPacket::FighterFire> ## ?
 
 parser ValueFourInts(u32)
