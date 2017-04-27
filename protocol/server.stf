@@ -146,6 +146,10 @@ packet ServerPacket
         # 0x00000000.
         status: array<struct<FighterBay>, 0x00000000>
 
+    FighterHit
+        fighter_id: u32
+        __maybe_damage: f32
+
     FighterLaunched
         # The ID of the fighter, as shown in FighterBayStatusPacket.
         object_id: u32
