@@ -12,6 +12,7 @@ packet ClientPacket
         __unknown_1: u32
 
     FighterFire
+        fighter_id: u32
         target_id: u32
 
     # Sent by the fighter stations with information about the entire fighter
