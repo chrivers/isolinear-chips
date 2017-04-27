@@ -212,7 +212,9 @@ object EngineeringConsole(4)
     # coolant: map<ShipSystem, u8>
     coolant: sizedarray<u8, 8>
 
-# These are arbitrary 3D objects to display in the game world. Players and enemies don't interact with these objects; they are just decoration.
+# These are arbitrary 3D objects to display in the game world. Players
+# and enemies don't interact with these objects; they are just
+# decoration.
 object GenericMesh(4)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
@@ -232,71 +234,73 @@ object GenericMesh(4)
     # Unknown (bit 1.5, int)
     __unknown_2: u32
 
-    # Unknown (bit 1.6, long)
-    __unknown_3: u64
+    # Unknown (bit 1.6, int)
+    __unknown_3: u32
 
     # Unknown (bit 1.7, int)
-    __unknown_4: u32
+    __unknown_4: f32
 
     # Unknown (bit 1.8, int)
-    __unknown_5: u32
+    pitch: f32
 
     # Unknown (bit 2.1, int)
-    __unknown_6: u32
+    __unknown_5: f32
 
     # Unknown (bit 2.2, long)
-    __unknown_7: u64
+    roll: f32
 
-    # Name (bit 2.3, string)
+    # bit 2.3
+    __unknown_6: u32
+
+    # bit 2.4
+    __unknown_7: u32
+
+    # Name (bit 2.5, string)
     # The name of this object.
     name: string
 
-    # Mesh file (bit 2.4, string)
+    # Mesh file (bit 2.6, string)
     # The name of the file containing the 3D mesh data.
     mesh_file: string
 
-    # Texture file (bit 2.4, string)
-    # The name of the file containing the texture to apply to the mesh. Note that this uses the same bit as the mesh name, and that bit 2.5 is unused.
+    # Texture file (bit 2.7, string)
+    # The name of the file containing the texture to apply to the
+    # mesh. Note that this uses the same bit as the mesh name, and
+    # that bit 2.5 is unused.
     texture_file: string
 
-    # Unknown (bit 2.6, int)
-    __unknown_8: u32
+    # Unknown (bit 2.8, int)
+    __unknown_8: f32
 
-    # Unknown (bit 2.7, short)
-    __unknown_9: u16
+    # Unknown (bit 3.1, short)
+    __unknown_9: u8
 
-    # Unknown (bit 2.8, byte)
-    __unknown_10: u8
+    # Unknown (bit 3.2, byte)
+    artscale: f32
 
-    # Red color channel (bit 3.1, float)
+    # Red color channel (bit 3.3, float)
     r_color: f32
 
-    # Green color channel (bit 3.2, float)
+    # Green color channel (bit 3.4, float)
     g_color: f32
 
-    # Blue color channel (bit 3.3, float)
+    # Blue color channel (bit 3.5, float)
     b_color: f32
 
-    # Front shields (bit 3.4, float)
-    front_shields: f32
+    # Front shields (bit 3.6, float)
+    fake_front_shields: f32
 
-    # Rear shields (bit 3.5, float)
-    rear_shields: f32
-
-    # Unknown (bit 3.6, int)
-    __unknown_11: u32
-
-    # Unknown (bit 3.7, int)
-    __unknown_12: u32
+    # Rear shields (bit 3.7, float)
+    fake_rear_shields: f32
 
     # Unknown (bit 3.8, int)
-    __unknown_13: u32
+    __unknown_11: u8
 
     # Unknown (bit 4.1, int)
-    __unknown_14: u32
+    __unknown_12: u32
 
     # Unknown (bit 4.2, int)
-    __unknown_15: u32
+    __unknown_13: u32
 
 object Nebula(1)
     # X coordinate (bit 1.1, float)
