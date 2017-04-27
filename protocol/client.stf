@@ -38,7 +38,7 @@ packet ClientPacket
 
     CommsOutgoing
         # The type of target for the message.
-        comm_target_type: i32
+        comm_target_type: enum<u32, CommTargetType>
 
         # ID of the object that is to receive the message.
         recipient_id: i32
