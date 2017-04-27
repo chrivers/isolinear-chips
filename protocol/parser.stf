@@ -81,11 +81,8 @@ parser ClientParser(u32)
     commsMessage:   struct<ClientPacket::CommsOutgoing>
     valueFourInts:  parser<ValueFourInts>
     controlMessage: struct<ClientPacket::AudioCommand>
-    gmText:         parser<GameMasterMessage>
+    gmText:         struct<ClientPacket::GameMasterMessage>
     beamRequest:    struct<ClientPacket::FireBeam>
-
-parser GameMasterMessage(u32)
-    0x01: struct<ClientPacket::GameMasterMessage>
 
 parser ValueFloat(u32)
     0x00: struct<ClientPacket::HelmSetImpulse>

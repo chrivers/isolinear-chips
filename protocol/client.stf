@@ -169,8 +169,7 @@ packet ClientPacket
         x_coordinate: f32
 
     GameMasterMessage
-        # FIXME: perhaps ship_index?
-        __unknown_1: u32
+        targets: sizedarray<bool8, 8>
 
         # If this value is 0x00, the message is received by the communications
         # officer as a normal COMM message. Otherwise, it is sent as a popup
