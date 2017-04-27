@@ -185,7 +185,7 @@ enum ShipSystem
     Sensors              = 0x02
     Maneuvering          = 0x03
     Impulse              = 0x04
-    WarpDrive            = 0x05
+    Engines              = 0x05
     ForeShields          = 0x06
     AftShields           = 0x07
 
