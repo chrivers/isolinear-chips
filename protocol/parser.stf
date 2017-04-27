@@ -113,7 +113,7 @@ parser ValueInt(u32)
     0x0f: struct<ClientPacket::Ready>
     0x10: struct<ClientPacket::SciSelect>
     0x11: struct<ClientPacket::CaptainSelect>
-    0x12: struct<ClientPacket::GameMasterObject>
+    0x12: struct<ClientPacket::GameMasterSelect>
     0x13: struct<ClientPacket::SciScan>
     0x14: struct<ClientPacket::Keystroke>
     0x15: struct<ClientPacket::GameMasterButtonClick>

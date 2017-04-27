@@ -161,7 +161,7 @@ packet ClientPacket
         # The message to send.
         message: string
 
-    GameMasterObject
+    GameMasterSelect
         # ID of the selected object.
         target_id: i32
 
