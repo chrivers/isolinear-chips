@@ -82,10 +82,10 @@ packet ClientPacket
         __unknown1: u32
 
     ConvertTorpedo
-        # Indicates whether we are converting a torpedo to energy (0.0,
-        # 0x00000000) or energy to a torpedo (1.0, 0x3f800000). Why this is
-        # expressed as a float when a byte seems like it would be more
-        # appropriate is unknown.
+        # Indicates whether we are converting a torpedo to energy
+        # (0.0, 0x00000000) or energy to a torpedo (1.0,
+        # 0x3f800000). The reason that this is, quity oddly, expressed
+        # as a float, is because the overall packet type is valueFloat.
         direction: f32
 
     EngSendDamcon
