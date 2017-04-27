@@ -121,7 +121,7 @@ parser ValueInt210(u32)
     0x16: struct<ClientPacket::SetShipSettingsV210>
     0x17: struct<ClientPacket::SetShipSettingsV240>
     0x18: struct<ClientPacket::HelmToggleReverse>
-    0x19: struct<ClientPacket::Heartbeat>
+    0x19: struct<ClientPacket::RequestEngGridUpdate>
     0x1a: struct<ClientPacket::TogglePerspective>
     0x1b: struct<ClientPacket::ClimbDive>
 
@@ -152,7 +152,7 @@ parser ValueInt240(u32)
     0x17: struct<ClientPacket::SetShipSettingsV240>
     0x18: struct<ClientPacket::__unknown_4> ## ?
     0x19: struct<ClientPacket::HelmToggleReverse>
-    0x1a: struct<ClientPacket::Heartbeat>
+    0x1a: struct<ClientPacket::RequestEngGridUpdate>
     0x1b: struct<ClientPacket::TogglePerspective>
     0x1c: struct<ClientPacket::ActivateUpgrade> ## ?
     0x1d: struct<ClientPacket::ClimbDive>
