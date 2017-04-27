@@ -220,7 +220,7 @@ packet ClientPacket
 
     Ready
 
-    Ready2
+    Heartbeat
 
     SciScan
         # The object ID for the target to be scanned.
