@@ -9,7 +9,7 @@ packet ClientPacket
         __unknown_1: u32
 
     __unknown_4
-        __unknown_1: sizedarray<f32, 10>
+        __unknown_1: u32
 
     FighterFire
         target_id: u32
