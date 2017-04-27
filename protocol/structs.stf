@@ -1,4 +1,4 @@
-struct Ship
+struct ShipV240
     # Whether the ship has warp or jump drive
     drive_type: enum<u32, DriveType>
 
@@ -12,7 +12,7 @@ struct Ship
     # The name of the ship
     name: string
 
-struct ShipV211
+struct ShipV210
     # The desired drive type.
     drive_type: enum<u32, DriveType>
 

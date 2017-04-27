@@ -249,11 +249,11 @@ packet ClientPacket
         # The index of the desired ship; valid values are 0 through 7 inclusive.
         ship_index: i32
 
-    SetShipSettingsV211
-        ship: struct<ShipV211>
+    SetShipSettingsV210
+        ship: struct<ShipV210>
 
     SetShipSettingsV240
-        ship: struct<Ship>
+        ship: struct<ShipV240>
 
     SetWeaponsTarget
         # The object ID for the new target, or 1 if the target has been cleared.

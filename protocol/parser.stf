@@ -74,7 +74,7 @@ parser SimpleEvent(u32)
 
 parser ClientParser(u32)
     valueFloat:     parser<ValueFloat>
-    valueInt:       parser<ValueInt>
+    valueInt:       parser<ValueInt240>
     commsMessage:   struct<ClientPacket::CommsOutgoing>
     valueFourInts:  parser<ValueFourInts>
     controlMessage: struct<ClientPacket::AudioCommand>
@@ -94,7 +94,7 @@ parser ValueFloat(u32)
     0x06: struct<ClientPacket::GameMasterLocation>
     0x07: struct<ClientPacket::__unknown_4>
 
-parser ValueInt(u32)
+parser ValueInt210(u32)
     0x00: struct<ClientPacket::HelmSetWarp>
     0x01: struct<ClientPacket::SetMainScreen>
     0x02: struct<ClientPacket::SetWeaponsTarget>
@@ -117,7 +117,7 @@ parser ValueInt(u32)
     0x13: struct<ClientPacket::SciScan>
     0x14: struct<ClientPacket::Keystroke>
     0x15: struct<ClientPacket::GameMasterButtonClick>
-    0x16: struct<ClientPacket::SetShipSettingsV211>
+    0x16: struct<ClientPacket::SetShipSettingsV210>
     0x17: struct<ClientPacket::SetShipSettingsV240>
     0x18: struct<ClientPacket::HelmToggleReverse>
     0x19: struct<ClientPacket::Ready2>

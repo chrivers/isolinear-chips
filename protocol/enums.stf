@@ -88,7 +88,7 @@ enum ConsoleType
     CaptainsMap    = 0x09
     GameMaster     = 0x0a
 
-## enum ConsoleTypeV211
+## enum ConsoleTypeV210
 ##     MainScreen     = 0x00
 ##     Helm           = 0x01
 ##     Weapons        = 0x02
@@ -150,7 +150,7 @@ enum ObjectType
     Creature           = 0x0f
     Drone              = 0x10
 
-## enum ObjectTypeV211
+## enum ObjectTypeV210
 ##     END_MARKER         = 0x00
 ##     PlayerShip         = 0x01
 ##     WeaponsConsole     = 0x02
