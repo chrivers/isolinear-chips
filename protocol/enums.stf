@@ -132,7 +132,6 @@ enum MainScreenView
     Status               = 0x06
 
 enum ObjectType
-    END_MARKER         = 0x00
     PlayerShip         = 0x01
     WeaponsConsole     = 0x02
     EngineeringConsole = 0x03
