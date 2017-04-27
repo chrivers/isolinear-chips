@@ -177,7 +177,9 @@ packet ClientPacket
         distance: f32
 
     HelmRequestDock
-        __unknown_1: u32
+        # For ships: always 0
+        # For fighters: object_id of the fighter
+        source: u32
 
     HelmSetImpulse
         # Any value between 0.0 and 1.0 inclusive, where 0.0 is no throttle and
