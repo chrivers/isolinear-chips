@@ -108,6 +108,13 @@ packet ServerPacket
         # The ID of the object being destroyed.
         object_id: u32
 
+    DestroyObject2
+        # The type of object destroyed.
+        object_type: enum<u32, ObjectType>
+
+        # The ID of the object destroyed.
+        object_id: u32
+
     Difficulty
         # The difficulty level (a value from 1 to 11).
         difficulty: i32
@@ -167,11 +174,11 @@ packet ServerPacket
     GameMasterButtonDestroy
         label: string
 
+    GameMasterButtonReset
+
     GameMasterOverview
         title: string
         instructions: string
-
-    GameMasterButtonReset
 
     GameMessage
         # The message to display.
@@ -195,13 +202,6 @@ packet ServerPacket
         statistics: array<struct<Statistic>, 0xce>
 
     Heartbeat
-
-    DestroyObject2
-        # The type of object destroyed.
-        object_type: enum<u32, ObjectType>
-
-        # The ID of the object destroyed.
-        object_id: u32
 
     IncomingAudio
         # The ID for this audio message.
@@ -256,8 +256,6 @@ packet ServerPacket
         # True if the simulation is paused; false otherwise.
         paused: bool32
 
-    TogglePerspective
-
     PlayerShipDamage
         __unknown_1: u32
         __unknown_2: f32
@@ -277,6 +275,8 @@ packet ServerPacket
         # Path to the file to play the sound effect from, e.g "dat/enemy-
         # explode.wav".
         filename: string
+
+    TogglePerspective
 
     Version
         # Probably a monotonic event counter
