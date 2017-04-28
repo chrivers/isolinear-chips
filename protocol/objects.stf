@@ -650,7 +650,7 @@ object PlayerShip(6)
     __unknown_5: u8
 
     # Unknown (bit 5.7, 4 bytes)
-    __unknown_6: u32
+    __unknown_6: i32
 
     # Unknown (bit 5.8, byte, new as of v2.3.0)
     # 0 has been observed.
