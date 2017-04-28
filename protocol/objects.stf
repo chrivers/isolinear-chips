@@ -270,7 +270,7 @@ object GenericMesh(4)
     texture_file: string
 
     # Unknown (bit 2.8, int)
-    __unknown_8: f32
+    push_radius: f32
 
     # Unknown (bit 3.1, short)
     __unknown_9: u8
