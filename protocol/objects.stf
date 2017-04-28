@@ -627,7 +627,7 @@ object PlayerShip(6)
 
     # Drive type (bit 5.1, byte, enumeration)
     # The type of drive system the ship has.
-    drive_type: u8
+    drive_type: enum<u8, DriveType>
 
     # Scanning ID (bit 5.2, int)
     # The ID of the object currently being scanned by the science officer.
