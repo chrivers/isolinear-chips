@@ -71,8 +71,8 @@ object Base(2)
     # Unknown (bit 2.5, byte)
     __unknown_5: u8
 
-    # Unknown (bit 2.6, byte)
-    __unknown_6: u8
+    # Side (player, enemy, etc) (bit 2.6, byte)
+    side: u8
 
 # Note that wrecks are also considered creatures, for some
 # reason. This structure is new as of v2.1.5. Previously, the only
