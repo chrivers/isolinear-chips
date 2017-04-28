@@ -140,10 +140,10 @@ object Creature(3)
     __unknown_8: i32
 
     # Unknown (bit 2.6, 4 bytes)
-    __unknown_9: i32
+    __unknown_9: f32
 
     # Unknown (bit 2.6, 4 bytes)
-    __unknown_10: i32
+    __unknown_10: f32
 
 object Drone(2)
     # Unknown (bit 1.1, int)
