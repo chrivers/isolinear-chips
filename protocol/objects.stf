@@ -996,9 +996,6 @@ object Asteroid(1)
     # mines in custom missions.
     name: string
 
-    ## Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
-
     # Unknown (bit 1.5, float)
     __unknown_2: f32
 
@@ -1033,9 +1030,6 @@ object Blackhole(1)
     # mines in custom missions.
     name: string
 
-    ## Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
-
     # Unknown (bit 1.5, float)
     __unknown_2: f32
 
@@ -1069,9 +1063,6 @@ object Mine(1)
     # never used, but there may be named asteroids, black holes or
     # mines in custom missions.
     name: string
-
-    ##  Unknown (bit 1.4, float?)
-    ## __unknown_1: f32
 
     # Unknown (bit 1.5, float)
     __unknown_2: f32
