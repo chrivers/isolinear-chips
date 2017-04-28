@@ -247,13 +247,13 @@ object GenericMesh(4)
     __unknown_5: f32
 
     # Unknown (bit 2.2, long)
-    roll: f32
+    roll_delta: f32
 
     # bit 2.3
-    __unknown_6: u32
+    pitch_delta: f32
 
     # bit 2.4
-    __unknown_7: u32
+    angle_delta: f32
 
     # Name (bit 2.5, string)
     # The name of this object.
