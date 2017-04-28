@@ -115,7 +115,8 @@ object Creature(3)
     creature_type_id: enum<u32, CreatureType>
 
     # Unknown (bit 2.1, 4 bytes)
-    __unknown_1: u32
+    # Definitely signed, -1 has been observed
+    __unknown_1: i32
 
     # Unknown (bit 2.2, 4 bytes)
     __unknown_2: u32
