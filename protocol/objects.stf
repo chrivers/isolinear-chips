@@ -899,8 +899,31 @@ object WeaponsConsole(4)
     # long instead of four.
     plasma: u8
 
-    # Unknown (bit 1.6, byte)
-    _unknown: u8
+    # bit 1.6
+    # This field contains the beam arc maximum angle (from
+    # centerline to either side), as support by the ship. As an
+    # example, a ship a firing arc of 90°, would have a value of 45
+    # here. Changing this value does not seem to have any effect on
+    # the station, so it is probably an obsolete value from old
+    # versions of the protocol. Here are some values captured from
+    # version 2.4.0 of the game:
+    #
+    # Terran:
+    #   Light Cruiser    52
+    #   Scout            70
+    #   Battleship       97
+    #   Missile Cruister 25
+    #   Dreadnought      70
+    #   Carrier          85
+    #   Mine Layer       24
+    #   Juggernaut       70
+    #
+    # Ximni:
+    #   Missle Cruiser   72
+    #   Battleship       72
+    #   Carrier          64
+    #   Dreadnought     200
+    beam_halfangle: u8
 
     # Tube (un)load times (bits 1.7-2.4, float array)
     #
