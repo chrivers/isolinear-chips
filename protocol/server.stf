@@ -9,6 +9,12 @@ packet ServerPacket
         # its own ID.
         id: i32
 
+        # maybe source side?
+        __unknown_1: u32
+
+        #
+        __unknown_2: u32
+
         # All ships that can fire beams have beam ports. These are defined in
         # vesselData.xml as <beam_port> entries. This value gives the index of
         # the beam port on the originating ship that fired the beam. This value
@@ -21,6 +27,8 @@ packet ServerPacket
 
         # Indicates the type of object that was struck by the beam.
         target_object_type: enum<u32, ObjectType>
+
+        __unknown_3: u32
 
         # The ID of the object that fired the beam.
         origin_object_id: u32
@@ -48,10 +56,6 @@ packet ServerPacket
 
         # Indicates whether the beam was auto- or manually-fired.
         targeting_mode: enum<u32, TargetingMode>
-
-        __unknown_1: u32
-        __unknown_2: u32
-        __unknown_3: u32
 
     CommsIncoming
         # Indicates the channel on which the message was received. Values range
