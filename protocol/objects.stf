@@ -238,7 +238,7 @@ object GenericMesh(4)
     __unknown_3: u32
 
     # Unknown (bit 1.7, int)
-    __unknown_4: f32
+    __unknown_4: u32
 
     # Unknown (bit 1.8, int)
     pitch: f32
