@@ -273,7 +273,7 @@ object GenericMesh(4)
     push_radius: f32
 
     # Unknown (bit 3.1, short)
-    __unknown_9: u8
+    block_shot_flag: u8
 
     # Unknown (bit 3.2, byte)
     artscale: f32
