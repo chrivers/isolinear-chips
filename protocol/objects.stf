@@ -658,7 +658,7 @@ object PlayerShip(6)
 
     # Capital ship object ID (bit 6.1, int, new as of v2.3.0)
     # The object ID of the associated capital ship, if this ship is a fighter.
-    capital_ship_id: u32
+    capital_ship_id: i32
 
     # Accent Color (bit 6.2, int, new as of v2.4.0)
     # The accent hue of the ship.
