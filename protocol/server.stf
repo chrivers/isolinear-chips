@@ -17,10 +17,10 @@ packet ServerPacket
         beam_port_index: i32
 
         # Indicates the type of object that fired the beam.
-        origin_object_type: i32
+        origin_object_type: enum<u32, ObjectType>
 
         # Indicates the type of object that was struck by the beam.
-        target_object_type: i32
+        target_object_type: enum<u32, ObjectType>
 
         # The ID of the object that fired the beam.
         origin_object_id: u32
@@ -47,7 +47,7 @@ packet ServerPacket
         target_z_coordinate: f32
 
         # Indicates whether the beam was auto- or manually-fired.
-        targeting_mode: f32
+        targeting_mode: enum<u32, TargetingMode>
 
         __unknown_1: u32
         __unknown_2: u32
