@@ -56,8 +56,8 @@ object Base(2)
     # The base's location along the Z-axis.
     z_coordinate: f32
 
-    # Unknown (bit 2.1, 4 bytes)
-    __unknown_1: u32
+    # pitch (bit 2.1, 4 bytes)
+    pitch: f32
 
     # Unknown (bit 2.2, 4 bytes)
     __unknown_2: u32
