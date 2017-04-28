@@ -426,7 +426,9 @@ object NpcShip(6)
     scan_level: u32
 
     # Side? (bit 4.2, int)
-    # This field appears to contain a different value for each side in the conflict. Ships with the same value will presumably be friendly to each other.
+    # This field appears to contain a different value for each side in
+    # the conflict. Ships with the same value will presumably be
+    # friendly to each other.
     side: u32
 
     # Unknown (bit 4.3, int)
