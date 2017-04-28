@@ -231,7 +231,7 @@ packet ServerPacket
         # The ID of the ship to which this intel pertains.
         object_id: u32
 
-        # Values of 0 and 1 have been observed
+        # Values of 0, 1 and 3 have been observed
         __unknown_1: u8
 
         # The intel message about the ship. This is displayed to the science
