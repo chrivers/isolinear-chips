@@ -476,9 +476,8 @@ object NpcShip(6)
 
 # 5 bytes before v2.3.0
 object PlayerShip(6)
-    # Unknown (bit 1.1, int)
-    # This might be the ship targeted by the weapons console.
-    __unknown_1: u32
+    # The object id of the current weapons lock, or 0 if none (bit 1.1, int)
+    weapons_target: u32
 
     # Impulse (bit 1.2, float)
     #
