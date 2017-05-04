@@ -383,7 +383,7 @@ object NpcShip(6)
 
     # Surrendered (bit 2.7, boolean, 1 byte)
     # True if this ship has surrendered; false otherwise.
-    surrendered: bool8
+    surrendered: u8
 
     # Unknown (bit 2.8, short)
     __unknown_1: u16
