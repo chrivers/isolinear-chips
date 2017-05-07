@@ -88,17 +88,17 @@ enum ConsoleType
     CaptainsMap    = 0x09
     GameMaster     = 0x0a
 
-## enum ConsoleTypeV210
-##     MainScreen     = 0x00
-##     Helm           = 0x01
-##     Weapons        = 0x02
-##     Engineering    = 0x03
-##     Science        = 0x04
-##     Communications = 0x05
-##     Data           = 0x06
-##     Observer       = 0x07
-##     CaptainsMap    = 0x08
-##     GameMaster     = 0x09
+enum ConsoleTypeV210
+    MainScreen     = 0x00
+    Helm           = 0x01
+    Weapons        = 0x02
+    Engineering    = 0x03
+    Science        = 0x04
+    Communications = 0x05
+    Data           = 0x06
+    Observer       = 0x07
+    CaptainsMap    = 0x08
+    GameMaster     = 0x09
 
 enum CreatureType
     ClassicMonster = 0x00
@@ -149,24 +149,23 @@ enum ObjectType
     Creature           = 0x0f
     Drone              = 0x10
 
-## enum ObjectTypeV210
-##     END_MARKER         = 0x00
-##     PlayerShip         = 0x01
-##     WeaponsConsole     = 0x02
-##     EngineeringConsole = 0x03
-##     NpcShip            = 0x04
-##     Base               = 0x05
-##     Mine               = 0x06
-##     Anomaly            = 0x07
-##     ## Unused          = 0x08
-##     Nebula             = 0x09
-##     Torpedo            = 0x0a
-##     Blackhole          = 0x0b
-##     Asteroid           = 0x0c
-##     GenericMesh        = 0x0d
-##     Creature           = 0x0e
-##     Whale              = 0x0f
-##     Drone              = 0x10
+enum ObjectTypeV210
+    PlayerShip         = 0x01
+    WeaponsConsole     = 0x02
+    EngineeringConsole = 0x03
+    NpcShip            = 0x04
+    Base               = 0x05
+    Mine               = 0x06
+    Anomaly            = 0x07
+    ## Unused          = 0x08
+    Nebula             = 0x09
+    Torpedo            = 0x0a
+    Blackhole          = 0x0b
+    Asteroid           = 0x0c
+    GenericMesh        = 0x0d
+    Creature           = 0x0e
+    Whale              = 0x0f
+    Drone              = 0x10
 
 enum OrdnanceType
     HomingMissile   = 0x00
