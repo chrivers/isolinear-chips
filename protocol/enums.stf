@@ -198,7 +198,7 @@ enum TubeStatus
     Loading              = 0x02
     Unloading            = 0x03
 
-enum Upgrade
+enum UpgradePickup
     EnergyBoost        = 0x00
     VigoraniumNodule   = 0x01
     CetrociteCrystal   = 0x02
@@ -208,7 +208,7 @@ enum Upgrade
     CarapactionCoils   = 0x06
     SecretCodeCase     = 0x07
 
-enum UpgradeActivation
+enum UpgradeType
     InfusionPCoils       = 0x00
     HydrogenRam          = 0x01
     TauronFocusers       = 0x02
