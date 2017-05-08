@@ -114,6 +114,16 @@ enum DriveType
     Warp = 0x00
     Jump = 0x01
 
+enum GameShip
+    Player1     = 0x00
+    Player2     = 0x01
+    Player3     = 0x02
+    Player4     = 0x03
+    Player5     = 0x04
+    Player6     = 0x05
+    Player7     = 0x06
+    Player8     = 0x07
+
 enum GameType
     Siege       = 0x00
     SingleFront = 0x01
