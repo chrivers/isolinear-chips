@@ -202,6 +202,14 @@ enum TargetingMode
     Auto                 = 0x00
     Manual               = 0x01
 
+enum TubeIndex
+    Tube1                = 0x00
+    Tube2                = 0x01
+    Tube3                = 0x02
+    Tube4                = 0x03
+    Tube5                = 0x04
+    Tube6                = 0x05
+
 enum TubeStatus
     Unloaded             = 0x00
     Loaded               = 0x01
