@@ -190,8 +190,7 @@ object EngineeringConsole(4)
     # contain a single heat level value (beams).
 
     # Heat levels (bits 1.1-1.8, float array)
-    ##    heat: map<ShipSystem, f32>
-    heat: sizedarray<f32, 8>
+    heat: map<ShipSystem, f32>
 
     # The heat level for each system, as a value between 0 (no heat)
     # and 1 (maximum heat). Reaching maximum heat for a system will
@@ -199,8 +198,7 @@ object EngineeringConsole(4)
     # type and release some of the heat.
 
     # Energy allocations (bits 2.1-2.8, float array)
-    # energy: map<ShipSystem, f32>
-    energy: sizedarray<f32, 8>
+    energy: map<ShipSystem, f32>
 
     # The energy allocation for each system, as a value between 0
     # (no energy allocated) and 1 (maximum possible energy
@@ -210,8 +208,7 @@ object EngineeringConsole(4)
 
     # Coolant allocations (bits 3.1-3.8, byte array)
     # The units of coolant allocated to each system.
-    # coolant: map<ShipSystem, u8>
-    coolant: sizedarray<u8, 8>
+    coolant: map<ShipSystem, u8>
 
 # These are arbitrary 3D objects to display in the game world. Players
 # and enemies don't interact with these objects; they are just
@@ -466,13 +463,11 @@ object NpcShip(6)
     # the science console. Barring further damage or actions by a
     # custom script, damage values gradually decrease as the ship is
     # repaired, until they return to 0.0.
-    ## system_damage: map<ShipSystem, f32>
-    system_damage: sizedarray<f32, 8>
+    system_damage: map<ShipSystem, f32>
 
     # Beam frequency resistance (bit 6.3 - 6.7, float array)
     # The ship's resistance to the five beam frequencies. Higher values indicate greater resistance to beams tuned to the corresponding frequency.
-    ## beam_resistance: map<BeamFrequency, f32>
-    beam_resistance: sizedarray<f32, 5>
+    beam_resistance: map<BeamFrequency, f32>
 
 # 5 bytes before v2.3.0
 object PlayerShip(6)
@@ -931,13 +926,13 @@ object WeaponsConsole(4)
     # gives the (un)load time for the corresponding tube. This field
     # should be ignored (even when present) if the tube's status is
     # not loading or unloading.
-    tube_times: sizedarray<f32, 6>
+    tube_times: map<TubeIndex, f32>
 
     # Tube status (bits 2.5-3.2, byte array)
     #
     # This array contains up to six byte elements. Each element
     # indicates the occupation status of each tube.
-    tube_status: sizedarray<enum<u8, TubeStatus>, 6>
+    tube_status: map<TubeIndex, enum<u8, TubeStatus>>
 
     # Ordnance type (bits 3.3-3.8, byte array)
     #
@@ -945,7 +940,7 @@ object WeaponsConsole(4)
     # indicates the type of ordnance in each tube. If the tube's
     # status is unloaded, the tube is empty, and this field should be
     # ignored even when present.
-    ordnance_type: sizedarray<enum<u8, OrdnanceType>, 6>
+    ordnance_type: map<TubeIndex, enum<u8, OrdnanceType>>
 
     ## Unused (bits 4.1-4.8)
 

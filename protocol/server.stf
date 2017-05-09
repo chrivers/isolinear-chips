@@ -2,7 +2,7 @@ packet ServerPacket
     AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
-        ships: sizedarray<struct<ShipV240>, 8>
+        ships: map<GameShip, struct<ShipV240>>
 
     BeamFired
         # A unique identifier for this beam. Each time a beam is fired, it gets
