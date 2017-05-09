@@ -227,15 +227,34 @@ enum UpgradePickup
     SecretCodeCase     = 0x07
 
 enum UpgradeType
-    InfusionPCoils       = 0x00
-    HydrogenRam          = 0x01
-    TauronFocusers       = 0x02
-    CarapactionCoils     = 0x03
-    PolyphasicCapacitors = 0x04
-    CoolantReserves      = 0x05
-    LateralArrays        = 0x06
-    EcmStarpulse         = 0x07
-    DoubleAgent          = 0x08
+    InfusionPCoils        = 0x00
+    HydrogenRam           = 0x01
+    TauronFocusers        = 0x02
+    CarapactionCoils      = 0x03
+    PolyphasicCapacitors  = 0x04
+    CetrociteCrystals     = 0x05
+    LateralArray          = 0x06
+    EcmStarpulse          = 0x07
+    DoubleAgent           = 0x08
+    WartimeProduction     = 0x09
+    InfusionPCoilsPerm    = 0x0a
+    ProtonicVerniers      = 0x0b
+    TauronFocusersPerm    = 0x0c
+    RegenerativePauGrids  = 0x0d
+    VeteranDamconTeams    = 0x0e
+    CetrociteHeatsinks    = 0x0f
+    TachyonScanners       = 0x10
+    GridscanOverload      = 0x11
+    OverrideAuthorization = 0x12
+    ResupplyImperatives   = 0x13
+    PatrolGroup           = 0x14
+    FastSupply            = 0x15
+    VanguardRefitHelm     = 0x16
+    VanguardRefitWeap     = 0x17
+    VanguardRefitComm     = 0x18
+    VanguardRefitStation  = 0x19
+    VanguardRefitEng      = 0x1a
+    VanguardRefitSystems  = 0x1b
 
 flags EliteAbilities
     STEALTH             = 0x0001
