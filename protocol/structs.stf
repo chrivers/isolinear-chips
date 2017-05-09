@@ -126,3 +126,8 @@ struct Update
     # The rest of the entry consists of the updated values for the
     # properties indicated in the bit field.
     # properties: <error: variable-length>
+
+struct Version
+    major: u32
+    minor: u32
+    patch: u32

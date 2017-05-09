@@ -298,10 +298,7 @@ packet ServerPacket
         # (interpreted 2 1 1) for this field. If the client doesn't support the
         # given version, it should disconnect. The version specified in this
         # field supersedes any specified in the legacy version field.
-        ## version_major: u32,
-        ## version_minor: u32,
-        ## version_patch: u32,
-        version: sizedarray<u32, 3>
+        version: struct<Version>
 
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in
