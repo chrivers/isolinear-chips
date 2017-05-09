@@ -114,7 +114,7 @@ enum DriveType
     Warp = 0x00
     Jump = 0x01
 
-enum GameShip
+enum ShipIndex
     Player1     = 0x00
     Player2     = 0x01
     Player3     = 0x02
