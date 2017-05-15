@@ -328,8 +328,9 @@ packet MediaPacket
         # is supported
         media_type: enum<u32, MediaType>
 
-        # maybe initial played state?
-        __unknown_1: u32
+        # Controls if this button is in "already played" state or not. Buttons
+        # in this state show "REPlay" instead of "Play" as their label.
+        played: bool32
 
     Play
         # Controls if this button is in "already played" state or not. Buttons
