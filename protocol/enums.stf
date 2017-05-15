@@ -6,9 +6,8 @@ enum AudioCommand
     Play    = 0x00
     Dismiss = 0x01
 
-enum AudioMode
-    Playing  = 0x01
-    Incoming = 0x02
+enum MediaType
+    Ogg      = 0x00
 
 enum BeamFrequency
     A = 0x00

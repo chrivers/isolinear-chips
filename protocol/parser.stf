@@ -164,3 +164,13 @@ parser ValueFourInts(u32)
     0x02: struct<ClientPacket::LoadTube>
     0x03: struct<ClientPacket::ConvertTorpedo>
     0x04: struct<ClientPacket::EngSendDamcon>
+
+enum MediaCommand
+    Delete   = 0x00
+    Play     = 0x01
+    Create   = 0x02
+
+parser MediaParser(u32)
+    Delete: struct<MediaPacket::Delete>
+    Play:   struct<MediaPacket::Play>
+    Create: struct<MediaPacket::Create>
