@@ -191,8 +191,11 @@ packet ServerPacket
     GameOver
 
     GameOverReason
-        # Text describing why the game ended. Each string is one line.
-        reason: array<string>
+        # First line at the top of the screen, in white text
+        title: string
+
+        # Second line just below the first, in light blue text
+        subtitle: string
 
     GameOverStats
         # Stats are presented in vertical columns; each packet contains one
