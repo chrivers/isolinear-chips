@@ -66,6 +66,9 @@ packet ClientPacket
         # 0x3f800000). The reason that this is, quity oddly, expressed
         # as a float, is because the overall packet type is valueFloat.
         direction: f32
+        __padding1: u32
+        __padding2: u32
+        __padding3: u32
 
     EngSendDamcon
         # The number assigned to the team (0 to 2 inclusive).
@@ -91,6 +94,9 @@ packet ClientPacket
         # The number of coolant units to allocate to the system (0 to 8
         # inclusive).
         value: i32
+
+        __padding1: u32
+        __padding2: u32
 
     EngSetEnergy
         # The amount of energy to allocate to the system. This value can range
@@ -229,6 +235,7 @@ packet ClientPacket
         warp_factor: i32
 
     HelmToggleReverse
+        __padding1: u32
 
     Keystroke
         # The code identifying the key that was pressed. Microsoft has a good
@@ -244,9 +251,14 @@ packet ClientPacket
         # The type of ordnance to load into the tube.
         ordnance_type: enum<u32, OrdnanceType>
 
+        __padding1: u32
+        __padding2: u32
+
     Ready
+        __padding1: u32
 
     RequestEngGridUpdate
+        __padding1: u32
 
     SciScan
         # The object ID for the target to be scanned.
@@ -286,12 +298,16 @@ packet ClientPacket
         target_id: i32
 
     ToggleAutoBeams
+        __padding1: u32
 
     TogglePerspective
+        __padding1: u32
 
     ToggleRedAlert
+        __padding1: u32
 
     ToggleShields
+        __padding1: u32
 
     UnloadTube
         # Index of the tube to unload.
