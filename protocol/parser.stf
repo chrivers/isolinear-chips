@@ -172,3 +172,20 @@ parser MediaParser(u32)
     Delete: struct<MediaPacket::Delete>
     Play:   struct<MediaPacket::Play>
     Create: struct<MediaPacket::Create>
+
+parser ObjectUpdateV240(u32)
+    PlayerShip:          struct<PlayerShip>
+    WeaponsConsole:      struct<WeaponsConsole>
+    EngineeringConsole:  struct<EngineeringConsole>
+    PlayerShipUpgrades:  struct<PlayerShipUpgrades>
+    NpcShip:             struct<NpcShip>
+    Base:                struct<Base>
+    Mine:                struct<Mine>
+    Anomaly:             struct<Anomaly>
+    Nebula:              struct<Nebula>
+    Torpedo:             struct<Torpedo>
+    Blackhole:           struct<Blackhole>
+    Asteroid:            struct<Asteroid>
+    GenericMesh:         struct<GenericMesh>
+    Creature:            struct<Creature>
+    Drone:               struct<Drone>
