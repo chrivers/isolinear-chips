@@ -309,15 +309,11 @@ packet ServerPacket
         __unknown_1: u32
         __unknown_2: u32
 
-# "Create" means that the communications officer is to be notified
-# that an audio message is available, and offered the option to play or
-# dismiss it. "Play" is given in response to the communications
-# officer giving the instruction to play the message, and notifies them
-# that the message is now being played by the main screen. In the stock
-# client, this results in the "Play" button changing to "REPlay." (sic)
-
 packet MediaPacket
 
+    # "Create" means that the communications officer is to be notified
+    # that an audio message is available, and offered the option to
+    # play or dismiss it.
     Create
         # Title of the incoming message. This should be displayed to the COMMs
         # officer.
@@ -335,9 +331,14 @@ packet MediaPacket
         # in this state show "REPlay" instead of "Play" as their label.
         played: bool32
 
+    # "Play" is given in response to the communications officer giving
+    # the instruction to play the message, and notifies them that the
+    # message is now being played by the main screen. In the stock
+    # client, this results in the "Play" button changing to "REPlay." (sic)
     Play
         # Controls if this button is in "already played" state or not. Buttons
         # in this state show "REPlay" instead of "Play" as their label.
         played: bool32
 
+    # Remove the response buttons from the comms station screen.
     Delete
