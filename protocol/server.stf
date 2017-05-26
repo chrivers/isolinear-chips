@@ -23,10 +23,10 @@ packet ServerPacket
         beam_port_index: i32
 
         # Indicates the type of object that fired the beam.
-        origin_object_type: enum<u32, ObjectType>
+        origin_object_type: enum<u32, ObjectTypeV240>
 
         # Indicates the type of object that was struck by the beam.
-        target_object_type: enum<u32, ObjectType>
+        target_object_type: enum<u32, ObjectTypeV240>
 
         __unknown_3: u32
 
@@ -107,14 +107,14 @@ packet ServerPacket
 
     DestroyObject
         # Indicates the type of object being destroyed.
-        object_type: enum<u8, ObjectType>
+        object_type: enum<u8, ObjectTypeV240>
 
         # The ID of the object being destroyed.
         object_id: u32
 
     DestroyObject2
         # The type of object destroyed.
-        object_type: enum<u32, ObjectType>
+        object_type: enum<u32, ObjectTypeV240>
 
         # The ID of the object destroyed.
         object_id: u32

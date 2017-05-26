@@ -140,24 +140,6 @@ enum MainScreenView
     LongRange            = 0x05
     Status               = 0x06
 
-enum ObjectType
-    PlayerShip         = 0x01
-    WeaponsConsole     = 0x02
-    EngineeringConsole = 0x03
-    PlayerShipUpgrades = 0x04
-    NpcShip            = 0x05
-    Base               = 0x06
-    Mine               = 0x07
-    Anomaly            = 0x08
-    ## Unused          = 0x09
-    Nebula             = 0x0a
-    Torpedo            = 0x0b
-    Blackhole          = 0x0c
-    Asteroid           = 0x0d
-    GenericMesh        = 0x0e
-    Creature           = 0x0f
-    Drone              = 0x10
-
 enum ObjectTypeV210
     PlayerShip         = 0x01
     WeaponsConsole     = 0x02
@@ -174,6 +156,24 @@ enum ObjectTypeV210
     GenericMesh        = 0x0d
     Creature           = 0x0e
     Whale              = 0x0f
+    Drone              = 0x10
+
+enum ObjectTypeV240
+    PlayerShip         = 0x01
+    WeaponsConsole     = 0x02
+    EngineeringConsole = 0x03
+    PlayerShipUpgrades = 0x04
+    NpcShip            = 0x05
+    Base               = 0x06
+    Mine               = 0x07
+    Anomaly            = 0x08
+    ## Unused          = 0x09
+    Nebula             = 0x0a
+    Torpedo            = 0x0b
+    Blackhole          = 0x0c
+    Asteroid           = 0x0d
+    GenericMesh        = 0x0e
+    Creature           = 0x0f
     Drone              = 0x10
 
 enum OrdnanceType
