@@ -89,7 +89,7 @@ packet ServerPacket
         # message indicates a line break.
         message: string
 
-    ConsoleStatus
+    ConsoleStatusV240
         # The number of the ship whose consoles are being described. Before
         # v2.3.0, this value was one-based, so by default the ship identified by
         # 0x01 was Artemis. As of v2.3.0 it is now zero-based.
@@ -103,7 +103,7 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: map<ConsoleType, enum<u8, ConsoleStatus>>
+        console_status: map<ConsoleTypeV240, enum<u8, ConsoleStatus>>
 
     DestroyObject
         # Indicates the type of object being destroyed.

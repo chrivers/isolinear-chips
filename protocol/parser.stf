@@ -24,7 +24,7 @@ enum FrameType
 
 parser ServerParser(u32)
     shipSystemSync:    struct<ServerPacket::EngGridUpdate>
-    clientConsoles:    struct<ServerPacket::ConsoleStatus>
+    clientConsoles:    struct<ServerPacket::ConsoleStatusV240>
     gmButton:          parser<GameMasterButton>
     startGame:         struct<ServerPacket::Difficulty>
     plainTextGreeting: struct<ServerPacket::Welcome>
@@ -79,7 +79,7 @@ parser ClientParser(u32)
     commsMessage:   struct<ClientPacket::CommsOutgoing>
     valueFourInts:  parser<ValueFourInts>
     controlMessage: struct<ClientPacket::AudioCommand>
-    gmText:         struct<ClientPacket::GameMasterMessage>
+    gmText:         struct<ClientPacket::GameMasterMessageV240>
     beamRequest:    struct<ClientPacket::FireBeam>
 
 parser ValueFloat(u32)
@@ -107,7 +107,7 @@ parser ValueInt210(u32)
     0x0b: struct<ClientPacket::SetBeamFreq>
     0x0c: struct<ClientPacket::EngSetAutoDamcon>
     0x0d: struct<ClientPacket::SetShip>
-    0x0e: struct<ClientPacket::SetConsole>
+    0x0e: struct<ClientPacket::SetConsoleV210>
     0x0f: struct<ClientPacket::Ready>
     0x10: struct<ClientPacket::SciSelect>
     0x11: struct<ClientPacket::CaptainSelect>
@@ -137,7 +137,7 @@ parser ValueInt240(u32)
     0x0b: struct<ClientPacket::SetBeamFreq>
     0x0c: struct<ClientPacket::EngSetAutoDamcon>
     0x0d: struct<ClientPacket::SetShip>
-    0x0e: struct<ClientPacket::SetConsole>
+    0x0e: struct<ClientPacket::SetConsoleV240>
     0x0f: struct<ClientPacket::Ready>
     0x10: struct<ClientPacket::SciSelect>
     0x11: struct<ClientPacket::CaptainSelect>

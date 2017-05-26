@@ -74,19 +74,6 @@ enum ConsoleStatus
     Yours       = 0x01
     Unavailable = 0x02
 
-enum ConsoleType
-    MainScreen     = 0x00
-    Helm           = 0x01
-    Weapons        = 0x02
-    Engineering    = 0x03
-    Science        = 0x04
-    Communications = 0x05
-    Fighter        = 0x06
-    Data           = 0x07
-    Observer       = 0x08
-    CaptainsMap    = 0x09
-    GameMaster     = 0x0a
-
 enum ConsoleTypeV210
     MainScreen     = 0x00
     Helm           = 0x01
@@ -98,6 +85,19 @@ enum ConsoleTypeV210
     Observer       = 0x07
     CaptainsMap    = 0x08
     GameMaster     = 0x09
+
+enum ConsoleTypeV240
+    MainScreen     = 0x00
+    Helm           = 0x01
+    Weapons        = 0x02
+    Engineering    = 0x03
+    Science        = 0x04
+    Communications = 0x05
+    Fighter        = 0x06
+    Data           = 0x07
+    Observer       = 0x08
+    CaptainsMap    = 0x09
+    GameMaster     = 0x0a
 
 enum CreatureType
     ClassicMonster = 0x00

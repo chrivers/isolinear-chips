@@ -174,7 +174,7 @@ packet ClientPacket
         # The coordinate of the selected location on the X axis.
         x_coordinate: f32
 
-    GameMasterMessage
+    GameMasterMessageV240
         targets: map<ShipIndex, bool8>
 
         # If this value is 0x00, the message is received by the communications
@@ -182,7 +182,7 @@ packet ClientPacket
         # message at a particular console type. The console that receives the
         # message is determined by subtracting 1 from the value; the result then
         # matches the values for the console type enumeration.
-        console_type: option<enum<u32, ConsoleType>>
+        console_type: option<enum<u32, ConsoleTypeV240>>
 
         # The name of the message's sender. This can be any arbitrary string; it
         # doesn't have to match the name of an existing object.
@@ -272,9 +272,9 @@ packet ClientPacket
         # The new beam frequency.
         beam_frequency: enum<u32, BeamFrequency>
 
-    SetConsole
+    SetConsoleV240
         # The console whose status is being updated.
-        console_type: enum<u32, ConsoleType>
+        console_type: enum<u32, ConsoleTypeV240>
 
         # True if this client is using the indicated console, false otherwise.
         selected: bool32
