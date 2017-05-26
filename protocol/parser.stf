@@ -180,12 +180,12 @@ parser ObjectUpdateV240(u32)
     PlayerShipUpgrades:  struct<PlayerShipUpgrades>
     NpcShip:             struct<NpcShip>
     Base:                struct<Base>
-    Mine:                struct<Mine>
+    Mine:                struct<SimpleObject>
     Anomaly:             struct<Anomaly>
     Nebula:              struct<Nebula>
     Torpedo:             struct<Torpedo>
-    Blackhole:           struct<Blackhole>
-    Asteroid:            struct<Asteroid>
+    Blackhole:           struct<SimpleObject>
+    Asteroid:            struct<SimpleObject>
     GenericMesh:         struct<GenericMesh>
     Creature:            struct<Creature>
     Drone:               struct<Drone>
