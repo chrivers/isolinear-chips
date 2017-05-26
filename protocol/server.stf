@@ -302,6 +302,8 @@ packet ServerPacket
         probably_y_coordinate: f32
         probably_z_coordinate: f32
 
+    ## follows every ToggleShields and PlayerShipDamage
+    ## seen with 50 (shields turned on) or 100 (ship hit)
     __unknown_2
         __unknown_1: f32
 

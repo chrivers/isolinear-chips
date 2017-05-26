@@ -55,8 +55,6 @@ parser SimpleEvent(u32)
     0x05: struct<ServerPacket::PlayerShipDamage>
     0x06: struct<ServerPacket::GameOver>
     0x07: struct<ServerPacket::__unknown_1>
-    ## follows every ToggleShields and PlayerShipDamage
-    ## seen with 50 (shields turned on) or 100 (ship hit)
     0x08: struct<ServerPacket::__unknown_2>
     0x09: struct<ServerPacket::Skybox>
     0x0a: struct<ServerPacket::GameMessage>
