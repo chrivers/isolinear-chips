@@ -1,6 +1,6 @@
 struct ShipV240
     # Whether the ship has warp or jump drive
-    drive_type: enum<u32, DriveType>
+    drive_type: enums.DriveType<u32>
 
     # ID from vesselData.xml
     ship_type: u32
@@ -14,7 +14,7 @@ struct ShipV240
 
 struct ShipV210
     # The desired drive type.
-    drive_type: enum<u32, DriveType>
+    drive_type: enums.DriveType<u32>
 
     # The ID of the desired type of vessel, as given in vesselData.xml.
     vessel_id: i32
@@ -108,7 +108,7 @@ struct UpdateV240
     # array will be of the same type. If you get 0x00 for this field, there
     # are no more objects in the array. Prior to v2.1.5, this property was
     # transmitted as an int rather than a byte.
-    object_type: enum<u8, ObjectTypeV240>
+    object_type: enums.ObjectTypeV240<u8>
 
     # A unique identifier assigned to this object.
     object_id: u32

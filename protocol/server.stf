@@ -2,7 +2,7 @@ packet ServerPacket
     AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
-        ships: map<ShipIndex, struct<ShipV240>>
+        ships: map<enums.ShipIndex, structs.ShipV240>
 
     BeamFired
         # A unique identifier for this beam. Each time a beam is fired, it gets
@@ -23,10 +23,10 @@ packet ServerPacket
         beam_port_index: i32
 
         # Indicates the type of object that fired the beam.
-        origin_object_type: enum<u32, ObjectTypeV240>
+        origin_object_type: enums.ObjectTypeV240<u32>
 
         # Indicates the type of object that was struck by the beam.
-        target_object_type: enum<u32, ObjectTypeV240>
+        target_object_type: enums.ObjectTypeV240<u32>
 
         __unknown_3: u32
 
@@ -55,7 +55,7 @@ packet ServerPacket
         target_z_coordinate: f32
 
         # Indicates whether the beam was auto- or manually-fired.
-        targeting_mode: enum<u32, TargetingMode>
+        targeting_mode: enums.TargetingMode<u32>
 
     CommsIncoming
         # Indicates the channel on which the message was received. Values range
@@ -103,18 +103,18 @@ packet ServerPacket
         # claimed, their status will be reported as unavailable to other
         # clients. All other stations will remain available to other clients
         # when claimed.
-        console_status: map<ConsoleTypeV240, enum<u8, ConsoleStatus>>
+        console_status: map<enums.ConsoleTypeV240, enums.ConsoleStatus<u8>>
 
     DestroyObject
         # Indicates the type of object being destroyed.
-        object_type: enum<u8, ObjectTypeV240>
+        object_type: enums.ObjectTypeV240<u8>
 
         # The ID of the object being destroyed.
         object_id: u32
 
     DestroyObject2
         # The type of object destroyed.
-        object_type: enum<u32, ObjectTypeV240>
+        object_type: enums.ObjectTypeV240<u32>
 
         # The ID of the object destroyed.
         object_id: u32
@@ -126,7 +126,7 @@ packet ServerPacket
         # A value indicating the type of game. This applies only to solo and co-
         # op games; the field is present but its value is undefined for PvP and
         # scripted games.
-        game_type: enum<u32, GameType>
+        game_type: enums.GameType<u32>
 
     DmxMessage
         # The DMX flag name.
@@ -146,16 +146,16 @@ packet ServerPacket
         requested: bool8
 
         # This array contains a list of system nodes, terminated with 0xff.
-        system_grid_status: array<struct<SystemNodeStatus>, 0xff>
+        system_grid_status: array<structs.SystemNodeStatus, 0xff>
 
         # This contains a list of DAMCON teams, terminated with 0xfe.
-        damcon_team_status: array<struct<DamconTeamStatus>, 0xfe>
+        damcon_team_status: array<structs.DamconTeamStatus, 0xfe>
 
     FighterBayStatus
         # The payload consists of an array of structs, each one
         # describing a single fighter, and terminated with
         # 0x00000000.
-        status: array<struct<FighterBay>, 0x00000000>
+        status: array<structs.FighterBay, 0x00000000>
 
     FighterHit
         fighter_id: u32
@@ -206,7 +206,7 @@ packet ServerPacket
         # The remaining bytes in the packet are an array, where each
         # element constitutes a row in the stats column. The last
         # element is followed by 0xce.
-        statistics: array<struct<Statistic>, 0xce>
+        statistics: array<structs.Statistic, 0xce>
 
     Heartbeat
 
@@ -214,7 +214,7 @@ packet ServerPacket
         # The ID for this audio message.
         audio_id: i32
 
-        media: struct<MediaPacket>
+        media: structs.MediaPacket
 
     Intel
         # The ID of the ship to which this intel pertains.
@@ -243,7 +243,7 @@ packet ServerPacket
         # entries. Parsing continues in a loop until the end of the
         # packet is reached, or the object type byte is 0x00. Note
         # that the array may be empty
-        updates: array<struct<ObjectUpdate>, 0x00000000>
+        updates: array<structs.ObjectUpdate, 0x00000000>
 
     Pause
         # True if the simulation is paused; false otherwise.
@@ -287,7 +287,7 @@ packet ServerPacket
         # (interpreted 2 1 1) for this field. If the client doesn't support the
         # given version, it should disconnect. The version specified in this
         # field supersedes any specified in the legacy version field.
-        version: struct<Version>
+        version: structs.Version
 
     Welcome
         # Unlike all other strings in Artemis packets, this one is encoded in
@@ -327,7 +327,7 @@ packet MediaPacket
 
         # The media type of the audio clip. At the moment, 0 (Ogg audio)
         # is supported
-        media_type: enum<u32, MediaType>
+        media_type: enums.MediaType<u32>
 
         # Controls if this button is in "already played" state or not. Buttons
         # in this state show "REPlay" instead of "Play" as their label.

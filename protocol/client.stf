@@ -15,7 +15,7 @@ packet ClientPacket
         # The upgrade to activate. The game is prepared for 28 (30?)
         # different types of powerups, but only 8 are available as
         # of Artemis 2.4.
-        target: enum<u32, UpgradeType>
+        target: enums.UpgradeType<u32>
 
     AudioCommand
         # The ID for the audio message. This is given by the
@@ -23,7 +23,7 @@ packet ClientPacket
         audio_id: i32
 
         # The desired action to perform.
-        audio_command: enum<u32, AudioCommand>
+        audio_command: enums.AudioCommand<u32>
 
     CaptainSelect
         # The object ID for the new target, or 1 if the target has been cleared.
@@ -38,7 +38,7 @@ packet ClientPacket
 
     CommsOutgoing
         # The type of target for the message.
-        comm_target_type: enum<u32, CommTargetType>
+        comm_target_type: enums.CommTargetType<u32>
 
         # ID of the object that is to receive the message.
         recipient_id: i32
@@ -89,7 +89,7 @@ packet ClientPacket
 
     EngSetCoolant
         # The system whose coolant level is being adjusted.
-        ship_system: enum<u32, ShipSystem>
+        ship_system: enums.ShipSystem<u32>
 
         # The number of coolant units to allocate to the system (0 to 8
         # inclusive).
@@ -106,7 +106,7 @@ packet ClientPacket
         value: f32
 
         # The system whose coolant level is being adjusted.
-        ship_system: enum<u32, ShipSystem>
+        ship_system: enums.ShipSystem<u32>
 
     FighterFire
         fighter_id: u32
@@ -175,14 +175,14 @@ packet ClientPacket
         x_coordinate: f32
 
     GameMasterMessageV240
-        targets: map<ShipIndex, bool8>
+        targets: map<enums.ShipIndex, bool8>
 
         # If this value is 0x00, the message is received by the communications
         # officer as a normal COMM message. Otherwise, it is sent as a popup
         # message at a particular console type. The console that receives the
         # message is determined by subtracting 1 from the value; the result then
         # matches the values for the console type enumeration.
-        console_type: option<enum<u32, ConsoleTypeV240>>
+        console_type: option<enums.ConsoleTypeV240<u32>>
 
         # The name of the message's sender. This can be any arbitrary string; it
         # doesn't have to match the name of an existing object.
@@ -249,7 +249,7 @@ packet ClientPacket
         tube_index: i32
 
         # The type of ordnance to load into the tube.
-        ordnance_type: enum<u32, OrdnanceType>
+        ordnance_type: enums.OrdnanceType<u32>
 
         __padding1: u32
         __padding2: u32
@@ -270,28 +270,28 @@ packet ClientPacket
 
     SetBeamFreq
         # The new beam frequency.
-        beam_frequency: enum<u32, BeamFrequency>
+        beam_frequency: enums.BeamFrequency<u32>
 
     SetConsoleV240
         # The console whose status is being updated.
-        console_type: enum<u32, ConsoleTypeV240>
+        console_type: enums.ConsoleTypeV240<u32>
 
         # True if this client is using the indicated console, false otherwise.
         selected: bool32
 
     SetMainScreen
         # The view to display on the main screen.
-        main_screen_view: enum<u32, MainScreenView>
+        main_screen_view: enums.MainScreenView<u32>
 
     SetShip
         # The index of the desired ship; valid values are 0 through 7 inclusive.
         ship_index: i32
 
     SetShipSettingsV210
-        ship: struct<ShipV210>
+        ship: structs.ShipV210
 
     SetShipSettingsV240
-        ship: struct<ShipV240>
+        ship: structs.ShipV240
 
     SetWeaponsTarget
         # The object ID for the new target, or 1 if the target has been cleared.
