@@ -1,4 +1,4 @@
-object Anomaly(1)
+struct Anomaly(1)
     x_coordinate: f32
     y_coordinate: f32
     z_coordinate: f32
@@ -9,7 +9,7 @@ object Anomaly(1)
     __unknown_2: u32
     __unknown_3: u32
 
-object Base(2)
+struct Base(2)
     # Name (bit 1.1, string)
     #
     # The name assigned to this base. In standard, non-custom
@@ -80,7 +80,7 @@ object Base(2)
 # by the “other” property structure, and space whales had their own
 # structure.
 
-object Creature(3)
+struct Creature(3)
     # X (bit 1.1, float)
     # The X coordinate of this creature.
     x_coordinate: f32
@@ -145,7 +145,7 @@ object Creature(3)
     # Unknown (bit 2.6, 4 bytes)
     __unknown_10: f32
 
-object Drone(2)
+struct Drone(2)
     # Unknown (bit 1.1, int)
     __unknown_1: u32
 
@@ -177,7 +177,7 @@ object Drone(2)
 
     # Unused? (bits 2.2-2.8)
 
-object EngineeringConsole(4)
+struct EngineeringConsole(4)
     # Each byte of the field represents a category of values:
 
     # Heat levels
@@ -213,7 +213,7 @@ object EngineeringConsole(4)
 # These are arbitrary 3D objects to display in the game world. Players
 # and enemies don't interact with these objects; they are just
 # decoration.
-object GenericMesh(4)
+struct GenericMesh(4)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -300,7 +300,7 @@ object GenericMesh(4)
     # Unknown (bit 4.2, int)
     __unknown_13: u64
 
-object Nebula(1)
+struct Nebula(1)
     # X coordinate (bit 1.1, float)
     x_coordinate: f32
 
@@ -325,7 +325,7 @@ object Nebula(1)
     # Unused? (bit 1.8, int)
     __unknown_2: u32
 
-object NpcShip(6)
+struct NpcShip(6)
     # Name (bit 1.1, string)
     # The ship's name.
     name: string
@@ -470,7 +470,7 @@ object NpcShip(6)
     beam_resistance: map<enums.BeamFrequency, f32>
 
 # 5 bytes before v2.3.0
-object PlayerShip(6)
+struct PlayerShip(6)
     # The object id of the current weapons lock, or 0 if none (bit 1.1, int)
     weapons_target: u32
 
@@ -664,7 +664,7 @@ object PlayerShip(6)
 
 # New as of v2.1.5. Indicates how many of each upgrade the player ship
 # has on board.
-object PlayerShipUpgrades(11)
+struct PlayerShipUpgrades(11)
     active: map<enums.UpgradeType, bool8>
     count: map<enums.UpgradeType, i8>
     time: map<enums.UpgradeType, u16>
@@ -672,7 +672,7 @@ object PlayerShipUpgrades(11)
 # Several object types (asteroids, black holes and mines) all use the
 # same properties. Prior to v2.1.5, anomalies and space monsters also
 # used this structure.
-object SimpleObject(1)
+struct SimpleObject(1)
     # X coordinate (bit 1.1, float)
     # The object's location on the X axis.
     x_coordinate: f32
@@ -703,7 +703,7 @@ object SimpleObject(1)
     # Unknown (bit 1.8, int)
     __unknown_5: u32
 
-object Torpedo(2)
+struct Torpedo(2)
     # X coordinate (bit 1.1, float)
     # The torpedo's location on the X axis.
     x_coordinate: f32
@@ -732,7 +732,7 @@ object Torpedo(2)
     # Unknown (bit 1.8, int)
     __unknown_6: u32
 
-object WeaponsConsole(4)
+struct WeaponsConsole(4)
     # Ordnance counts (bits 1.1-1.5, byte array)
     # This array contains up to five byte elements. Each element
     # gives how many of a particular ordinance are stored on the
@@ -801,7 +801,7 @@ object WeaponsConsole(4)
 
 # This type became obsolete starting v2.1.5, when whales were folded
 # into the new creature object type.
-object Whale(2)
+struct Whale(2)
     # Name (bit 1.1, string)
     #
     # Always “WHALE” in non-custom missions.

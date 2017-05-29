@@ -25,10 +25,10 @@ enum FrameType
 parser ServerParser(u32)
     shipSystemSync:    server.ServerPacket::EngGridUpdate
     clientConsoles:    server.ServerPacket::ConsoleStatusV240
-    gmButton:          GameMasterButton
+    gmButton:          parser.GameMasterButton
     startGame:         server.ServerPacket::Difficulty
     plainTextGreeting: server.ServerPacket::Welcome
-    objectBitStream:   server.ServerPacket::ObjectUpdate
+    objectBitStream:   server.ServerPacket::ObjectUpdatesV240
     carrierRecord:     server.ServerPacket::FighterBayStatus
     incomingMessage:   server.ServerPacket::IncomingAudio
     attack:            server.ServerPacket::BeamFired
@@ -37,7 +37,7 @@ parser ServerParser(u32)
     connected:         server.ServerPacket::Version
     objectText:        server.ServerPacket::Intel
     heartbeat:         server.ServerPacket::Heartbeat
-    simpleEvent:       SimpleEvent
+    simpleEvent:       parser.SimpleEvent
 
 parser GameMasterButton(u8)
     0x00: server.ServerPacket::GameMasterButtonDestroy
@@ -74,10 +74,10 @@ parser SimpleEvent(u32)
     0x18: server.ServerPacket::FighterHit
 
 parser ClientParser(u32)
-    valueFloat:     ValueFloat
-    valueInt:       ValueInt240
+    valueFloat:     parser.ValueFloat
+    valueInt:       parser.ValueInt240
     commsMessage:   client.ClientPacket::CommsOutgoing
-    valueFourInts:  ValueFourInts
+    valueFourInts:  parser.ValueFourInts
     controlMessage: client.ClientPacket::AudioCommand
     gmText:         client.ClientPacket::GameMasterMessageV240
     beamRequest:    client.ClientPacket::FireBeam

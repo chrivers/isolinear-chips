@@ -103,7 +103,7 @@ struct Statistic
     # The description for this statistic.
     label: string
 
-struct UpdateV240
+struct ObjectUpdateV240
     # The type of object represented by this entry. All objects in the same
     # array will be of the same type. If you get 0x00 for this field, there
     # are no more objects in the array. Prior to v2.1.5, this property was
@@ -120,7 +120,7 @@ struct UpdateV240
     # single property; if a bit is set to 1, that property is included. The
     # length of the bit field depends the number of properties the object
     # has.
-    payload: object
+    update: struct<Update>
     # bit_field: <error: variable-length>
 
     # The rest of the entry consists of the updated values for the
