@@ -1,0 +1,13 @@
+flags EliteAbilities
+    STEALTH             = 0x0001
+    LOWVIS              = 0x0002
+    CLOAK               = 0x0004
+    HET                 = 0x0008
+    WARP                = 0x0010
+    TELEPORT            = 0x0020
+    TRACTOR             = 0x0040
+    DRONES              = 0x0080
+    ANTIMINE            = 0x0100
+    ANTITORP            = 0x0200
+    SHIELDDRAIN         = 0x0400
+    SHIELDSTEAL         = 0x0800
