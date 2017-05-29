@@ -238,6 +238,13 @@ packet ServerPacket
         # telling it to do what it's already doing; this is normal.
         capture: bool8
 
+    struct ObjectUpdatesV210
+        # The payload consists of an array of object update
+        # entries. Parsing continues in a loop until the end of the
+        # packet is reached, or the object type byte is 0x00. Note
+        # that the array may be empty
+        updates: array<struct<UpdateV210>, 0x00>
+
     struct ObjectUpdatesV240
         # The payload consists of an array of object update
         # entries. Parsing continues in a loop until the end of the

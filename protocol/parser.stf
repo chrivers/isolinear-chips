@@ -173,6 +173,23 @@ parser MediaParser(u32)
     Play:   server.MediaPacket::Play
     Create: server.MediaPacket::Create
 
+parser ObjectUpdateV210(u32)
+    PlayerShip:          objects.PlayerShip
+    WeaponsConsole:      objects.WeaponsConsole
+    EngineeringConsole:  objects.EngineeringConsole
+    NpcShip:             objects.NpcShip
+    Base:                objects.Base
+    Mine:                objects.SimpleObject
+    Anomaly:             objects.Anomaly
+    Nebula:              objects.Nebula
+    Torpedo:             objects.Torpedo
+    Blackhole:           objects.SimpleObject
+    Asteroid:            objects.SimpleObject
+    GenericMesh:         objects.GenericMesh
+    Creature:            objects.Creature
+    Drone:               objects.Drone
+    Whale:               objects.Whale
+
 parser ObjectUpdateV240(u32)
     PlayerShip:          objects.PlayerShip
     WeaponsConsole:      objects.WeaponsConsole

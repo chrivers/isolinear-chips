@@ -103,6 +103,30 @@ struct Statistic
     # The description for this statistic.
     label: string
 
+struct ObjectUpdateV210
+    # The type of object represented by this entry. All objects in the same
+    # array will be of the same type. If you get 0x00 for this field, there
+    # are no more objects in the array. Prior to v2.1.5, this property was
+    # transmitted as an int rather than a byte.
+    object_type: enums.ObjectTypeV210<u32>
+
+    # A unique identifier assigned to this object.
+    object_id: u32
+
+    # In order to minimize the amount of data that has to be transmitted
+    # the server typically only sends the properties that have changed
+    # instead of the entire object every time. This bit field indicates
+    # which properties are included in the update. Each bit represents a
+    # single property; if a bit is set to 1, that property is included. The
+    # length of the bit field depends the number of properties the object
+    # has.
+    update: struct<Update>
+    # bit_field: <error: variable-length>
+
+    # The rest of the entry consists of the updated values for the
+    # properties indicated in the bit field.
+    # properties: <error: variable-length>
+
 struct ObjectUpdateV240
     # The type of object represented by this entry. All objects in the same
     # array will be of the same type. If you get 0x00 for this field, there

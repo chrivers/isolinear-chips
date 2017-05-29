@@ -272,6 +272,13 @@ packet ClientPacket
         # The new beam frequency.
         beam_frequency: enums.BeamFrequency<u32>
 
+    struct SetConsoleV210
+        # The console whose status is being updated.
+        console_type: enums.ConsoleTypeV210<u32>
+
+        # True if this client is using the indicated console, false otherwise.
+        selected: bool32
+
     struct SetConsoleV240
         # The console whose status is being updated.
         console_type: enums.ConsoleTypeV240<u32>
