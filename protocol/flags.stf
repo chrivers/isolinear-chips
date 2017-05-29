@@ -1,4 +1,6 @@
-flags EliteAbilities<u32>
+flags EliteAbilities
+    __TYPE__: u32
+
     STEALTH             = 0x0001
     LOWVIS              = 0x0002
     CLOAK               = 0x0004

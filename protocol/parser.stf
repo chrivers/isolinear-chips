@@ -1,4 +1,4 @@
-enum FrameType<u32>
+enum FrameType
     valueFloat        = 0x0351a5ac
     shipSystemSync    = 0x077e9f3c
     clientConsoles    = 0x19c6e2d4
@@ -22,10 +22,11 @@ enum FrameType<u32>
     heartbeat         = 0xf5821226
     simpleEvent       = 0xf754c8fe
 
-parser ServerParser<FrameType>
+parser ServerParser
+    __TYPE__: parser.FrameType
     shipSystemSync:    server.ServerPacket::EngGridUpdate
     clientConsoles:    server.ServerPacket::ConsoleStatusV240
-    gmButton:          parser.GameMasterButton
+    gmButton:          parser.GameMasterButton<u8>
     startGame:         server.ServerPacket::Difficulty
     plainTextGreeting: server.ServerPacket::Welcome
     objectBitStream:   server.ServerPacket::ObjectUpdatesV240
@@ -37,16 +38,16 @@ parser ServerParser<FrameType>
     connected:         server.ServerPacket::Version
     objectText:        server.ServerPacket::Intel
     heartbeat:         server.ServerPacket::Heartbeat
-    simpleEvent:       parser.SimpleEvent
+    simpleEvent:       parser.SimpleEvent<u32>
 
-parser GameMasterButton<u8>
+parser GameMasterButton
     0x00: server.ServerPacket::GameMasterButtonDestroy
     0x01: server.ServerPacket::GameMasterButtonCreate
     0x02: server.ServerPacket::GameMasterButtonCreatePlace
     0x63: server.ServerPacket::GameMasterOverview
     0x64: server.ServerPacket::GameMasterButtonReset
 
-parser SimpleEvent<u32>
+parser SimpleEvent
     0x00: server.ServerPacket::DestroyObject2
 ##  0x01: ...
 ##  0x02: ...
@@ -73,16 +74,16 @@ parser SimpleEvent<u32>
     0x17: server.ServerPacket::FighterLaunched
     0x18: server.ServerPacket::FighterHit
 
-parser ClientParser<u32>
-    valueFloat:     parser.ValueFloat
-    valueInt:       parser.ValueInt240
+parser ClientParser
+    valueFloat:     parser.ValueFloat<u32>
+    valueInt:       parser.ValueInt240<u32>
     commsMessage:   client.ClientPacket::CommsOutgoing
-    valueFourInts:  parser.ValueFourInts
+    valueFourInts:  parser.ValueFourInts<u32>
     controlMessage: client.ClientPacket::AudioCommand
     gmText:         client.ClientPacket::GameMasterMessageV240
     beamRequest:    client.ClientPacket::FireBeam
 
-parser ValueFloat<u32>
+parser ValueFloat
     0x00: client.ClientPacket::HelmSetImpulse
     0x01: client.ClientPacket::HelmSetSteering
     0x02: client.ClientPacket::HelmSetPitch
@@ -92,7 +93,7 @@ parser ValueFloat<u32>
     0x06: client.ClientPacket::GameMasterLocation
     0x07: client.ClientPacket::FighterUpdate
 
-parser ValueInt210<u32>
+parser ValueInt210
     0x00: client.ClientPacket::HelmSetWarp
     0x01: client.ClientPacket::SetMainScreen
     0x02: client.ClientPacket::SetWeaponsTarget
@@ -122,7 +123,7 @@ parser ValueInt210<u32>
     0x1a: client.ClientPacket::TogglePerspective
     0x1b: client.ClientPacket::ClimbDive
 
-parser ValueInt240<u32>
+parser ValueInt240
     0x00: client.ClientPacket::HelmSetWarp
     0x01: client.ClientPacket::SetMainScreen
     0x02: client.ClientPacket::SetWeaponsTarget
@@ -156,7 +157,7 @@ parser ValueInt240<u32>
     0x1e: client.ClientPacket::FighterLaunch
     0x1f: client.ClientPacket::FighterFire ## ?
 
-parser ValueFourInts<u32>
+parser ValueFourInts
     0x00: client.ClientPacket::EngSetCoolant
 ##  0x01: ...
     0x02: client.ClientPacket::LoadTube
@@ -168,12 +169,12 @@ enum MediaCommand
     Play     = 0x01
     Create   = 0x02
 
-parser MediaParser<u32>
+parser MediaParser
     Delete: server.MediaPacket::Delete
     Play:   server.MediaPacket::Play
     Create: server.MediaPacket::Create
 
-parser ObjectUpdateV210<u32>
+parser ObjectUpdateV210
     PlayerShip:          objects.PlayerShip
     WeaponsConsole:      objects.WeaponsConsole
     EngineeringConsole:  objects.EngineeringConsole
@@ -190,7 +191,7 @@ parser ObjectUpdateV210<u32>
     Drone:               objects.Drone
     Whale:               objects.Whale
 
-parser ObjectUpdateV240<u32>
+parser ObjectUpdateV240
     PlayerShip:          objects.PlayerShip
     WeaponsConsole:      objects.WeaponsConsole
     EngineeringConsole:  objects.EngineeringConsole
