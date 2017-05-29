@@ -23,7 +23,8 @@ enum FrameType
     simpleEvent       = 0xf754c8fe
 
 parser ServerParser
-    __TYPE__: parser.FrameType
+    @type: parser.FrameType
+
     shipSystemSync:    server.ServerPacket.EngGridUpdate
     clientConsoles:    server.ServerPacket.ConsoleStatusV240
     gmButton:          parser.GameMasterButton<u8>

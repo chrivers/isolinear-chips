@@ -1,5 +1,5 @@
 flags EliteAbilities
-    __TYPE__: u32
+    @type: u32
 
     STEALTH             = 0x0001
     LOWVIS              = 0x0002
