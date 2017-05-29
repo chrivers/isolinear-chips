@@ -24,145 +24,145 @@ enum FrameType
 
 parser ServerParser
     __TYPE__: parser.FrameType
-    shipSystemSync:    server.ServerPacket::EngGridUpdate
-    clientConsoles:    server.ServerPacket::ConsoleStatusV240
+    shipSystemSync:    server.ServerPacket.EngGridUpdate
+    clientConsoles:    server.ServerPacket.ConsoleStatusV240
     gmButton:          parser.GameMasterButton<u8>
-    startGame:         server.ServerPacket::Difficulty
-    plainTextGreeting: server.ServerPacket::Welcome
-    objectBitStream:   server.ServerPacket::ObjectUpdatesV240
-    carrierRecord:     server.ServerPacket::FighterBayStatus
-    incomingMessage:   server.ServerPacket::IncomingAudio
-    attack:            server.ServerPacket::BeamFired
-    objectDelete:      server.ServerPacket::DestroyObject
-    commText:          server.ServerPacket::CommsIncoming
-    connected:         server.ServerPacket::Version
-    objectText:        server.ServerPacket::Intel
-    heartbeat:         server.ServerPacket::Heartbeat
+    startGame:         server.ServerPacket.Difficulty
+    plainTextGreeting: server.ServerPacket.Welcome
+    objectBitStream:   server.ServerPacket.ObjectUpdatesV240
+    carrierRecord:     server.ServerPacket.FighterBayStatus
+    incomingMessage:   server.ServerPacket.IncomingAudio
+    attack:            server.ServerPacket.BeamFired
+    objectDelete:      server.ServerPacket.DestroyObject
+    commText:          server.ServerPacket.CommsIncoming
+    connected:         server.ServerPacket.Version
+    objectText:        server.ServerPacket.Intel
+    heartbeat:         server.ServerPacket.Heartbeat
     simpleEvent:       parser.SimpleEvent<u32>
 
 parser GameMasterButton
-    0x00: server.ServerPacket::GameMasterButtonDestroy
-    0x01: server.ServerPacket::GameMasterButtonCreate
-    0x02: server.ServerPacket::GameMasterButtonCreatePlace
-    0x63: server.ServerPacket::GameMasterOverview
-    0x64: server.ServerPacket::GameMasterButtonReset
+    0x00: server.ServerPacket.GameMasterButtonDestroy
+    0x01: server.ServerPacket.GameMasterButtonCreate
+    0x02: server.ServerPacket.GameMasterButtonCreatePlace
+    0x63: server.ServerPacket.GameMasterOverview
+    0x64: server.ServerPacket.GameMasterButtonReset
 
 parser SimpleEvent
-    0x00: server.ServerPacket::DestroyObject2
+    0x00: server.ServerPacket.DestroyObject2
 ##  0x01: ...
 ##  0x02: ...
-    0x03: server.ServerPacket::SoundEffect
-    0x04: server.ServerPacket::Pause
-    0x05: server.ServerPacket::PlayerShipDamage
-    0x06: server.ServerPacket::GameOver
-    0x07: server.ServerPacket::__unknown_1
-    0x08: server.ServerPacket::__unknown_2
-    0x09: server.ServerPacket::Skybox
-    0x0a: server.ServerPacket::GameMessage
-    0x0b: server.ServerPacket::EngAutoDamconUpdate
-    0x0c: server.ServerPacket::JumpStatusBegin
-    0x0d: server.ServerPacket::JumpStatusEnd
+    0x03: server.ServerPacket.SoundEffect
+    0x04: server.ServerPacket.Pause
+    0x05: server.ServerPacket.PlayerShipDamage
+    0x06: server.ServerPacket.GameOver
+    0x07: server.ServerPacket.__unknown_1
+    0x08: server.ServerPacket.__unknown_2
+    0x09: server.ServerPacket.Skybox
+    0x0a: server.ServerPacket.GameMessage
+    0x0b: server.ServerPacket.EngAutoDamconUpdate
+    0x0c: server.ServerPacket.JumpStatusBegin
+    0x0d: server.ServerPacket.JumpStatusEnd
 ##  0x0e: ...
-    0x0f: server.ServerPacket::AllShipSettings
-    0x10: server.ServerPacket::DmxMessage
-    0x11: server.ServerPacket::KeyCaptureToggle
-    0x12: server.ServerPacket::TogglePerspective
-    0x13: server.ServerPacket::__unknown_3
-    0x14: server.ServerPacket::GameOverReason
-    0x15: server.ServerPacket::GameOverStats
+    0x0f: server.ServerPacket.AllShipSettings
+    0x10: server.ServerPacket.DmxMessage
+    0x11: server.ServerPacket.KeyCaptureToggle
+    0x12: server.ServerPacket.TogglePerspective
+    0x13: server.ServerPacket.__unknown_3
+    0x14: server.ServerPacket.GameOverReason
+    0x15: server.ServerPacket.GameOverStats
 ##  0x16: ...
-    0x17: server.ServerPacket::FighterLaunched
-    0x18: server.ServerPacket::FighterHit
+    0x17: server.ServerPacket.FighterLaunched
+    0x18: server.ServerPacket.FighterHit
 
 parser ClientParser
     valueFloat:     parser.ValueFloat<u32>
     valueInt:       parser.ValueInt240<u32>
-    commsMessage:   client.ClientPacket::CommsOutgoing
+    commsMessage:   client.ClientPacket.CommsOutgoing
     valueFourInts:  parser.ValueFourInts<u32>
-    controlMessage: client.ClientPacket::AudioCommand
-    gmText:         client.ClientPacket::GameMasterMessageV240
-    beamRequest:    client.ClientPacket::FireBeam
+    controlMessage: client.ClientPacket.AudioCommand
+    gmText:         client.ClientPacket.GameMasterMessageV240
+    beamRequest:    client.ClientPacket.FireBeam
 
 parser ValueFloat
-    0x00: client.ClientPacket::HelmSetImpulse
-    0x01: client.ClientPacket::HelmSetSteering
-    0x02: client.ClientPacket::HelmSetPitch
+    0x00: client.ClientPacket.HelmSetImpulse
+    0x01: client.ClientPacket.HelmSetSteering
+    0x02: client.ClientPacket.HelmSetPitch
 ##  0x03: ...
-    0x04: client.ClientPacket::EngSetEnergy
-    0x05: client.ClientPacket::HelmJump
-    0x06: client.ClientPacket::GameMasterLocation
-    0x07: client.ClientPacket::FighterUpdate
+    0x04: client.ClientPacket.EngSetEnergy
+    0x05: client.ClientPacket.HelmJump
+    0x06: client.ClientPacket.GameMasterLocation
+    0x07: client.ClientPacket.FighterUpdate
 
 parser ValueInt210
-    0x00: client.ClientPacket::HelmSetWarp
-    0x01: client.ClientPacket::SetMainScreen
-    0x02: client.ClientPacket::SetWeaponsTarget
-    0x03: client.ClientPacket::ToggleAutoBeams
-    0x04: client.ClientPacket::ToggleShields
-    0x05: client.ClientPacket::__unknown_1
-    0x06: client.ClientPacket::__unknown_2
-    0x07: client.ClientPacket::HelmRequestDock
-    0x08: client.ClientPacket::FireTube
-    0x09: client.ClientPacket::UnloadTube
-    0x0a: client.ClientPacket::ToggleRedAlert
-    0x0b: client.ClientPacket::SetBeamFreq
-    0x0c: client.ClientPacket::EngSetAutoDamcon
-    0x0d: client.ClientPacket::SetShip
-    0x0e: client.ClientPacket::SetConsoleV210
-    0x0f: client.ClientPacket::Ready
-    0x10: client.ClientPacket::SciSelect
-    0x11: client.ClientPacket::CaptainSelect
-    0x12: client.ClientPacket::GameMasterSelect
-    0x13: client.ClientPacket::SciScan
-    0x14: client.ClientPacket::Keystroke
-    0x15: client.ClientPacket::GameMasterButtonClick
-    0x16: client.ClientPacket::SetShipSettingsV210
-    0x17: client.ClientPacket::SetShipSettingsV240
-    0x18: client.ClientPacket::HelmToggleReverse
-    0x19: client.ClientPacket::RequestEngGridUpdate
-    0x1a: client.ClientPacket::TogglePerspective
-    0x1b: client.ClientPacket::ClimbDive
+    0x00: client.ClientPacket.HelmSetWarp
+    0x01: client.ClientPacket.SetMainScreen
+    0x02: client.ClientPacket.SetWeaponsTarget
+    0x03: client.ClientPacket.ToggleAutoBeams
+    0x04: client.ClientPacket.ToggleShields
+    0x05: client.ClientPacket.__unknown_1
+    0x06: client.ClientPacket.__unknown_2
+    0x07: client.ClientPacket.HelmRequestDock
+    0x08: client.ClientPacket.FireTube
+    0x09: client.ClientPacket.UnloadTube
+    0x0a: client.ClientPacket.ToggleRedAlert
+    0x0b: client.ClientPacket.SetBeamFreq
+    0x0c: client.ClientPacket.EngSetAutoDamcon
+    0x0d: client.ClientPacket.SetShip
+    0x0e: client.ClientPacket.SetConsoleV210
+    0x0f: client.ClientPacket.Ready
+    0x10: client.ClientPacket.SciSelect
+    0x11: client.ClientPacket.CaptainSelect
+    0x12: client.ClientPacket.GameMasterSelect
+    0x13: client.ClientPacket.SciScan
+    0x14: client.ClientPacket.Keystroke
+    0x15: client.ClientPacket.GameMasterButtonClick
+    0x16: client.ClientPacket.SetShipSettingsV210
+    0x17: client.ClientPacket.SetShipSettingsV240
+    0x18: client.ClientPacket.HelmToggleReverse
+    0x19: client.ClientPacket.RequestEngGridUpdate
+    0x1a: client.ClientPacket.TogglePerspective
+    0x1b: client.ClientPacket.ClimbDive
 
 parser ValueInt240
-    0x00: client.ClientPacket::HelmSetWarp
-    0x01: client.ClientPacket::SetMainScreen
-    0x02: client.ClientPacket::SetWeaponsTarget
-    0x03: client.ClientPacket::ToggleAutoBeams
-    0x04: client.ClientPacket::ToggleShields
-    0x05: client.ClientPacket::__unknown_1 ## ?
-    0x06: client.ClientPacket::__unknown_2 ## ?
-    0x07: client.ClientPacket::HelmRequestDock
-    0x08: client.ClientPacket::FireTube
-    0x09: client.ClientPacket::UnloadTube
-    0x0a: client.ClientPacket::ToggleRedAlert
-    0x0b: client.ClientPacket::SetBeamFreq
-    0x0c: client.ClientPacket::EngSetAutoDamcon
-    0x0d: client.ClientPacket::SetShip
-    0x0e: client.ClientPacket::SetConsoleV240
-    0x0f: client.ClientPacket::Ready
-    0x10: client.ClientPacket::SciSelect
-    0x11: client.ClientPacket::CaptainSelect
-    0x12: client.ClientPacket::GameMasterSelect
-    0x13: client.ClientPacket::SciScan
-    0x14: client.ClientPacket::Keystroke
-    0x15: client.ClientPacket::GameMasterButtonClick
-    0x16: client.ClientPacket::__unknown_3 ## ?
-    0x17: client.ClientPacket::SetShipSettingsV240
-    0x18: client.ClientPacket::__unknown_4 ## ?
-    0x19: client.ClientPacket::HelmToggleReverse
-    0x1a: client.ClientPacket::RequestEngGridUpdate
-    0x1b: client.ClientPacket::TogglePerspective
-    0x1c: client.ClientPacket::ActivateUpgrade ## ?
-    0x1d: client.ClientPacket::ClimbDive
-    0x1e: client.ClientPacket::FighterLaunch
-    0x1f: client.ClientPacket::FighterFire ## ?
+    0x00: client.ClientPacket.HelmSetWarp
+    0x01: client.ClientPacket.SetMainScreen
+    0x02: client.ClientPacket.SetWeaponsTarget
+    0x03: client.ClientPacket.ToggleAutoBeams
+    0x04: client.ClientPacket.ToggleShields
+    0x05: client.ClientPacket.__unknown_1 ## ?
+    0x06: client.ClientPacket.__unknown_2 ## ?
+    0x07: client.ClientPacket.HelmRequestDock
+    0x08: client.ClientPacket.FireTube
+    0x09: client.ClientPacket.UnloadTube
+    0x0a: client.ClientPacket.ToggleRedAlert
+    0x0b: client.ClientPacket.SetBeamFreq
+    0x0c: client.ClientPacket.EngSetAutoDamcon
+    0x0d: client.ClientPacket.SetShip
+    0x0e: client.ClientPacket.SetConsoleV240
+    0x0f: client.ClientPacket.Ready
+    0x10: client.ClientPacket.SciSelect
+    0x11: client.ClientPacket.CaptainSelect
+    0x12: client.ClientPacket.GameMasterSelect
+    0x13: client.ClientPacket.SciScan
+    0x14: client.ClientPacket.Keystroke
+    0x15: client.ClientPacket.GameMasterButtonClick
+    0x16: client.ClientPacket.__unknown_3 ## ?
+    0x17: client.ClientPacket.SetShipSettingsV240
+    0x18: client.ClientPacket.__unknown_4 ## ?
+    0x19: client.ClientPacket.HelmToggleReverse
+    0x1a: client.ClientPacket.RequestEngGridUpdate
+    0x1b: client.ClientPacket.TogglePerspective
+    0x1c: client.ClientPacket.ActivateUpgrade ## ?
+    0x1d: client.ClientPacket.ClimbDive
+    0x1e: client.ClientPacket.FighterLaunch
+    0x1f: client.ClientPacket.FighterFire ## ?
 
 parser ValueFourInts
-    0x00: client.ClientPacket::EngSetCoolant
+    0x00: client.ClientPacket.EngSetCoolant
 ##  0x01: ...
-    0x02: client.ClientPacket::LoadTube
-    0x03: client.ClientPacket::ConvertTorpedo
-    0x04: client.ClientPacket::EngSendDamcon
+    0x02: client.ClientPacket.LoadTube
+    0x03: client.ClientPacket.ConvertTorpedo
+    0x04: client.ClientPacket.EngSendDamcon
 
 enum MediaCommand
     Delete   = 0x00
@@ -170,9 +170,9 @@ enum MediaCommand
     Create   = 0x02
 
 parser MediaParser
-    Delete: server.MediaPacket::Delete
-    Play:   server.MediaPacket::Play
-    Create: server.MediaPacket::Create
+    Delete: server.MediaPacket.Delete
+    Play:   server.MediaPacket.Play
+    Create: server.MediaPacket.Create
 
 parser ObjectUpdateV210
     PlayerShip:          objects.PlayerShip
