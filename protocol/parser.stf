@@ -76,6 +76,8 @@ parser SimpleEvent
     0x18: server.ServerPacket.FighterHit
 
 parser ClientParser
+    @type: parser.FrameType
+
     valueFloat:     parser.ValueFloat<u32>
     valueInt:       parser.ValueInt240<u32>
     commsMessage:   client.ClientPacket.CommsOutgoing
@@ -171,11 +173,15 @@ enum MediaCommand
     Create   = 0x02
 
 parser MediaParser
+    @type: parser.MediaCommand
+
     Delete: server.MediaPacket.Delete
     Play:   server.MediaPacket.Play
     Create: server.MediaPacket.Create
 
 parser ObjectUpdateV210
+    @type: enums.ObjectTypeV210
+
     PlayerShip:          objects.PlayerShip
     WeaponsConsole:      objects.WeaponsConsole
     EngineeringConsole:  objects.EngineeringConsole
@@ -193,6 +199,8 @@ parser ObjectUpdateV210
     Whale:               objects.Whale
 
 parser ObjectUpdateV240
+    @type: enums.ObjectTypeV240
+
     PlayerShip:          objects.PlayerShip
     WeaponsConsole:      objects.WeaponsConsole
     EngineeringConsole:  objects.EngineeringConsole
