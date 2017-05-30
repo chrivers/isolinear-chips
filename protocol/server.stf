@@ -1,4 +1,6 @@
 packet ServerPacket
+    @parser: parser.ServerParser
+
     struct AllShipSettings
         # A list of the eight available player ships. Each ship is structured as
         # follows:
@@ -319,6 +321,7 @@ packet ServerPacket
         __unknown_2: u32
 
 packet MediaPacket
+    @parser: parser.MediaParser
 
     # "Create" means that the communications officer is to be notified
     # that an audio message is available, and offered the option to

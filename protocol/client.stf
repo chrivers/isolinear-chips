@@ -1,4 +1,6 @@
 packet ClientPacket
+    @parser: parser.ClientParser
+
     struct __unknown_1
         __unknown_1: u32
 
